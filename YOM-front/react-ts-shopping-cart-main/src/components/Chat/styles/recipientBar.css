@@ -1,0 +1,136 @@
+.recipient-bar {
+    display: flex;
+    background: white;
+    height: 100%;
+}
+
+.recipient-info {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
+}
+
+.username {
+    height: 10%;
+    color: #252525;
+    font-size: 18px;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.recipient-img {
+    margin-left: 1%;
+    width: 9%;
+    align-self: center;
+}
+
+.recipient-action {
+    align-items: top;
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    margin-top: 2%;
+}
+
+.online-user {
+    padding: 0;
+    margin: 0;
+    color: #252525;
+    font-size: 14px;
+    font-weight: 300;
+    word-wrap: break-word
+}
+
+.typing-user {
+    float: left;
+}
+
+
+.recipient-button-img {
+    background: transparent;
+    height: 33%;
+    border-color: transparent;
+}
+
+.recipient-chat-action {
+    background: transparent;
+    height: 33%;
+    border-color: transparent;
+    margin-right: 10%;
+}
+
+.chat-dropdown {
+    display: inline-block;
+}
+
+.dropdown-toggle-button {
+    display: flex;
+    background: #D9D9D9;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    height: auto;
+}
+
+.dropdown-image {
+    width: 29px;
+    height: 20px;
+    align-self: center;
+}
+
+.dropdown-menu>button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.dropdown-menu.open {
+    display: block;
+}
+
+.dropdown-pin {
+    background-color: white;
+    border-color: transparent;
+}
+
+.dropdown-off-notification {
+    background-color: white;
+    border-color: transparent;
+}
+
+.dropdown-report {
+    background-color: white;
+    border-color: transparent;
+}
+
+.dropdown-block {
+    background-color: white;
+    border-color: transparent;
+}
+
+.dropdown-pin:hover {
+    background-color: #76B4DE;
+}
+
+.dropdown-off-notification:hover {
+    background-color: #76B4DE;
+}
+
+.dropdown-report:hover {
+    background-color: #76B4DE;
+}
+
+.dropdown-block:hover {
+    background-color: #76B4DE;
+}

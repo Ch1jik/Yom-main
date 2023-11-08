@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Переходим в директорию, где находится ваш сервер
+cd /YomServer/YOM-front/react-ts-shopping-cart-main
+
+# Запускаем сервер Node.js
+npm run dev
+
+

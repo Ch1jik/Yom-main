@@ -1,0 +1,116 @@
+.right-message-container {
+    display: grid;
+    grid-template-columns: auto 15px 0px 60px;
+    grid-gap: 2px 5px;
+    width: 55%;
+    height: 10%;
+    float: right;
+    margin-left: 2.5em;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.right-message {
+    margin: auto 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.right-lower-text {
+    margin-top: 2%;
+    color: black;
+    font-size: 12px;
+    margin: 10px;
+    margin-top: 6%;
+    line-height: 130%;
+    justify-self: start;
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.right-message-nickname {
+    color: #252525;
+    font-size: 16px;
+    grid-column: 1 / 3;
+    margin-top: 5%;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.right-character-picture {
+    position: relative;
+    background-color: transparent;
+    grid-row: 2;
+}
+
+.right-speech-bubble {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    justify-self: stretch;
+    display: grid;
+    padding: 10px;
+    background: #76B4DE;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.message-container {
+    display: grid;
+    grid-template-columns: 40px auto;
+    grid-gap: 2px 5px;
+    width: 360px;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.message-nickname {
+    color: #252525;
+    font-size: 16px;
+    word-wrap: break-word;
+    grid-column: 1 / 3;
+    grid-row: 1;
+    margin-bottom: 1%;
+}
+
+
+.character-picture {
+    background-color: transparent;
+    grid-row: 2;
+    margin-left: 10%;
+}
+
+.speech-bubble {
+    grid-column: 2 / 3;
+    grid-row: 2;
+    justify-self: stretch;
+    display: grid;
+    padding: 10px;
+    background: #76B4DE;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.message {
+    margin: auto 0;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.lower-text {
+    color: black;
+    font-size: 12px;
+    line-height: 120%;
+    justify-self: end;
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.message-time {
+    color: #4A4A4A;
+    font-size: 14px;
+}

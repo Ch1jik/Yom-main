@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /YomServer/YOM-front/react-ts-shopping-cart-main
+
+npm install --legacy-peer-deps
+

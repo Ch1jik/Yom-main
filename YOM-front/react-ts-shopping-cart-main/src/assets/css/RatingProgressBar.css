@@ -1,0 +1,32 @@
+.rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .rating-star {
+    width: 30px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .rating-bar-bg {
+    width: 330px;
+    flex: 1;
+    background-color: #eaeaea;
+    height: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    position: relative;
+  }
+  
+  .rating-bar-fill {
+    height: 100%;
+    background: #006B60;
+    border-radius: 5px;
+  }
+  
+  .rating-count {
+    width: 50px;
+  }
+  

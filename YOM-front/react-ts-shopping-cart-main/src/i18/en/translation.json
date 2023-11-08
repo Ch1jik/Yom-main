@@ -1,0 +1,221 @@
+{
+  "home": {
+    "categories": {
+      "popularCategories": "Popular Categories",
+      "season": "Spring - Autumn 2023"
+    },
+    "lastSeen": {
+      "title": "You Viewed",
+      "subtitle": "Last viewed products"
+    },
+    "warrantyTechnics": {
+      "title": "Technics with Warranty",
+      "subtitle": "Refurbished technics with seller warranty"
+    },
+    "everything": {
+      "title": "Everything You Need",
+      "subtitle": "Bags, pouches, backpacks"
+    },
+    "superPromo": {
+      "title": "School Marathon",
+      "subtitle": "Dress up the little ones for the first bell celebration",
+      "button": "Next"
+    },
+    "toys": {
+      "title": "Children's Toys",
+      "subtitle": "Exchange, sell, play"
+    }
+  },
+  "footer": {
+    "description": {
+      "text": "Ukraine's largest online marketplace for selling and buying goods!"
+    },
+    "links": {
+      "title1": "About Us",
+      "link1_t1": "Our team",
+      "link2_t1": "Career",
+      "link3_t1": "Partners",
+      "link4_t1": "Privacy",
+      "title2": "Yom support",
+      "link1_t2": "Contact us",
+      "link2_t2": "FAQs",
+      "link3_t2": "Useful information",
+      "link4_t2": "Placement rules",
+      "title3": "Services",
+      "link1_t3": "Advertising",
+      "link2_t3": "Terms of cooperation",
+      "link3_t3": "Charity",
+      "link4_t3": "For investors",
+      "title4": "Appendices",
+      "link1_t4": "Item 1",
+      "link2_t4": "Item 2",
+      "link3_t4": "Item 3",
+      "link4_t4": "Item 3"
+    }
+  },
+  "about": {
+    "banner": {
+      "title": "We are Yom",
+      "description": "Our site's goal is to make online trading as accessible and simple as possible for every user. We strive to create a platform where you can easily place your ads and find the best offers for goods and services in your city. Our goal is to provide you with a convenient and efficient tool for purchases and sales so you can find everything you need and make deals with ease. Your comfort and satisfaction from using our website is our highest goal."
+    },
+    "bottom": {
+      "text": "We are a young and ambitious team",
+      "description": "Our experienced team develops the best programs for users for convenience and efficiency.",
+      "followUs": "Follow us on Instagram"
+    }
+  },
+  "promotion": {
+    "promotion_banner": {
+      "svg_section": {
+        "banner_section": {
+          "description": {
+            "text1": "How to increase your sales and save on advertising?",
+            "text2": "Get free articles and materials from our partners. It's a valuable resource for those who wish to grow their business and stay updated with the latest trends."
+          },
+          "buttons": {
+            "input_placeholder": "Enter your email",
+            "button_text": "Subscribe"
+          },
+          "image": {
+            "src": "banner",
+            "alt_text": "Promotional image"
+          }
+        }
+      }
+    },
+    "buy_plans": {
+      "buy_plans_main_section": {
+        "title": "Paid Services Package",
+        "description": "Customize the placement of your ads to fit your needs",
+        "plans": 
+          {
+            
+            "title1": "Express-Sale",
+            "features1": {
+              "text1":"Increased visibility",
+              "text2":"Top ad for 3 days"
+            },
+            "price1": "15 грн",
+            "id1": "Express",
+          
+            
+            "title2": "Blitz-Sale",
+            "features2": {
+              "text1":"Increased Visibility",
+              "text2":"Top ad for 8 days"
+            },
+            "price2": "120 грн",
+            "id2": "Blitz",
+        
+            
+            "title3": "Turbo-Sale",
+            "features3": {
+              "text1":"Top-Position in search for 30 days",
+              "text2":"Priority support",
+              "text3":"Premium Highlighting",
+              "text4":"Dedicated ad space for 10 days"
+            },
+            "price3": "482 грн",
+            "id3": "Turbo"
+          
+          }
+      }
+    },
+    "promotion_main": {
+      "promotion_ads": {
+        "description": "Benefits of Banner Advertising",
+        "advantages": {
+         
+            
+            "text1": "Instant Visibility",
+          
+            
+            "text2": "Improved Brand Recognition",
+          
+            
+            "text3": "Increased Conversion and Sales",
+
+            
+            "text4": "Niche Audience Segments",
+          
+            
+            "text5": "Maximum Coverage in Ukraine on the Largest Platform"
+          
+        }
+      },
+      "promotion_rules": {
+        "description": {
+          "text1": "Updated Advertising Placement Rules",
+          "text2": "Learn about our updated advertising placement rules that make the advertising campaign even more effective."
+        },
+        "button": "Read More"
+      }
+    },
+    "promotion_tarifs": {
+      "description": "Banner advertising rates",
+      "tarifs_info": {
+        "title1": "",
+        "description1": {
+          "text1": "Placement of a banner on your homepage or main website page.",
+          "text2": "Placement of a banner on one of the sectional pages (of your choice).",
+          "text3": "Display frequency: 1000 impressions per month.",
+          "text4": "Reports on website visits and banner click-through rate.",
+          "text5": "Opportunity to change the banner once a month without an additional fee."
+        },
+        "price1": "30$/month",
+        "title2": "",
+        "description2": {
+          "text1": "Placement of a banner on a greater number of sectional pages (2 of your choice).",
+          "text2": "Priority banner placement above banners of other users on selected pages.",
+          "text3": "Display frequency: 2000 impressions per month.",
+          "text4": "Display frequency: 2000 impressions per month.",
+          "text5": "Opportunity to change the banner twice a month without an additional fee."
+        },
+        "price2": "30$/month",
+        "title3": "",
+        "description3": {
+          "text1": "All the advantages of the \"Standard\" and \"Professional\" tariffs.",
+          "text2": "Exclusive banner placement on the homepage.",
+          "text3": "Access to the site's email list audience for advertising.",
+          "text4": "Display frequency: 5000 impressions per month.",
+          "text5": "Opportunity to change the banner three times a month without an additional fee."
+        },
+        "price3": "30$/month"
+      }
+    },
+    "promotion_sizes": {
+      "section": {
+        "steps": {
+          "title1": "Step 1: Define Banner Specifications",
+          "text1": "Determine the size of the banner you need (e.g., 580X340 pixels). Take a closer look at the right panel of the site, where examples of our site's advertising banners are presented. Choose colors that match your brand and your website design.",
+          "title2": "Step 2: Choose an Image",
+          "text2": "Choose or create an image that matches your banner's message. Come up with a selling text using your branding styles. Do not post false information! Use high-quality photos for a better visual impression.",
+          "title3": "Step 3: Combine into a Composition",
+          "text3": "Place the image and text on the banner, creating a harmonious composition. Do not use more than 2 fonts. Use more space for important content that you want to be seen first.",
+          "title4": "Step 4: Proper Saving",
+          "text4": "Check if your banner has the correct web resolution (usually 72 dpi). Save your banner in JPG or PNG format."
+        },
+        "banner_image": "banner3"
+      }
+    },
+    "promotion_request_banner": {
+      "text": {
+        "title": "If the advertisement is ready",
+        "description": "Please fill out the form to place your advertisement. Fields marked with * are mandatory."
+      },
+      "button": {
+        "text": "Place",
+        "link": ""
+      }
+    },
+    "promotion_rules_banner": {
+      "banner_image": "banner2",
+      "alt_text": "Description of Image",
+      "description": {
+        "text1": "Always ready to help you",
+        "text2": "We will not only help you create an attractive advertising banner, but also advise which tariff is best for your business.",
+        "button": "Connect with the advertising department"
+      }
+    }
+  }
+}

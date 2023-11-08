@@ -1,0 +1,10 @@
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+// Point this path to the directory where your images are stored
+app.use('/photos', express.static('C:/Users/mark_lord3/Source/Repos/YomMain/YOM-back/ApplicationYOM/DAL/Photos/f6216fb5-d26c-4e1f-8de5-abcf6ff613b1/'));
+
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+});

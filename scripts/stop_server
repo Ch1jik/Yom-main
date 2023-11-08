@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Находим ID процесса, связанного с Node.js сервером
+PID=$(pgrep -f "node server.js")
+
+# Проверяем, найден ли процесс
+if [ -z "$PID" ]; then
+  echo "Node.js сервер не запущен."
+else
+  # Останавливаем процесс
+  kill "$PID"
+  echo "Node.js сервер остановлен."
+fi
+
+
