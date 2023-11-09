@@ -1,8 +1,8 @@
 version: 0.0
-os: linux
+os: windows
 files:
   - source: /
-    destination: /YomServer
+    destination: C:\inetpub\wwwroot
 # hooks:
 #   BeforeInstall:
 #     - location: scripts/install_dependencies
