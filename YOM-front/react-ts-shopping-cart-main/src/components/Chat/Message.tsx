@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./styles/messagesStyle.css"
 import RoundedImage from "./RoundedImage";
+import { MessageProps  } from "../Chat/Interfaces/Messages";
 
-export const Message: React.FC<Message> = ({
+export const Message: React.FC<MessageProps> = ({
   id,
   senderId,
   messageText,

@@ -6,11 +6,18 @@ import { useParams } from 'react-router-dom';
 
 interface BannerDetail {
   id: number;
-  company: string;
+  companyName: string;
+  description: string;
+  email: string;
+  phoneNumber: string;
+  header: string;
   photoPaths: string;
+  bannerState: string;
   linkToCompany: string;
   clicksCount: number;
-  bannerAdvertisementPlan: string;
+  bannerPage: "Main" | "Userсare" | "Promotion";
+  bannerSize: "Large" | "Medium" | "Small" | "Long";
+  bannerAdvertisementPlan: "Standard" | "Premium" | "Professional";
 }
 
 const BannerDetail: React.FC = () => {
@@ -63,7 +70,7 @@ const BannerDetail: React.FC = () => {
             }}>
             <div className="BannerDetail-field">
               <label>Company:</label>
-              <input type="text" name="company" value={bannerDetail.company} onChange={handleInputChange} />
+              <input type="text" name="company" value={bannerDetail.companyName} onChange={handleInputChange} />
             </div>
             <div className="BannerDetail-field">
               <label>Photo Paths:</label>

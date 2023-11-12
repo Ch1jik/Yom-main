@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import './styles/recipientBar.css'
-import axios from 'axios'
-import more from "../../assets/images/more-points.svg"
+import './styles/recipientBar.css';
+import axios from 'axios';
+import more from "../../assets/images/more-points.svg";
+import {DropdownMenuItemProps} from "./Interfaces/Conversation"
 
 const ConversationActions: React.FC<DropdownMenuItemProps> = ({
     conversationGuid,

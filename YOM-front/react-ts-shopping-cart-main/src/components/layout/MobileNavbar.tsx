@@ -77,7 +77,7 @@ export function MobileHeader() {
             </div>
             <div className="centered-link" id="centered-link-mobile">
               {isAuthenticated ? (
-                <NavDropdown title={<img src={profile_log}></img>} id="profile-dropdown" >
+                <NavDropdown title={<img src={profile_log}></img>}as={NavLink} to="/profile" id="profile-dropdown" >
                   {/* <NavDropdown.Item as={NavLink} to="/profile" id="profile-dropdown-item">
                     Profile
                   </NavDropdown.Item> */}

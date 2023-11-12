@@ -5,7 +5,8 @@ import trash from "../../assets/images/chat-trash.svg";
 import search from "../../assets/images/search-icon.svg";
 import RoundedImage from "./RoundedImage";
 import axios from 'axios';
-import './styles/recipientBar.css'
+import './styles/recipientBar.css';
+import { ConversationRecipientBarItemProps } from "../Chat/Interfaces/Conversation";
 
 export const ConversationRecipientBar: React.FC<ConversationRecipientBarItemProps> = ({
     isTyping,

@@ -1,10 +1,12 @@
+
 // AdDetail.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import AdminSideBar from '../../components/layout/AdminSideBar';
+import ImageSlider from '../../components/layout/VerticalImageSlider';
 interface Ad {
-  id:number;
+  id: number;
   title: string;
   description: string;
   price: number;
@@ -17,7 +19,7 @@ interface Ad {
   adState: string;
   categoryId: number;
   subCategoryId: number;
-  pathToPhotos: string;
+  photos: string[];
   userId: number;
 }
 
@@ -38,7 +40,7 @@ const AdDetail: React.FC = () => {
         console.log(response.data[0]);
         console.log('====================================');
         console.log('====================================');
-        console.log(response.data[0].pathToPhotos);
+        console.log(response.data[0].photos);
         console.log('====================================');
         setAd(response.data[0]);
       } catch (error) {
@@ -53,23 +55,23 @@ const AdDetail: React.FC = () => {
     <div className='admin-flex'>
       <AdminSideBar />
       <div className="addetail-content">
-        <h2>Ad Details</h2>
+        <h2>Подробний вид оголошення</h2>
         {ad ? (
           <div className="addetail-main">
             <h3 className="addetail-title">{ad.title}</h3>
-            <img className="addetail-image" src={`C:/Users/mark_lord3/Source/Repos/YomMain/YOM-back/ApplicationYOM/DAL/Photos/f6216fb5-d26c-4e1f-8de5-abcf6ff613b1/7afd5bf5-9b31-4a7c-9a2d-f975459f2d36/6a750bed-2994-40ab-8de9-4e30ee13b674.jpg`} alt="Ad" />
+            { <ImageSlider images={ad.photos} />} 
             <div className="addetail-info">
               <p>{ad.description}</p>
-              <p><strong>Price:</strong> {ad.price} {ad.currency}</p>
-              <p><strong>Date Created:</strong> {ad.dateCreated}</p>
-              <p><strong>Date Modified:</strong> {ad.dateModified}</p>
-              <p><strong>City:</strong> {ad.city}</p>
-              <p><strong>Address:</strong> {ad.address}</p>
-              <p><strong>Ad Type:</strong> {ad.adType}</p>
-              <p><strong>Ad State:</strong> {ad.adState}</p>
-              <p><strong>Category ID:</strong> {ad.categoryId}</p>
-              <p><strong>SubCategory ID:</strong> {ad.subCategoryId}</p>
-              <p><strong>User ID:</strong> {ad.userId}</p>
+              <p><strong>Ціна:</strong> {ad.price} {ad.currency}</p>
+              <p><strong>Дата створення:</strong> {ad.dateCreated}</p>
+              <p><strong>Дата зміни:</strong> {ad.dateModified}</p>
+              <p><strong>Місто:</strong> {ad.city}</p> 
+              <p><strong>Адреса:</strong> {ad.address ? ad.address : 'Немає'}</p>
+              <p><strong>Тип оголошення:</strong> {ad.adType}</p>
+              <p><strong>Стан оголошення:</strong> {ad.adState}</p>
+              <p><strong>ID категорії:</strong> {ad.categoryId}</p>
+              <p><strong>ID підкатегорії:</strong> {ad.subCategoryId}</p>
+              <p><strong>ID користувача:</strong> {ad.userId}</p>
             </div>
           </div>
         ) : (

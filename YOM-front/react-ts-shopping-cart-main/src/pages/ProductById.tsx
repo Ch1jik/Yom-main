@@ -11,6 +11,7 @@ import like from '../assets/images/productid-like.svg'
 import image1 from '../assets/images/Rectangle199.png';
 import image2 from '../assets/images/image1.png';
 import image3 from '../assets/images/Rectangle199.png';
+import ProductIdheader from '../components/layout/ProductIdheader';
 // interface IProductPageProps {
 //     id: number;
 // }
@@ -179,7 +180,7 @@ const ProductPage: React.FC = () => {
                 adId: productId // Using productId, since you want to subscribe to this product
             });
 
-            
+            alert("Ви успішно підписались на цей товар ")
             // Handle any other logic after the successful request.
         } catch (error) {
             console.error('Error subscribing:', error);
@@ -273,10 +274,6 @@ const ProductPage: React.FC = () => {
                 console.error('Error fetching user products:', error);
             });
     };
-
-    if (!product) {
-        return <div>Loading...</div>;
-    }
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -287,8 +284,8 @@ const ProductPage: React.FC = () => {
           items: 5
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 3
+          breakpoint: { max: 768, min: 464 },
+          items: 4
         },
         mobile: {
           breakpoint: { max: 464, min: 0 },
@@ -296,14 +293,43 @@ const ProductPage: React.FC = () => {
         }
       };
       const pathphoto=[image1, image2, image3];
+    //   const exampleData: IDataItem = {
+    //     id: 1,
+    //     title: "Example Product",
+    //     description: "This is an example product description.",
+    //     price: 100,
+    //     dateCreated: "2023-11-08",
+    //     dateModified: "2023-11-08",
+    //     city: "Example City",
+    //     address: "123 Example Street",
+    //     email: "example@example.com",
+    //     phoneNumber: 1234567890,
+    //     currency: "USD",
+    //     adType: "Sell",
+    //     productState: "New",
+    //     categoryId: 1,
+    //     subCategoryId: 2,
+    //     photos: ["photo1.jpg", "photo2.jpg"],
+    //     userId: 123
+    //   };
+    if (!product) {
+        
+        return <div>Loading ...</div>;
+    }
+    
         return (
             <main>
                 
                 <div className='ProductByIdPage'>
+                <ProductIdheader product={product}/>
                     <section className='ProductByIdPage-section'>
                         <div className='productbyId-full-description'>
                             <div className='productbyId-full-description-element1'> 
                                 {/* <div className='productById-image-section'> */}
+                                <div className='productById-title-mobile'>
+                                        {product.title}
+
+                                </div>
                                 { <ImageSlider images={product.photos} />} 
                                     {/* <div className='productById-image-slider'> */}
                                     
@@ -325,15 +351,36 @@ const ProductPage: React.FC = () => {
                                 <p className='productbyId-dop-info-title'>Опис товару</p>
                                 {/* <p>{product.description}</p> */}
                                 <p className='productbyId-dop-info-state'>{product.productState}</p>
+                                <p className='productbyId-dop-info-date'>{new Date(product.dateCreated).toLocaleDateString()}</p>
                                 {/* <p>{product.description}</p> */}
+                                
                                 </div>
-                                {/* Куртка зимова, двостороння, натуральна шкіра. Ця куртка поєднує в собі класичний стиль та вишуканість, створюючи неперевершений образ для будь-якого випадку. Виготовлена з високоякісної шкіри, вона буде вас радувати довгі роки.
-    У нас є розміри для кожного: від XS до XXXL, щоб кожен клієнт міг знайти свій ідеальний фіт. Ця куртка - втілення стилю та комфорту, і вона чекає саме на вас. Підкресліть свій неповторний стиль та відчуйте якість, яка залишить вас захопленими. Оберіть вінтажну елегантність з нашим магазином, і ваш гардероб отримає по-справжньому унікальну річ!" */}
+                                <div className='productById-price-mobile'>
+                                        
+                                        <div className='productById-price-date-mobile'>
+                                            <div className='productById-old-price-mobile'>
+                                            {product.price}
+                                            </div>
+                                            <div className='productById-new-price-mobile'>
+
+                                            </div>
+                                            
+                                        </div>
+                                        <div className='productById-new-checked-mobile'>
+                                        
+                                           <img src={like}></img> <p className='productById-new-checked1-mobile'>ви купуєте у </p><p><Link className='remove-style-from-link productById-new-checked2-mobile' to={`/userpage?type=user&userId=${product.userId}`}>перевіреного  продавця!</Link></p>
+                                        </div>
+                                    </div>
                                  {product.description}
                                 </div>
                                 <hr></hr>
-                                <div className='product-id-help'>
-                                    <Link className='remove-style-from-link product-id-help-text' to={`/userreport/${product.userId}`}>Допомога або скарга</Link>
+                                <div className='product-id-section-help-id'>
+                                    <div className='product-id'>
+                                        №{product.id}
+                                    </div>
+                                    <div className='product-id-help'>
+                                        <Link className='remove-style-from-link product-id-help-text' to={`/userreport/${product.userId}`}>Допомога або скарга</Link>
+                                    </div>
                                 </div>
                             </div>
                             <div className='productbyId-full-description-element2'>
@@ -362,24 +409,24 @@ const ProductPage: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className='productbyId-form'> 
-                                    <button onClick={() => setShowNumber(true)} className='productById-number'> {showNumber ? product.phoneNumber : "+00 00 00 00 00"} </button>
+                                    <button onClick={() => setShowNumber(true)} id='hide-product-id-form' className='productById-number'> {showNumber ? product.phoneNumber : "+00 00 00 00 00"} </button>
                                     
-                                    <Link to={`/messenger/${product.userId}`}>
+                                    <Link id='hide-product-id-form' to={`/messenger/${product.userId}`}>
                                         <button className='productById-message'>
-                                            Send Message
+                                            Написати продавцю
                                         </button>
                                     </Link>
-                                    <Link to={`/products/bycategory/product/order/${product.id}`}>
+                                    <Link  to={`/products/bycategory/product/order/${product.id}`}>
                                         <button className='productById-buy'> 
                                     
                             
-                                        Buy</button>
+                                        Купити</button>
                                     </Link>
                                     <div className='under-price-banner'>
                                         {/* <img src={under_price}></img> */}
-                                        <div>Робіть покупки з певненістю</div>
-                                        <div>Гарантія повернення грошей Yom</div>
-                                        <div>Дізнатись більше</div>
+                                        <div className='under-price-banner-title'>Робіть покупки з певненістю</div>
+                                        <div className='under-price-banner-text'>Гарантія повернення грошей Yom</div>
+                                        <div className='under-price-banner-button'>Дізнатись більше</div>
                                     </div>
                                 </div>
                             </div>
@@ -417,32 +464,14 @@ const ProductPage: React.FC = () => {
                                                     
                                                      <p className='productbyId-title-for-all'>{item.title}</p>
                                                     </Link>
+                                                    <div><p className='productbyId-price-for-all'>{item.price}</p></div>
                                                 </div>
                                             </div>
                                             </div>
                                     
                                 ))}
                             </Carousel>
-                            {/* <div className='productbyId-user-products-section'>
-                                <div className='productbyId-user-products'>
-                                    <div className='productbyId-user-product-photo'>
-
-                                    </div>
-                                    <div className='productbyId-user-product-descriptiom'>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='productbyId-user-products-section'>
-                                <div className='productbyId-user-products'>
-                                    <div className='productbyId-user-product-photo'>
-
-                                    </div>
-                                    <div className='productbyId-user-product-descriptiom'>
-
-                                    </div>
-                                </div>
-                            </div> */}
+                            
                             
                         </div>
                         {viewed && viewed.length > 0 && (
@@ -461,6 +490,7 @@ const ProductPage: React.FC = () => {
                                                     <Link className='remove-style-from-link' key={product.adId} to={`/products/bycategory/product/${product.adId}`}>
                                                         <p className='productbyId-title-for-all'>{product.title}</p>
                                                     </Link>
+                                                    <div><p className='productbyId-price-for-all'>{product.price}</p></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -477,19 +507,7 @@ const ProductPage: React.FC = () => {
                                 {popular.map(item => (
                                         
                                             
-                                        // <div className='productbyId-user-products-section'>
-                                        // <div className='productbyId-user-products'>
-                                        //         <div className='productbyId-user-product-photo'>
-
-                                        //         </div>
-                                        //         <div className='productbyId-user-product-descriptiom'>
-                                                    
-                                        //             <Link key={item.id} to={`/products/bycategory/product/${item.id}`}>
-                                        //             {item.title}
-                                        //             </Link>
-                                        //         </div>
-                                        //     </div>
-                                        //     </div>
+                                       
                                         <div className='productbyId-favorite-products-section' key={item.adId}>
                                             <div className='productbyId-favorite-products'>
                                                 <div className='productbyId-favorite-product-photo'>
@@ -499,52 +517,14 @@ const ProductPage: React.FC = () => {
                                                     <Link className='remove-style-from-link' key={item.adId} to={`/products/bycategory/product/${item.adId}`}>
                                                     <p className='productbyId-title-for-all'>{item.title}</p>
                                                     </Link>
+                                                    <div><p className='productbyId-price-for-all'>{item.price}</p></div>
                                                 </div>
                                             </div>
                                         </div>
                                     
                                 ))}
                             </Carousel>
-                            {/* <div className='productbyId-favorite-products-section'>
-                                <div className='productbyId-favorite-products'>
-                                    <div className='productbyId-favorite-product-photo'>
-
-                                    </div>
-                                    <div className='productbyId-favorite-product-descriptiom'>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='productbyId-favorite-products-section'>
-                                <div className='productbyId-favorite-products'>
-                                    <div className='productbyId-favorite-product-photo'>
-
-                                    </div>
-                                    <div className='productbyId-favorite-product-descriptiom'>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='productbyId-favorite-products-section'>
-                                <div className='productbyId-favorite-products'>
-                                    <div className='productbyId-favorite-product-photo'>
-
-                                    </div>
-                                    <div className='productbyId-favorite-product-descriptiom'>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='productbyId-favorite-products-section'>
-                                <div className='productbyId-favorite-products'>
-                                    <div className='productbyId-favorite-product-photo'>
-
-                                    </div>
-                                    <div className='productbyId-favorite-product-descriptiom'>
-
-                                    </div>
-                                </div>
-                            </div> */}
+                            
                             
                         </div>
                     </section>

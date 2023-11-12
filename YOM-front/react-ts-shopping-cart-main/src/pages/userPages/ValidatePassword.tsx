@@ -57,14 +57,14 @@ const ValidatePassword: React.FC = () => {
 
   return (
     <div className="validate-form-container">
-      <h2>Validate Password Reset</h2>
+      <h2>Відновлення паролю</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>New Password</label>
+          <label>Новий Пароль</label>
           <input type="text" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required />
         </div>
         
-        <button type="submit">Reset</button>
+        <button type="submit">Відновити</button>
       </form>
     </div>
   );

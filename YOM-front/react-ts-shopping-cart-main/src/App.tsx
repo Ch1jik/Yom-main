@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Container } from "react-bootstrap";
+
 import { Home } from "./pages/Home";
-import { About } from "./pages/About";
+import  About  from "./pages/About";
 import { Navbar } from "./components/layout/Navbar";
 import EditAd from "./pages/userPages/EditAd";
 import AddDataForm from "./pages/userPages/AddDataForm";
@@ -26,15 +26,15 @@ import Login from "./pages/adminPages/login";
 import Dashboard from "./pages/adminPages/Dashboard";
 import AddCategorySubcategory from "./pages/adminPages/AddCategorySubcategory";
 import AdminHelp from "./pages/adminPages/AdminHelp";
-import AdminUpdateHelp from "./pages/adminPages/AdminUpdateHelp";
+
 import AllAds from "./pages/adminPages/AllAds";
 import BlockUser from "./pages/adminPages/BlockUser";
 import CreateAdmin from "./pages/adminPages/createAdmin";
 import DeleteAd from "./pages/adminPages/DeleteAd";
-import DeleteCategorySubcategory from "./pages/adminPages/DeleteCategorySubcategory";
+
 import GetCategories from "./pages/adminPages/getCategories";
 import Register from "./pages/adminPages/Register";
-import RejectAd from "./pages/adminPages/RejectAd";
+
 import UnblockUser from "./pages/adminPages/UnblockUser";
 import UpdateAd from "./pages/adminPages/UpdateAd";
 import UpdateCategorySubcategory from "./pages/adminPages/UpdateCategorySubcategory";
@@ -56,7 +56,7 @@ import ProtectedRoutes from "./components/layout/ProtectedRoutes";
 import UserProtected from "./components/layout/UserProtected";
 import ReportUser from "./pages/userPages/AboutUser/ReportUser";
 import AllPayments from "./pages/adminPages/AllPayments";
-import Messenger from "./pages/Massenger";
+import Messenger from "./pages/Messenger";
 import { Header } from "./pages/adminPages/components/Header";
 import { MobileHeader } from "./components/layout/MobileNavbar";
 
@@ -100,12 +100,13 @@ function App() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [window.innerWidth]);
 
   const showFooter = () => {
-    console.log(windowWidth);
+    console.log('fkjabfkjafbkjfsnbfknjsf');
+    
     var v = location.pathname === "/login" && windowWidth <= 768;
-    console.log(v);
+    
     
     if (v) {
       return false;
@@ -173,10 +174,10 @@ function App() {
             <Route path="/admin/dashboard/BlockUser" element={<BlockUser />} />
             <Route path="/admin/dashboard/CreateAdmin" element={<CreateAdmin />} />
             <Route path="/admin/dashboard/DeleteAd" element={<DeleteAd />} />
-            <Route path="/admin/dashboard/DeleteCategorySubcategory" element={<DeleteCategorySubcategory />} />
+            
             <Route path="/admin/dashboard/GetCategories" element={<GetCategories />} />
             <Route path="/admin/dashboard/Register" element={<Register />} />
-            <Route path="/admin/dashboard/RejectAd" element={<RejectAd />} />
+            
             <Route path="/admin/dashboard/UnblockUser" element={<UnblockUser />} />
             <Route path="/admin/dashboard/UpdateAd" element={<UpdateAd />} />
             <Route path="/admin/dashboard/AllPayments" element={<AllPayments />} />
@@ -185,7 +186,7 @@ function App() {
             <Route path="/admin/dashboard/UpdateSubcategory" element={<UpdateSubCategory />} />
             <Route path="/admin/dashboard/UserReview" element={<UserReview />} />
             <Route path="/admin/dashboard/AdminHelp" element={<AdminHelp />} />
-            <Route path="/admin/dashboard/AdminUpdateHelp" element={<AdminUpdateHelp />} />
+            
             <Route path="/admin/createbanner" element={<CreateBanner />} />
             <Route path="/admin/bannerDetail/:id" element={<BannerDetail />} />
             <Route path="/admin/banners" element={<AdminBanner />} />
@@ -197,7 +198,8 @@ function App() {
           
           
         </Routes>
-        {showMobileHeader || location.pathname !== "/login" && <MobileHeader />}
+        {showMobileHeader && location.pathname !== "/login" && location.pathname !== "/products/bycategory/product/1" ? <MobileHeader /> : null}
+
         {showFooter() && <Footer />}
     </>
   )

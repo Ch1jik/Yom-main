@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AdminSideBar from '../../components/layout/AdminSideBar';
+import '../../assets/css/AdminPages/adminBlock.css'
 interface User {
   id: string;
   fullName: string;
@@ -18,11 +19,17 @@ const BlockUser: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [blockedUsers, setBlockedUsers] = useState<User[]>([]);
 
+  const [userPage, setUserPage] = useState<number>(1);
+  const [blockedUserPage, setBlockedUserPage] = useState<number>(1);
+  const [totalUsersPages, setUsersPages] = useState(1);
+  const [totalBlockedUsersPages, setBlockedUsersPages] = useState(1);
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('https://localhost:7014/api/Admin/User/AllUsers');
-        setUsers(response.data);
+        const response = await axios.get('https://localhost:7014/api/Admin/User/AllUsers?pageNumber=1');
+        setUsers(response.data.users);
+        setUsersPages(response.data.totalPages);
         console.log('====================================');
         console.log(response.data);
         console.log('====================================');
@@ -30,11 +37,12 @@ const BlockUser: React.FC = () => {
         console.error('Error fetching users:', error);
       }
     };
-    
+
     const fetchBlockedUsers = async () => {
       try {
-        const response = await axios.get('https://localhost:7014/api/Admin/User/AllBlockedUsers');
-        setBlockedUsers(response.data);
+        const response = await axios.get('https://localhost:7014/api/Admin/User/AllBlockedUsers?pageNumber=1');
+        setBlockedUsers(response.data.users);
+        setBlockedUsersPages(response.data.totalPages);
       } catch (error) {
         console.error('Error fetching blocked users:', error);
       }
@@ -43,6 +51,32 @@ const BlockUser: React.FC = () => {
     fetchUsers();
     fetchBlockedUsers();
   }, []);
+
+
+
+  const getUsers = async (page: number) => {
+    try {
+      const response = await axios.get(`https://localhost:7014/api/Admin/User/AllUsers?pageNumber=${page}`);
+      setUsers(response.data.users);
+      setUsersPages(response.data.totalPages);
+      console.log('====================================');
+      console.log(response.data);
+      console.log('====================================');
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
+
+  const getBlockedUsers = async (page: number) => {
+    try {
+      const response = await axios.get(`https://localhost:7014/api/Admin/User/AllBlockedUsers?pageNumber=${page}`);
+      setBlockedUsers(response.data.users);
+      setBlockedUsersPages(response.data.totalPages);
+    } catch (error) {
+      console.error('Error fetching blocked users:', error);
+    }
+  };
+
 
   const handleBlockUser = async (userId: string) => {
     try {
@@ -78,57 +112,118 @@ const BlockUser: React.FC = () => {
     }
   };
 
+  const handleUserClickPage = async (pg: number) => {
+    console.log(pg);
+    if (userPage) {
+      setUserPage(pg);
+      getUsers(pg);
+    }
+  }
+  const handleBlockedClickPage = async (pg: number) => {
+    console.log(pg);
+    if (blockedUserPage) {
+      setBlockedUserPage(pg);
+      getUsers(pg);
+    }
+  }
+
   return (
     <div className="admin-flex">
       <AdminSideBar />
-      <div className="BlockUser-content">
-        <h2>Users</h2>
-        <table className="BlockUser-table">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <tr key={user.id}>
-                <td><td>{user.id}</td></td>
-                <td>{user.fullName}</td>
-                <td>{user.email}</td>
-                <td>
-                  <button className="BlockUser-blockBtn" onClick={() => handleBlockUser(user.id)}>Block</button>
-                </td>
+      <div className="admin-Allblocks">
+        <div>
+          <h2>Користувачі</h2>
+          <table className="admin-blocks-table">
+            <thead>
+              <tr>
+                <th>Номер</th>
+                <th>Данні користувача</th>
+                <th>Нік</th>
+                <th>Телефон</th>
+                <th>Пошта</th>
+                <th>Дія</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-  
-        <h2>Blocked Users</h2>
-        <table className="BlockUser-table">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {blockedUsers.map(user => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.fullName}</td>
-                <td>{user.email}</td>
-                <td>
-                  <button className="BlockUser-unblockBtn" onClick={() => handleUnblockUser(user.id)}>Unblock</button>
-                </td>
+            </thead>
+            <tbody>
+              {users.map(user => (
+                <tr key={user.id}>
+                  <td style={{ color: "#1684EA" }}>{user.id}</td>
+                  <td>{user.fullName}</td>
+                  <td>{user.userName}</td>
+                  <td>{user.phoneNumber ? user.phoneNumber : "-"}</td>
+                  <td>{user.email}</td>
+                  <td className='admin-blocks-buttons'>
+                    <button className="block" onClick={() => handleBlockUser(user.id)}>Block</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className='admin-pagination'>
+            <button
+              onClick={() => handleUserClickPage(userPage !== undefined ? userPage - 1 : 1)}
+              disabled={userPage === 1}
+            >
+              Попередня
+            </button>
+            <span>
+              Сторінка {userPage} з {totalUsersPages}
+            </span>
+            <button
+              onClick={() => handleUserClickPage(userPage !== undefined ? userPage + 1 : 1)}
+              disabled={userPage === totalUsersPages}
+            >
+              Наступна
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h2>Заблоковані користувачі</h2>
+          <table className="admin-blocks-table">
+            <thead>
+              <tr>
+                <th>Номер</th>
+                <th>Данні користувача</th>
+                <th>Нік</th>
+                <th>Телефон</th>
+                <th>Пошта</th>
+                <th>Дія</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {blockedUsers.map(user => (
+                <tr key={user.id}>
+                  <td style={{ color: "#1684EA" }}>{user.id}</td>
+                  <td>{user.fullName}</td>
+                  <td>{user.userName}</td>
+                  <td>{user.phoneNumber ? user.phoneNumber : "-"}</td>
+                  <td>{user.email}</td>
+                  <td className='admin-blocks-buttons'>
+                    <button className="unblock" onClick={() => handleUnblockUser(user.id)}>Unblock</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className='admin-pagination'>
+          <button
+            onClick={() => handleBlockedClickPage(blockedUserPage !== undefined ? blockedUserPage - 1 : 1)}
+            disabled={blockedUserPage === 1}
+          >
+            Попередня
+          </button>
+          <span>
+            Сторінка {blockedUserPage} з {totalBlockedUsersPages}
+          </span>
+          <button
+            onClick={() => handleBlockedClickPage(blockedUserPage !== undefined ? blockedUserPage + 1 : 1)}
+            disabled={blockedUserPage === totalBlockedUsersPages}
+          >
+            Наступна
+          </button>
+        </div>
       </div>
     </div>
   );

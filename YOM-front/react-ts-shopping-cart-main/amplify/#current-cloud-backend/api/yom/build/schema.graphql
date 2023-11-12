@@ -1,4 +1,4 @@
-type Blog @aws_iam @aws_api_key {
+type Blog {
   id: ID!
   name: String!
   posts(filter: ModelPostFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelPostConnection
@@ -6,7 +6,7 @@ type Blog @aws_iam @aws_api_key {
   updatedAt: AWSDateTime!
 }
 
-type Post @aws_iam @aws_api_key {
+type Post {
   id: ID!
   title: String!
   blog: Blog
@@ -16,7 +16,7 @@ type Post @aws_iam @aws_api_key {
   blogPostsId: ID
 }
 
-type Comment @aws_iam @aws_api_key {
+type Comment {
   id: ID!
   post: Post
   content: String!
@@ -175,7 +175,7 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelBlogConnection @aws_api_key @aws_iam {
+type ModelBlogConnection {
   items: [Blog]!
   nextToken: String
 }
@@ -189,12 +189,12 @@ input ModelBlogFilterInput {
 }
 
 type Query {
-  getBlog(id: ID!): Blog @aws_api_key @aws_iam
-  listBlogs(filter: ModelBlogFilterInput, limit: Int, nextToken: String): ModelBlogConnection @aws_api_key @aws_iam
-  getPost(id: ID!): Post @aws_api_key @aws_iam
-  listPosts(filter: ModelPostFilterInput, limit: Int, nextToken: String): ModelPostConnection @aws_api_key @aws_iam
-  getComment(id: ID!): Comment @aws_api_key @aws_iam
-  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection @aws_api_key @aws_iam
+  getBlog(id: ID!): Blog
+  listBlogs(filter: ModelBlogFilterInput, limit: Int, nextToken: String): ModelBlogConnection
+  getPost(id: ID!): Post
+  listPosts(filter: ModelPostFilterInput, limit: Int, nextToken: String): ModelPostConnection
+  getComment(id: ID!): Comment
+  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection
 }
 
 input ModelBlogConditionInput {
@@ -219,15 +219,15 @@ input DeleteBlogInput {
 }
 
 type Mutation {
-  createBlog(input: CreateBlogInput!, condition: ModelBlogConditionInput): Blog @aws_api_key @aws_iam
-  updateBlog(input: UpdateBlogInput!, condition: ModelBlogConditionInput): Blog @aws_api_key @aws_iam
-  deleteBlog(input: DeleteBlogInput!, condition: ModelBlogConditionInput): Blog @aws_api_key @aws_iam
-  createPost(input: CreatePostInput!, condition: ModelPostConditionInput): Post @aws_api_key @aws_iam
-  updatePost(input: UpdatePostInput!, condition: ModelPostConditionInput): Post @aws_api_key @aws_iam
-  deletePost(input: DeletePostInput!, condition: ModelPostConditionInput): Post @aws_api_key @aws_iam
-  createComment(input: CreateCommentInput!, condition: ModelCommentConditionInput): Comment @aws_api_key @aws_iam
-  updateComment(input: UpdateCommentInput!, condition: ModelCommentConditionInput): Comment @aws_api_key @aws_iam
-  deleteComment(input: DeleteCommentInput!, condition: ModelCommentConditionInput): Comment @aws_api_key @aws_iam
+  createBlog(input: CreateBlogInput!, condition: ModelBlogConditionInput): Blog
+  updateBlog(input: UpdateBlogInput!, condition: ModelBlogConditionInput): Blog
+  deleteBlog(input: DeleteBlogInput!, condition: ModelBlogConditionInput): Blog
+  createPost(input: CreatePostInput!, condition: ModelPostConditionInput): Post
+  updatePost(input: UpdatePostInput!, condition: ModelPostConditionInput): Post
+  deletePost(input: DeletePostInput!, condition: ModelPostConditionInput): Post
+  createComment(input: CreateCommentInput!, condition: ModelCommentConditionInput): Comment
+  updateComment(input: UpdateCommentInput!, condition: ModelCommentConditionInput): Comment
+  deleteComment(input: DeleteCommentInput!, condition: ModelCommentConditionInput): Comment
 }
 
 input ModelSubscriptionBlogFilterInput {
@@ -238,18 +238,18 @@ input ModelSubscriptionBlogFilterInput {
 }
 
 type Subscription {
-  onCreateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["createBlog"]) @aws_api_key @aws_iam
-  onUpdateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["updateBlog"]) @aws_api_key @aws_iam
-  onDeleteBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["deleteBlog"]) @aws_api_key @aws_iam
-  onCreatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["createPost"]) @aws_api_key @aws_iam
-  onUpdatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["updatePost"]) @aws_api_key @aws_iam
-  onDeletePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["deletePost"]) @aws_api_key @aws_iam
-  onCreateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["createComment"]) @aws_api_key @aws_iam
-  onUpdateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["updateComment"]) @aws_api_key @aws_iam
-  onDeleteComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["deleteComment"]) @aws_api_key @aws_iam
+  onCreateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["createBlog"])
+  onUpdateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["updateBlog"])
+  onDeleteBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["deleteBlog"])
+  onCreatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["createPost"])
+  onUpdatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["updatePost"])
+  onDeletePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["deletePost"])
+  onCreateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["createComment"])
+  onUpdateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["updateComment"])
+  onDeleteComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["deleteComment"])
 }
 
-type ModelPostConnection @aws_iam @aws_api_key {
+type ModelPostConnection {
   items: [Post]!
   nextToken: String
 }
@@ -294,7 +294,7 @@ input ModelSubscriptionPostFilterInput {
   or: [ModelSubscriptionPostFilterInput]
 }
 
-type ModelCommentConnection @aws_iam @aws_api_key {
+type ModelCommentConnection {
   items: [Comment]!
   nextToken: String
 }

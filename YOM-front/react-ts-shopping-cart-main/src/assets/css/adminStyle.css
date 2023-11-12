@@ -1,40 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
 /* Header - Nav Bar */
 
-html{
-height: 100%;
-margin: 0;
-} 
 body {
-position: relative;
-/* Растягиваем body по высоте html */
-min-height: 100%;
+  position: relative;
+  /* height: 100vh; */
+  /* Растягиваем body по высоте html */
+  margin: 0;
+  padding: 0;
+}
 
-}
-.header-admin{
-  right: 0;
-  top:0;
-  display: flex;
-  position: absolute;
-  max-width:1629px;
-  width: 100%;
-  height: 100px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  background: #FFF;
-}
-.admin-header-left{
-  padding-left: 15%;
-}
-.admin-header-right{
-  padding-left: 300px;
-}
-.admin-flex{
-  display: flex;
-}
 .admin-dashboard {
-display: flex;
-  
+  display: flex;
+
 }
 
 /* SideBar */
@@ -42,20 +19,27 @@ display: flex;
 
 /* Sidebar container */
 .admin-sidebar {
-  width: 290px;
-  height: 1300px;
-  flex-shrink: 0;
+  width: 13%;
+  flex-shrink: 1;
   background: #1F222B;
+  overflow-y: scroll;
+  /* Internet Explorer 10+ */
+}
+
+.admin-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 /* List item styles */
 .nav-items {
-list-style-type: none;
-padding: 0;
-width: 291px;
-height: 50px;
-flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  flex-shrink: 0;
 }
+
 
 /* .li-items {
 margin-bottom: 10px;
@@ -63,14 +47,14 @@ margin-bottom: 10px;
 
 /* NavLink styles */
 .nav-items a {
-text-decoration: none;
-color: #fff;
-padding: 10px;
-display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  display: block;
 }
 
 .nav-items a:hover {
-background-color: #555;
+  background-color: #555;
 }
 
 /* Active link styles */
@@ -86,29 +70,27 @@ padding: 1rem;
 
 /* You can expand upon these styles or use a UI library like Ant Design or Material UI for predefined components */
 /* Login Page */
-.AdminloginPage{
+.AdminloginPage {
   background: #006B60;
-width: 100%;
-/* height: 100vh; */
-display:flex ;
-justify-content: center;
-height: 100vh;
+  width: 100%;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
 }
-.Adminlogin{
-margin: 20px;
-margin: 20px;
-width: 720px;
-height: 1020px;
-flex-shrink: 0;
-border-radius: 20px;
-background: #FFF;
-display: flex;
-justify-content: center;
+
+.Adminlogin {
+  margin: 20px;
+  margin: 20px;
+  width: 720px;
+  height: 1020px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #FFF;
+  display: flex;
+  justify-content: center;
 }
-.Adminlogin-top{
-  
-}
-.AdminloginPagetitle{
+
+.AdminloginPagetitle {
   color: var(--dark-dark-1, #121515);
   font-family: Inter;
   font-size: 40px;
@@ -118,85 +100,100 @@ justify-content: center;
   justify-content: center;
   display: flex;
 }
-.AdminloginPagedescription{
+
+.AdminloginPagedescription {
   color: #3F3E3E;
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-justify-content: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  justify-content: center;
   display: flex;
 }
-.Adminlogin-form{
+
+.Adminlogin-form {
   margin: 20px;
   display: flex;
   align-items: center;
   justify-content: center
-  
-     
 }
-.signButton{
-/* color: #939CB4; */
-color: #000;
-font-family: Inter;
-font-size: 25px;
-font-style: normal;
-font-weight: 700;
-line-height: 143%; /* 35.75px */
+
+.signButton {
+  /* color: #939CB4; */
+  color: #000;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 143%;
+  /* 35.75px */
 }
+
 /* .signButton:focus{
 color: #939CB4;
 } */
-.loginButton{
-color: #000;
-font-family: Inter;
-font-size: 25px;
-font-style: normal;
-font-weight: 700;
-line-height: 143%; /* 35.75px */
+.loginButton {
+  color: #000;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 143%;
+  /* 35.75px */
 }
+
 /* .loginButton:focus{
 color: #939CB4;
 } */
 .react-tabs ul>li:focus,
-.react-tabs ul>li>div{ color: #939CB4;}
-.logintitle{
-color: var(--dark-dark-1, #121515);
-font-family: Inter;
-font-size: 40px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+.react-tabs ul>li>div {
+  color: #939CB4;
 }
-.loginPagedescription{
-color: #3F3E3E;
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+
+.logintitle {
+  color: var(--dark-dark-1, #121515);
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
+
+.loginPagedescription {
+  color: #3F3E3E;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .reg-buttons {
-width: 420px;
-height: 60px;
-flex-shrink: 0;
-border-radius: 7px;
-background: #FFC220;
-top: 0px;
-transition: transform 0.2s, background-color 0.2s;
-/* Добавляем плавные переходы для эффекта */
+  width: 420px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: #FFC220;
+  top: 0px;
+  transition: transform 0.2s, background-color 0.2s;
+  /* Добавляем плавные переходы для эффекта */
 }
 
 .reg-buttons:hover {
-transform: scale(1.05); /* Увеличиваем размер при наведении */
-background-color: #FFA000; /* Затемняем цвет при наведении */
+  transform: scale(1.05);
+  /* Увеличиваем размер при наведении */
+  background-color: #FFA000;
+  /* Затемняем цвет при наведении */
 }
 
 .reg-buttons:active {
-transform: scale(0.95); /* Уменьшаем размер при нажатии */
-background-color: #FF8500; /* Затемняем цвет при нажатии */
+  transform: scale(0.95);
+  /* Уменьшаем размер при нажатии */
+  background-color: #FF8500;
+  /* Затемняем цвет при нажатии */
 }
+
 .password-strength {
   margin-top: 10px;
   font-weight: bold;
@@ -222,33 +219,20 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   color: green;
 }
 
-.AdminHelpPage{
+.AdminHelpPage {
   margin-left: 250px;
 }
-.AdminUpdateHelpPage{
+
+.AdminUpdateHelpPage {
   margin-left: 250px;
 }
+
 /* .adminAllAds{
   margin-left: 250px;
 } */
-.AllAds-card-items{
+.AllAds-card-items {
   display: flex;
   justify-content: center;
-}
-/* Create banner */
-.admin-flex {
-  display: flex;
-  min-height: 100vh;
-  background-color: #f6f6f6;
-}
-
-.banner-form-container {
-  flex: 1;
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 2rem;
 }
 
 .form-group {
@@ -271,16 +255,18 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   font-size: 16px;
   transition: border-color 0.3s ease;
 }
+
 .form-group input[type="file"] {
   display: block !important;
   width: 70%;
-  
+
   border: 1px solid #ccc;
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 16px;
   transition: border-color 0.3s ease;
 }
+
 .form-group input[type="text"]:focus,
 .form-group select:focus {
   border-color: #007bff;
@@ -300,30 +286,58 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
 .submit-btn:hover {
   background-color: #0056b3;
 }
+
 /* Create Category */
 /* Styles for AddCategorySubcategory Component */
 
 .admin-flex {
   display: flex;
-  height: 100vh;
+  background: #ECF1FC;
+  overflow-y: hidden;
+  min-height: 100vh;
 }
 
-.AddCategorySubcategoryPage {
-  flex: 1;
-  padding: 20px;
-  background-color: #f7f8fc; /* Light background color */
-  border-left: 1px solid #e1e1e1;
+h1 {
+  margin-left: 1%;
 }
 
-.AddCategorySubcategoryPage h1 {
-  color: #333;
-  margin-bottom: 20px;
+.admin-pagination {
+  display: flex;
+  margin-left: 38%;
+  padding-top: 1em;
+  gap: 1%;
+  align-items: center;
 }
+
+.admin-pagination span {
+  color: #252525;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.admin-pagination button {
+  border-radius: 50px;
+  font-family: Inter;
+  color: white;
+}
+
+.admin-pagination button:first-child {
+  background-color: rgba(22, 132, 234, 0.30);
+  color: white;
+  border-radius: 50px;
+}
+
+
+
 
 .form-container {
+  position: relative;
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
+  padding-bottom: 60px;
   margin-bottom: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -353,7 +367,7 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
 
 .form-container button {
   padding: 10px 20px;
-  background-color: #3498db; /* Deep blue color */
+  background-color: #3498db;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -362,76 +376,10 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
 }
 
 .form-container button:hover {
-  background-color: #2980b9; /* A shade darker on hover */
-}
-/* All Ads */
-.adminAllAds {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto; /* Makes sure you can scroll if there are many ads */
+  background-color: #2980b9;
+  /* A shade darker on hover */
 }
 
-.AllAds-card {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 15px;
-}
-
-.AllAds-card h3 {
-  margin-top: 0;
-  color: #333;
-}
-
-.AllAds-card p {
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.AllAds-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.AllAds-buttons button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.AllAds-buttons button:hover {
-  opacity: 0.9;
-}
-
-.AllAds-buttons .approve {
-  background-color: #28a745; /* green */
-  color: white;
-}
-
-.AllAds-buttons .reject {
-  background-color: #dc3545; /* red */
-  color: white;
-}
-
-.AllAds-buttons .delete {
-  background-color: #ffc107; /* yellow */
-  color: white;
-}
-
-.AllAds-buttons .review {
-  background-color: #007bff; /* blue */
-  color: white;
-}
-.AllAds-card-tbody{
-  width: 300px;
-}
 /* Banner Details */
 /* Styles for BannerDetail Component */
 
@@ -440,7 +388,8 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5; /* Light gray background */
+  background-color: #f5f5f5;
+  /* Light gray background */
 }
 
 .BannerDetail-card {
@@ -451,11 +400,7 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   border-radius: 10px;
 }
 
-.BannerDetail-card h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-}
+
 
 .BannerDetail-field {
   margin-bottom: 20px;
@@ -480,7 +425,8 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   display: block;
   width: 100%;
   padding: 10px 15px;
-  background-color: #007bff; /* Blue color */
+  background-color: #007bff;
+  /* Blue color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -490,198 +436,14 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
 }
 
 .BannerDetail-btn:hover {
-  background-color: #0056b3; /* Darken blue */
+  background-color: #0056b3;
+  /* Darken blue */
 }
+
 /* Block user */
 /* Styles for BlockUser Component */
 
-.BlockUser-container {
-  display: flex;
-  align-items: flex-start;
-  padding: 20px;
-  background-color: #f5f5f5;
-}
 
-.BlockUser-content {
-  flex: 1;
-  margin-left: 20px;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.BlockUser-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.BlockUser-table th, 
-.BlockUser-table td {
-  padding: 10px 20px;
-  border: 1px solid #ddd;
-}
-
-.BlockUser-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.BlockUser-table button {
-  padding: 7px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.BlockUser-table button:hover {
-  background-color: #ddd;
-}
-
-.BlockUser-blockBtn {
-  background-color: #e74c3c; /* Red */
-  color: white;
-}
-
-.BlockUser-unblockBtn {
-  background-color: #2ecc71; /* Green */
-  color: white;
-}
-/* get Categories */
-.getCategory-adminContent {
-  flex: 1; 
-  padding: 20px;
-  background-color: #F8F9FA; 
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.getCategory-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.getCategory-table th, .getCategory-table td {
-  padding: 10px 20px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.getCategory-table th {
-  background-color: #E7E9EB;
-}
-
-.getCategory-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 30px;
-  background-color: #FFFFFF;
-  border: 1px solid #D3D5D8;
-  border-radius: 8px;
-  width: 50%;
-  max-width: 500px;
-}
-
-.getCategory-modal form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.getCategory-modal input {
-  padding: 10px;
-  border: 1px solid #D3D5D8;
-  border-radius: 5px;
-}
-
-.getCategory-modal button[type="submit"] {
-  background-color: #007BFF;
-  color: #FFFFFF;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.getCategory-modal button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-.getCategory-modal button:not([type="submit"]) {
-  background-color: #DC3545;
-  color: #FFFFFF;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.getCategory-modal button:not([type="submit"]):hover {
-  background-color: #c82333;
-}
-
-/* update category  */
-.updateCategory-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
-  background-color: #f6f6f6;
-  border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: 50px auto;
-}
-
-.updateCategory-title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.updateCategory-inputWrapper {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.updateCategory-input {
-  width: 100%;
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  transition: border 0.3s ease;
-}
-
-.updateCategory-input:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-.updateCategory-buttonWrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.updateCategory-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.updateCategory-button:hover {
-  background-color: #0056b3;
-}
 /* Admin help */
 .adminhelp-container {
   padding: 20px;
@@ -720,7 +482,8 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   border-collapse: collapse;
 }
 
-.adminhelp-table th, .adminhelp-table td {
+.adminhelp-table th,
+.adminhelp-table td {
   padding: 12px 15px;
   border-bottom: 1px solid #ddd;
 }
@@ -747,22 +510,25 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
 .adminhelp-table td button:hover {
   background-color: #0056b3;
 }
+
 .report-block {
   /* padding: 8px 12px !important; */
   border: none !important;
   /* border-radius: 5px !important; */
   cursor: pointer !important;
   transition: background-color 0.3s !important;
-  background-color: #dc3545 !important; /* red */
+  background-color: #dc3545 !important;
+  /* red */
   color: white !important;
 }
 
 .report-block:hover {
   opacity: 0.9 !important;
 }
+
 /* ad detail */
 .addetail-content {
-  flex-grow: 1 ;
+  flex-grow: 1;
   padding: 20px;
   background-color: #f6f6f6;
   border-radius: 8px;
@@ -805,6 +571,7 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   font-size: 18px;
   color: #555;
 }
+
 /* All payments */
 .payments-table {
   width: 100%;
@@ -812,7 +579,8 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
   margin-top: 20px;
 }
 
-.payments-table th, .payments-table td {
+.payments-table th,
+.payments-table td {
   border: 1px solid #ddd;
   padding: 8px 12px;
   text-align: left;
@@ -825,80 +593,8 @@ background-color: #FF8500; /* Затемняем цвет при нажатии 
 .payments-table tr:hover {
   background-color: #f5f5f5;
 }
-.payments-table-section{
+
+.payments-table-section {
   width: 1300px;
   margin: 20px;
-}
-/* Admin banner */
-/* AdminBanner.css */
-
-.banner-container {
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
-.banner-image {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  margin-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.banner-info {
-  padding: 10px 0;
-  font-size: 16px;
-}
-
-.banner-button {
-  margin: 10px 5px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.banner-button:hover {
-  background-color: #e4e4e4;
-}
-
-.banner-modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.banner-modal-form input,
-.banner-modal-form select {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.banner-modal-form button {
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.banner-update-button {
-  background-color: #ffc107;
-  color: #fff;
-}
-
-.banner-delete-button {
-  background-color: #dc3545;
-  color: #fff;
-}
-
-.banner-details-button {
-  background-color: #007bff;
-  color: #fff;
 }

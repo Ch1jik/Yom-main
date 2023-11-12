@@ -5,7 +5,10 @@ import { ChatMessages } from "./ChatMessages";
 import { HubConnectionBuilder, HubConnection, HubConnectionState } from "@microsoft/signalr";
 import './styles/chatStyle.css';
 import ConversationRecipientBar from "./ConversationRecipientBar";
-import sendMessage from '../../assets/images/send-message.png'
+import sendMessage from '../../assets/images/send-message.png';
+import { Conversation } from "../Chat/Interfaces/Conversation";
+import { ConversationRecipientBarItemProps } from "../Chat/Interfaces/Conversation";
+import { MessageProps  } from "../Chat/Interfaces/Messages";
 
 
 export const ConversationBar: React.FC = () => {
@@ -14,7 +17,7 @@ export const ConversationBar: React.FC = () => {
     const [selectedConvGuid, setConversationGuid] = useState<string>('');
     const [senderId, setSenderId] = useState<string>('');
     const [recipientId, setRecipientId] = useState<string>('');
-    const [messagesData, setMessages] = useState<Message[]>([]);
+    const [messagesData, setMessages] = useState<MessageProps[]>([]);
     const [isConversationBlocked, setIsBlocked] = useState<boolean>(false);
     const [messageText, setMessageText] = useState<string>('');
     const [selectedType, setSelectedType] = useState<string>("Buying");
@@ -80,7 +83,7 @@ export const ConversationBar: React.FC = () => {
 
         newConnection.on("ReceiveMessage", (message) => {
             console.log(message)
-            setMessages((messagesData) => [...messagesData, message as Message]);
+            setMessages((messagesData) => [...messagesData, message as MessageProps ]);
         });
 
         newConnection.on("UserOnline", (userId) => {
@@ -176,11 +179,11 @@ export const ConversationBar: React.FC = () => {
 
     const handleConversationClick = (conversation: Conversation) => {
         setConversationGuid(conversation?.conversationGuid);
-        
+
         setRecipientId(conversation.recipientId);
         console.log(selectedConvGuid);
         setIsBlocked(conversation.isBlocked);
-        
+
         const updatedRecipientInfo: ConversationRecipientBarItemProps = {
             isTyping: isTyping,
             isOnline: isRecipintOnline,
@@ -202,11 +205,11 @@ export const ConversationBar: React.FC = () => {
                 conversationGuid: selectedConvGuid,
                 senderId: senderId,
                 messageText: messageText,
-                messageStatus: 1  
+                messageStatus: 1
             })
-            .catch(error => {
-                console.error("Error invoking SendMessageAsync:", error);
-            });
+                .catch(error => {
+                    console.error("Error invoking SendMessageAsync:", error);
+                });
             setMessageText('');
             setChatConversations();
         }
@@ -232,22 +235,8 @@ export const ConversationBar: React.FC = () => {
                     </button>
                 </div>
                 <div className="conversation-items">
-                {selectedType === "Buying"
-                    ? buyingConversations.map((conversation) => (
-                        <button className="conversation-button" key={conversation.id} onClick={() => handleConversationClick(conversation)}>
-                            <ConversationBarItem
-                                id={conversation.id}
-                                conversationGuid={conversation.conversationGuid}
-                                isPinned={conversation.isPinned}
-                                lastMessageSentAt={conversation.lastMessageSentAt}
-                                recipientId={conversation.recipientId}
-                                fullName={conversation.fullName}
-                                avatarPath={conversation.avatarPath}
-                                lastMessageText={conversation.lastMessageText}
-                            />
-                        </button>
-                    )) : selectedType === 'Sale'
-                        ? saleConversations.map((conversation) => (
+                    {selectedType === "Buying"
+                        ? buyingConversations.map((conversation) => (
                             <button className="conversation-button" key={conversation.id} onClick={() => handleConversationClick(conversation)}>
                                 <ConversationBarItem
                                     id={conversation.id}
@@ -256,17 +245,13 @@ export const ConversationBar: React.FC = () => {
                                     lastMessageSentAt={conversation.lastMessageSentAt}
                                     recipientId={conversation.recipientId}
                                     fullName={conversation.fullName}
-                                    lastMessageText={conversation.lastMessageText}
                                     avatarPath={conversation.avatarPath}
+                                    lastMessageText={conversation.lastMessageText}
                                 />
                             </button>
-                        ))
-                        : (
-                            conversations.map((conversation) => (
-                                <button className="conversation-button"
-                                    key={conversation.id}
-                                    onClick={() => handleConversationClick(conversation)}
-                                >
+                        )) : selectedType === 'Sale'
+                            ? saleConversations.map((conversation) => (
+                                <button className="conversation-button" key={conversation.id} onClick={() => handleConversationClick(conversation)}>
                                     <ConversationBarItem
                                         id={conversation.id}
                                         conversationGuid={conversation.conversationGuid}
@@ -279,8 +264,26 @@ export const ConversationBar: React.FC = () => {
                                     />
                                 </button>
                             ))
-                        )}
-                        </div>
+                            : (
+                                conversations.map((conversation) => (
+                                    <button className="conversation-button"
+                                        key={conversation.id}
+                                        onClick={() => handleConversationClick(conversation)}
+                                    >
+                                        <ConversationBarItem
+                                            id={conversation.id}
+                                            conversationGuid={conversation.conversationGuid}
+                                            isPinned={conversation.isPinned}
+                                            lastMessageSentAt={conversation.lastMessageSentAt}
+                                            recipientId={conversation.recipientId}
+                                            fullName={conversation.fullName}
+                                            lastMessageText={conversation.lastMessageText}
+                                            avatarPath={conversation.avatarPath}
+                                        />
+                                    </button>
+                                ))
+                            )}
+                </div>
             </div>
             <div className="right-side">
                 <div className="top-bar">
@@ -296,7 +299,10 @@ export const ConversationBar: React.FC = () => {
                         isMuted={conversationRecipientInfo.isMuted} />
                 </div>
                 <div className="messages">
-                    <ChatMessages messages={messagesData} isBlocked={isConversationBlocked} />
+                    <ChatMessages
+                        messages={messagesData}
+                        isBlocked={isConversationBlocked}
+                    />
                 </div>
                 <div className="user-send">
                     <input
@@ -308,7 +314,7 @@ export const ConversationBar: React.FC = () => {
                         onBlur={() => handleStoppedTyping()}
                     />
                     <button className="send-button" onClick={() => handleSendMessage()} >
-                        <img className="send-message-icon" src={sendMessage}/>
+                        <img className="send-message-icon" src={sendMessage} />
                     </button>
                 </div>
             </div>

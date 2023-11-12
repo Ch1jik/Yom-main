@@ -20,12 +20,16 @@ const Rating: React.FC = () => {
   });
   type Review = {
     id: number;
-    username: string;
     rating: number;
+    senderUserName: string;
+    senderAvatarPath: string;
     reviewText: string;
-    userSenderId: number;
-    userReceiverId: number;
-    dateCreate: string;
+    receiverId: string;
+    senderId: string;
+    photos: string[];
+    dateCreate: Date;
+    adId: number;
+    adTitle: string;
   };
   const positiveReviewsCount = ratingData.countOfFive + ratingData.countOfFour;
 const neutralReviewsCount = ratingData.countOfThree;
@@ -120,33 +124,40 @@ const negativeReviewsCount = ratingData.countOfTwo + ratingData.countOfOne;
                       ) : (
                         <>
                           {reviews.map((review, index) => (
-                            
-                            <div className='user-reviews-all' key={review.id}>
-                            <div className='feedback-all-userphoto'>
-                              <img src={users_logo}></img>
-                            </div>
-                            <div className='feedback-all-info-section'>
-    
-                              <div className='feedback-all-username'>
-                                {review.username} 
-                                
-                              </div>
-                              <div className='feedback-all-info'>
-                                <div className='feedback-all-stars'>
-                                <p> {review.rating}/5 </p>
-                                </div>
-                                <div className='feedback-all-date'>
-                                <small>Reviewed on {new Date(review.dateCreate).toLocaleDateString()}</small>
-                                </div>
-                                <div className='feedback-all-title'>
-                                Куртка adidas Originals Collegiate
-                                </div>
-                              </div>
-                              <div className='feedback-all-description'>
-                              <p>{review.reviewText}</p>
-                              </div>
-                            </div>
-                        </div>
+                           <div className='feedback-all' key={review.id}>
+                           <div className='feedback-all-userphoto'>
+                             <img src={users_logo}></img>
+                           </div>
+                           <div className='feedback-all-info-section'>
+                             <div>
+                               <div className='feedback-all-username'>
+                                 {review.senderUserName}
+
+                               </div>
+                               <div className='feedback-all-info'>
+                                 <div className='feedback-all-stars'>
+                                   <p> {review.rating}/5 </p>
+                                 </div>
+                                 <div className='feedback-all-date'>
+                                   <small>Reviewed on {new Date(review.dateCreate).toLocaleDateString()}</small>
+                                 </div>
+                                 <div className='feedback-all-title'>
+                                   {review.adTitle}
+                                 </div>
+                               </div>
+                               <div className='feedback-all-description'>
+                                 <p>{review.reviewText}</p>
+                               </div>
+                             </div>
+                             <div className='feedback-all-photos'>
+                               {review.photos.slice(0, 5).map((photo, index) => (
+                                 <div key={index} className='feedback-photo-block'>
+                                   <img src={photo} alt={`Review Photo ${index + 1}`} />
+                                 </div>
+                               ))}
+                             </div>
+                           </div>
+                         </div>
                         
                           ))}
                         </>

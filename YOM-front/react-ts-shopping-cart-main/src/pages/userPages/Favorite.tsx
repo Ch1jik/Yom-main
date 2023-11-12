@@ -18,7 +18,7 @@ interface IDataItem {
   address: string;
   currency: string;
   adType: string;
-  productState:string;
+  productState: string;
   categoryId: number;
   subCategoryId: number;
   photoPaths: string;
@@ -26,7 +26,7 @@ interface IDataItem {
 }
 const Favorite: React.FC = () => {
   const navigate = useNavigate();
-  const  userId  = sessionStorage.getItem('userId');
+  const userId = sessionStorage.getItem('userId');
   const [pageNumber, setpageNumber] = useState<number>(1); // Initialize products state as an empty array
   const [numberOfElements, setnumberOfElements] = useState<number>(4); // Initialize products state as an empty array
   const [favoriteAds, setFavoriteAds] = useState<IDataItem[]>([]);
@@ -72,104 +72,107 @@ const Favorite: React.FC = () => {
     checkAuthenticationStatus();
     fetchFavoriteAds(pageNumber);
   }, [navigate, userId, pageNumber]);
-  
+
   const removeFavoriteAd = async (id: number) => {
     axios.delete(`https://localhost:7014/api/FavoriteAd/Remove?adId=${id}&userId=${userId}`)
-    .then(response => {
+      .then(response => {
         console.log('====================================');
         console.log('Successfully removed favorite ad:', response.data);
         console.log('====================================');
-        
+
         // Update the state if the deletion was successful
         setFavoriteAds(prevAds => prevAds.filter(ad => ad.adId !== id));
-    })
-    .catch(error => {
+      })
+      .catch(error => {
         console.error(`Error removing favorite ad with id ${id}:`, error);
-    });
+      });
 
   };
-
+  const uniqueFavoriteAds = Array.from(
+    new Map(favoriteAds.map(ad => [ad['adId'], ad])).values()
+  );
+  
 
   return (
     <main>
       <div className='FavoritePage'>
         <div className='myads-menu'>
-          <CustomNavbar/>
+          <CustomNavbar />
         </div>
         <section>
           <div className='favorite-title'>
             <p>Обрані товари</p>
           </div>
           <div className='favorite-grid'>
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            // <>
-            // <div className='favorite-product-view'></div>
-            // <div className='favorite-product-view'></div>
-            // <div className='favorite-product-view'></div>
-            // <div className='favorite-product-view'></div>
-            // <div className='favorite-product-view'></div>
-            // <div className='favorite-product-view'></div>
-            // </>
-            favoriteAds.map(ad => (
-              <div key={ad.adId} className='favorite-product-view'>
-                <div className=''>
-                  {/* <h2>{ad.title}</h2>
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              // <>
+              // <div className='favorite-product-view'></div>
+              // <div className='favorite-product-view'></div>
+              // <div className='favorite-product-view'></div>
+              // <div className='favorite-product-view'></div>
+              // <div className='favorite-product-view'></div>
+              // <div className='favorite-product-view'></div>
+              // </>
+              uniqueFavoriteAds.map(ad => (
+                <div key={ad.adId} className='favorite-product-view'>
+                  <div className=''>
+                    {/* <h2>{ad.title}</h2>
                   <p>{ad.description}</p>
                   <img src={ad.imageURL} alt={ad.title} /> */}
-                  <div className='favorite-product-view-image'>
-                  <img src={ad.photoPaths}></img>
-                  </div>
-                  <div className='favorite-product-description'>
-                    <div className='favorite-product-description-section'>
-                      <div>
-                        <Link className='remove-style-from-link favorite-product-view-title' to={`/products/bycategory/product/${ad.adId}`}>{ad.title}</Link>
-                      </div>
-                      <div className='favorite-product-view-price'>
-                        <p>{ad.price}</p>
-                      </div>
+                    <div className='favorite-product-view-image'>
+                      <img src={ad.photoPaths}></img>
                     </div>
-                    <div>
-                      <button className='favorite-product-remover' onClick={() => removeFavoriteAd(ad.adId)}><img src={heart}></img></button>
+                    <div className='favorite-product-description'>
+                      <div className='favorite-product-description-section'>
+                        <div>
+                          <Link className='remove-style-from-link favorite-product-view-title' to={`/products/bycategory/product/${ad.adId}`}>{ad.title}</Link>
+                        </div>
+                        <div className='favorite-product-view-price'>
+                          <p>{ad.price}</p>
+                        </div>
+                      </div>
+                      <div>
+                        <button className='favorite-product-remover' onClick={() => removeFavoriteAd(ad.adId)}><img src={heart}></img></button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))
-          )}
+              ))
+            )}
           </div>
         </section>
-        
+
       </div>
       <div className='pagination'>
-                      {/* <button
+        {/* <button
                           onClick={() => this.setPage(pageNumber - 1)}
                           disabled={pageNumber === 1}
                       >
                           Previous
                       </button> */}
 
-                      {pageNumber > 3 && <span>...</span>}
+        {pageNumber > 3 && <span>...</span>}
 
-                      {Array.from({ length: Math.min(3, pageNumber) }, (_, index) => pageNumber - index).reverse().map(page => (
-                          <button
-                              key={page}
-                              onClick={() => setpageNumber(page)}
-                              className={pageNumber === page ? 'active-page' : ''}
-                          >
-                              {page}
-                          </button>
-                      ))}
+        {Array.from({ length: Math.min(3, pageNumber) }, (_, index) => pageNumber - index).reverse().map(page => (
+          <button
+            key={page}
+            onClick={() => setpageNumber(page)}
+            className={pageNumber === page ? 'active-page' : ''}
+          >
+            {page}
+          </button>
+        ))}
 
-                      <button
-                          onClick={() => setpageNumber(pageNumber + 1)}
-                          disabled={numberOfElements<5}
-                          className='pagination-next-btn'
-                      >
-                          <img src={next}></img>
-                      </button>
-                  </div>
+        <button
+          onClick={() => setpageNumber(pageNumber + 1)}
+          disabled={numberOfElements < 5}
+          className='pagination-next-btn'
+        >
+          <img src={next}></img>
+        </button>
+      </div>
     </main>
   );
 };

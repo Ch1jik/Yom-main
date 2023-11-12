@@ -1,0 +1,99 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.admin-Createcategory {
+    width: 100%;
+    overflow-y: hidden;
+    padding: 1%;
+}
+
+.AddCategorySubcategoryPage {
+    flex: 1;
+    padding: 20px;
+    background-color: #f7f8fc;
+    /* Light background color */
+    border-left: 1px solid #e1e1e1;
+}
+
+.AddCategorySubcategoryPage h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.submit-category-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    float: right;
+    min-height: 50px;
+}
+
+.category-form-container {
+    height: 100%;
+    padding: 3rem;
+    padding-bottom: 2em;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    justify-content: center;
+    margin-top: 3%;
+    flex-direction: column;
+}
+
+.category-form-container h2 {
+    padding-bottom: 1%;
+    color: #555;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+.admin-input-photo {
+    display: block !important;
+    width: fit-content;
+}
+
+.admin-category-input-data {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    padding-top: 1%;
+}
+
+.admin-category-input-button {
+    display: flex;
+    padding-top: 2%;
+}
+
+.admin-category-input-data label {
+    color: #252525;
+    font-size: 18px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 28.60px;
+    word-wrap: break-word
+}
+
+.admin-category-input-data input[type="text"],
+input[type="number"] {
+    overflow: hidden;
+    width: 100%;
+    padding-right: 1%;
+    max-width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 42px;
+    border: 1px solid #ccc;
+    -moz-appearance: textfield;
+}
+
+.admin-category-input-data input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}

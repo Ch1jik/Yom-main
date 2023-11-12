@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import phone from '../../assets/images/phoe_sales.svg'
 import location from '../../assets/images/sales_location.svg'
 import date from '../../assets/images/sales_data.svg'
-import { useUser } from '../../utilities/UserContext'; 
+import { useUser } from '../../utilities/UserContext';
 import edit from "../../assets/images/my-ads-edit.svg"
 import byplan1 from "../../assets/images/buy-el1.svg"
 import byplan2 from "../../assets/images/buy-el2.svg"
@@ -30,7 +30,7 @@ interface Ad {
   subCategoryId: number;
   photos: string[]; // Assuming it's an array of string paths. Adjust as necessary.
   // Add other properties as needed
-  userId:string;
+  userId: string;
   phoneClicks: number,
   // phoneNumber: string,
 }
@@ -54,7 +54,7 @@ function MyAds() {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [selectedAdId, setSelectedAdId] = useState<number | null>(null);
-  
+
   useEffect(() => {
     checkAuthenticationStatus();
 
@@ -67,31 +67,31 @@ function MyAds() {
   };
 
   const getTotalPages = (array: Ad[]) => {
-      return Math.ceil(array.length / itemsPerPage);
+    return Math.ceil(array.length / itemsPerPage);
   };
   const paginate2 = (array: Ad[], page_number: number, page_size: number) => {
     return array.slice((page_number - 1) * page_size, page_number * page_size);
   };
 
   const getTotalPages2 = (array: Ad[]) => {
-      return Math.ceil(array.length / itemsPerPage);
+    return Math.ceil(array.length / itemsPerPage);
   };
   const paginate3 = (array: Ad[], page_number: number, page_size: number) => {
     return array.slice((page_number - 1) * page_size, page_number * page_size);
   };
 
   const getTotalPages3 = (array: Ad[]) => {
-      return Math.ceil(array.length / itemsPerPage);
+    return Math.ceil(array.length / itemsPerPage);
   };
   const paginate4 = (array: Ad[], page_number: number, page_size: number) => {
     return array.slice((page_number - 1) * page_size, page_number * page_size);
   };
 
   const getTotalPages4 = (array: Ad[]) => {
-      return Math.ceil(array.length / itemsPerPage);
+    return Math.ceil(array.length / itemsPerPage);
   };
 
-  
+
   const checkAuthenticationStatus = () => {
     const isAuthenticated = !!getToken();
     if (!isAuthenticated) {
@@ -100,12 +100,12 @@ function MyAds() {
   };
   const AdvertisePopup = () => {
     const handlePlanChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      
+
       setSelectedPlan(event.target.value);
     };
-  
+
     const handleSubmit = async () => {
-      
+
       if (selectedPlan && selectedAdId !== null) {
         try {
           await axios.post(`https://localhost:7014/api/Ad/BuyPlan?adId=${selectedAdId}&advertisementPlan=${selectedPlan}`);
@@ -119,7 +119,7 @@ function MyAds() {
         }
       }
     };
-  
+
     return (
       <div className="overlay">
         <div className="popup">
@@ -128,74 +128,74 @@ function MyAds() {
             <div className='my-ads-popup-title1'>Рекламуйте ваше оголошення за вигідними тарифами
             </div>
           </div>
-            
-            <div className='my-ads-popup-radio-section'>
-                <div className='my-ads-popup-radio-block'>
-                  <img src={byplan1}></img>
-                    <div className='my-ads-popup-radio-block-description'>
-                        <h2>Експрес -Продаж</h2>
-                        <p>Підвищена видимість</p>
-                        <p>ТОП оголошення 3 дні</p>
-                    </div>
-                    <label>
-                        <input
-                            type="radio"
-                            id="Express"
-                            value="Express"
-                            className='my-ads-popup'
-                            checked={selectedPlan === "Express"}
-                            onChange={handlePlanChange}
-                        />
-                        <span className="radio-text">15 грн</span>
-                    </label>
-                </div>
-                <div className='my-ads-popup-radio-block'>
-                <img src={byplan2}></img>
-                    <div className='my-ads-popup-radio-block-description'>
-                        <h2>Бліц-Продаж</h2>
-                        <p>Підвищена Видимість</p>
-                        <p>Топ оголошення 8 днів</p>
-                    </div>
-                    <label>
-                        <input
-                            type="radio"
-                            id="Blitz"
-                            value="Blitz"
-                            className='my-ads-popup'
-                            checked={selectedPlan === "Blitz"}
-                            onChange={handlePlanChange}
-                        />
-                        <span className="radio-text">120 грн</span>
-                    </label>
-                </div>
-                <div className='my-ads-popup-radio-block'>
-                <img src={byplan3}></img>
-                    <div className='my-ads-popup-radio-block-description'>
-                        <h2>Турбо-Продаж</h2>
-                        <p>Топ-Позиції у пошуку 30 днів</p>
-                        <p>Пріорітетна підтримка</p>
-                        <p>Преміум Виділення</p>
-                        <p>Виділений рекламний простір на 10 днів</p>
-                    </div>
-                    <label>
-                        <input
-                            type="radio"
-                            id="Turbo"
-                            value="Turbo"
-                            className='my-ads-popup'
-                            checked={selectedPlan === "Turbo"}
-                            onChange={handlePlanChange}
-                        />
-                        <span className="radio-text">482 грн</span>
-                    </label>
-                </div>
-            </div>
-            <div className='my-ads-popup-title1-section'>
-              <p>2</p>
-              <div className='my-ads-popup-title1'>Оберіть спосіб оплати </div>
 
+          <div className='my-ads-popup-radio-section'>
+            <div className='my-ads-popup-radio-block'>
+              <img src={byplan1}></img>
+              <div className='my-ads-popup-radio-block-description'>
+                <h2>Експрес -Продаж</h2>
+                <p>Підвищена видимість</p>
+                <p>ТОП оголошення 3 дні</p>
+              </div>
+              <label>
+                <input
+                  type="radio"
+                  id="Express"
+                  value="Express"
+                  className='my-ads-popup'
+                  checked={selectedPlan === "Express"}
+                  onChange={handlePlanChange}
+                />
+                <span className="radio-text">15 грн</span>
+              </label>
             </div>
-            <div>
+            <div className='my-ads-popup-radio-block'>
+              <img src={byplan2}></img>
+              <div className='my-ads-popup-radio-block-description'>
+                <h2>Бліц-Продаж</h2>
+                <p>Підвищена Видимість</p>
+                <p>Топ оголошення 8 днів</p>
+              </div>
+              <label>
+                <input
+                  type="radio"
+                  id="Blitz"
+                  value="Blitz"
+                  className='my-ads-popup'
+                  checked={selectedPlan === "Blitz"}
+                  onChange={handlePlanChange}
+                />
+                <span className="radio-text">120 грн</span>
+              </label>
+            </div>
+            <div className='my-ads-popup-radio-block'>
+              <img src={byplan3}></img>
+              <div className='my-ads-popup-radio-block-description'>
+                <h2>Турбо-Продаж</h2>
+                <p>Топ-Позиції у пошуку 30 днів</p>
+                <p>Пріорітетна підтримка</p>
+                <p>Преміум Виділення</p>
+                <p>Виділений рекламний простір на 10 днів</p>
+              </div>
+              <label>
+                <input
+                  type="radio"
+                  id="Turbo"
+                  value="Turbo"
+                  className='my-ads-popup'
+                  checked={selectedPlan === "Turbo"}
+                  onChange={handlePlanChange}
+                />
+                <span className="radio-text">482 грн</span>
+              </label>
+            </div>
+          </div>
+          <div className='my-ads-popup-title1-section'>
+            <p>2</p>
+            <div className='my-ads-popup-title1'>Оберіть спосіб оплати </div>
+
+          </div>
+          <div>
             <div className="payment-method">
               {/* <label className="payment-option">
                 <input type="radio" name="payment" value="gpay" />
@@ -214,18 +214,18 @@ function MyAds() {
               </label> */}
             </div>
 
-              <div className='my-ads-popup-buttons'>
+            <div className='my-ads-popup-buttons'>
               <button className='my-ads-popup-close' onClick={() => setShowPopup(false)}>Відмінити</button>
               <button className='my-ads-popup-buy' onClick={handleSubmit}>Оплатити</button>
-                
-              </div>
+
             </div>
+          </div>
         </div>
       </div>
 
     );
   };
-  
+
   const fetchAds = async (userId: string | null) => {
     try {
       // Fetch ads for the specific user by user ID
@@ -233,11 +233,11 @@ function MyAds() {
         // Assuming you have set up a base URL elsewhere
         params: {
           userId: userId,
-          
+
         }
       });
       const userAds: Ad[] = response.data; // Use the Ad type
-     
+
       // Categorize ads based on their status
       const active = userAds.filter((ad) => ad.adState === 'Active');
       const pending = userAds.filter((ad) => ad.adState === 'Pending');
@@ -291,38 +291,38 @@ function MyAds() {
   const renderAds = (ads: Ad[], tabType: string) => {
     return ads.map((ad) => (
       <div>
-      <div key={ad.id} className="tab-element">
-        {ad.title}
-        {(tabType === 'active' || tabType === 'pending') && (
-          <>
-            <button className='myads-button-deactivate' onClick={() => deactivateAd(ad.id)}>Deactivate</button>
-            <button className='myads-button-advertise' onClick={() => {
-              setSelectedAdId(ad.id);
-              setShowPopup(true);
-              {
-                showPopup && <AdvertisePopup />
-              }
-            }}>Advertise</button>
-          </>
-        )}
-        {tabType === 'deactivated' && (
-          <>
-            <button className='myads-button-activate' onClick={() => activateAd(ad.id)}>Activate</button>
+        <div key={ad.id} className="tab-element">
+          {ad.title}
+          {(tabType === 'active' || tabType === 'pending') && (
+            <>
+              <button className='myads-button-deactivate' onClick={() => deactivateAd(ad.id)}>Deactivate</button>
+              <button className='myads-button-advertise' onClick={() => {
+                setSelectedAdId(ad.id);
+                setShowPopup(true);
+                {
+                  showPopup && <AdvertisePopup />
+                }
+              }}>Advertise</button>
+            </>
+          )}
+          {tabType === 'deactivated' && (
+            <>
+              <button className='myads-button-activate' onClick={() => activateAd(ad.id)}>Activate</button>
+              <button className='myads-button-delete' onClick={() => deleteAd(ad.id)}>Delete</button>
+            </>
+          )}
+          {tabType === 'rejected' && (
             <button className='myads-button-delete' onClick={() => deleteAd(ad.id)}>Delete</button>
-          </>
-        )}
-        {tabType === 'rejected' && (
-          <button className='myads-button-delete' onClick={() => deleteAd(ad.id)}>Delete</button>
-        )}
-        
-      </div>
-      
+          )}
+
+        </div>
+
       </div>
     ));
   };
-  
-  
-  
+
+
+
 
   return (
     <main>
@@ -350,318 +350,330 @@ function MyAds() {
           </div>
 
           <div className="myads-tab-panels">
-          {hasAds ? (
-            <>
-            <div
-              className={`myads-tab-panel ${activeTab === 0 ? 'active' : ''}`}
-            >
-              {/* <div className="tab-elements"> */}
-                {/* <div className='tab-element-photo'></div>
+            {hasAds ? (
+              <>
+                <div
+                  className={`myads-tab-panel ${activeTab === 0 ? 'active' : ''}`}
+                >
+                  {/* <div className="tab-elements"> */}
+                  {/* <div className='tab-element-photo'></div>
                 <div className='tab-element-description'></div> */}
-                
-                {
-                  activeAds.length > 0 ? (
-                    <>
-                      {paginate(activeAds, currentPage, itemsPerPage).map(item => (
-                        <div className="tab-elements">
-                          <div className='tab-element-photo'>
-                            
-                            {item.photos.map((url, index) => (
-                                    <img key={index} src={url} alt={`image-${index}`} />
+
+                  {
+                    activeAds.length > 0 ? (
+                      <>
+                        {paginate(activeAds, currentPage, itemsPerPage).map(item => (
+                          <div className="tab-elements">
+                            <div className='tab-element-photo'>
+
+                              {item.photos.map((url, index) => (
+                                <img key={index} src={url} alt={`image-${index}`} />
                               ))}
-                          </div>
-                          <div className='tab-element-description-section'>
-                            <div className=''>
-                              <div className='tab-element-description'>
-                                <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
-                                  {item.title}
-                                </Link>
-                                <div className='tab-element-data-popularity'>
-                                {/* <div className='sales-product-data-adPopularity'>
+                            </div>
+                            <div className='tab-element-description-section'>
+                              <div className=''>
+                                <div className='tab-element-description'>
+                                  <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
+                                    {item.title}
+                                  </Link>
+                                  <div className='tab-element-data-popularity'>
+                                    {/* <div className='sales-product-data-adPopularity'>
                                   <img src={eye}></img>
                                   <div>{rejectedAds.adPopularity}</div>
                                 </div> */}
-                                <div className='tab-element-data-phoneClicks'>
-                                  <img src={phone}></img>
-                                  <div>{item.phoneClicks}</div>
+                                    <div className='tab-element-data-phoneClicks'>
+                                      <img src={phone}></img>
+                                      <div>{item.phoneClicks}</div>
+                                    </div>
+                                  </div>
+                                  <div className='sales-product-data-city'>
+                                    <img src={location}></img>
+                                    <div>{item.city}</div>
+                                  </div>
+                                </div>
+
+                                <div className='tab-element-description-buttons'>
+                                  <button className='myads-button-advertise' onClick={() => {
+                                    setSelectedAdId(item.id);
+                                    setShowPopup(true);
+                                  }}>
+                                    Рекламувати
+                                  </button>
+                                  <Link className='myads-button-edit' key={item.id} to={`/edit/${item.id}`}>
+                                    <img src={edit} alt="edit-icon" />
+                                  </Link>
+                                  <button className='myads-button-deactivated' onClick={() => deactivateAd(item.id)}>Деактивувати</button>
+
+
                                 </div>
                               </div>
-                                <div className='sales-product-data-city'>
-                                <img src={location}></img>
-                                <div>{item.city}</div>
+                              <div className='tab-element-id-section'>
+                                <p className='tab-element-id-price'>{item.price}</p>
+                                <div className='sales-product-data-purchaseDate'>
+                                  <img src={date}></img>
+                                  <div>{new Date(item.dateCreated).toLocaleDateString()}</div>
+                                </div>
+
+                                <p className='tab-element-id-id'>№{item.id}</p>
                               </div>
-                              </div>
-                              
-                              <div className='tab-element-description-buttons'>
-                              <button className='myads-button-advertise' onClick={() => {
-                                  setSelectedAdId(item.id);
-                                  setShowPopup(true);
-                                }}>
-                                  Рекламувати
-                                </button>
-                                <Link className='myads-button-edit' key={item.id} to={`/edit/${item.id}`}>
-                                  <img src={edit} alt="edit-icon" />
-                                </Link>
-                                <button className='myads-button-deactivated' onClick={() => deactivateAd(item.id)}>Деактивувати</button>
-                                
-                                
-                              </div>
-                            </div>
-                            <div className='tab-element-id-section'>
-                              <p className='tab-element-id-price'>{item.price}</p>
-                              <div className='sales-product-data-purchaseDate'>
-                                <img src={date}></img>
-                                <div>{new Date(item.dateCreated).toLocaleDateString()}</div>
-                              </div>
-                              
-                              <p className='tab-element-id-id'>№{item.id}</p>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
 
-                      
-                      <div className='pagination'>
-                      {/* <button
+
+                        <div className='pagination'>
+                          {/* <button
                           onClick={() => this.setPage(pageNumber - 1)}
                           disabled={pageNumber === 1}
                       >
                           Previous
                       </button> */}
 
-                      {currentPage > 3 && <span>...</span>}
+                          {currentPage > 3 && <span>...</span>}
 
-                      {Array.from({ length: Math.min(3, currentPage) }, (_, index) => currentPage - index).reverse().map(page => (
-                          <button
+                          {Array.from({ length: Math.min(3, currentPage) }, (_, index) => currentPage - index).reverse().map(page => (
+                            <button
                               key={page}
                               onClick={() => setCurrentPage(page)}
                               className={currentPage === page ? 'active-page' : ''}
-                          >
+                            >
                               {page}
+                            </button>
+                          ))}
+
+                          <button
+                            onClick={() => setCurrentPage(currentPage + 1)}
+                            disabled={currentPage === getTotalPages(activeAds)}
+                            className='pagination-next-btn'
+                          >
+                            <img src={next}></img>
                           </button>
-                      ))}
-
-                      <button
-                          onClick={() => setCurrentPage(currentPage + 1)}
-                          disabled={currentPage === getTotalPages(activeAds)}
-                          className='pagination-next-btn'
-                      >
-                          <img src={next}></img>
-                      </button>
-                  </div>
-
-                      {showPopup && <AdvertisePopup />}
-                    </>
-                  ) : (
-                    <p>No active ad available</p>
-                  )
-                }
-
-            </div>
-            <div
-              className={`myads-tab-panel ${activeTab === 1 ? 'active' : ''}`}
-            >
-              {
-                pendingAds.length > 0 ? (
-                    <>
-                {paginate2(pendingAds, currentPage2, itemsPerPage).map(item =>(
-                        <div className="tab-elements" >
-                          <div className='tab-element-photo'></div>
-                          <div className='tab-element-description-section'>
-                            <div className=''>
-                            <div className='tab-element-description'>
-                              <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
-                                {item.title}
-                              </Link>
-                            </div>
-                              <div className='tab-element-description-buttons'></div>
-                              <button  className='myads-button-deactivated 'onClick={() => deactivateAd(item.id)}>Deactivate</button>
-                              <button className='myads-button-advertise' onClick={() => {
-                                setSelectedAdId(item.id);
-                                setShowPopup(true);
-                                
-                              }}>Advertise</button>
-                              <Link key={item.id} to={`/edit/${item.id}`}>
-                              <img src={edit}></img>
-                            </Link>
-                            </div>
-                          </div>
-                            
-                          
-                            
                         </div>
-                        
-                    ))}
-                    <div className='pagination'>
-                      {/* <button
+
+                        {showPopup && <AdvertisePopup />}
+                      </>
+                    ) : (
+                      <p>No active ad available</p>
+                    )
+                  }
+
+                </div>
+                <div
+                  className={`myads-tab-panel ${activeTab === 1 ? 'active' : ''}`}
+                >
+                  {
+                    pendingAds.length > 0 ? (
+                      <>
+                        {paginate2(pendingAds, currentPage2, itemsPerPage).map(item => (
+                          <div className="tab-elements" >
+                            <div className='tab-element-photo'>
+                            {item.photos.map((url, index) => (
+                                <img key={index} src={url} alt={`image-${index}`} />
+                              ))}
+                            </div>
+                            <div className='tab-element-description-section'>
+                              <div className=''>
+                                <div className='tab-element-description'>
+                                  <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
+                                    {item.title}
+                                  </Link>
+                                </div>
+                                <div className='tab-element-description-buttons'></div>
+                                <button className='myads-button-deactivated ' onClick={() => deactivateAd(item.id)}>Deactivate</button>
+                                <button className='myads-button-advertise' onClick={() => {
+                                  setSelectedAdId(item.id);
+                                  setShowPopup(true);
+
+                                }}>Advertise</button>
+                                <Link key={item.id} to={`/edit/${item.id}`}>
+                                  <img src={edit}></img>
+                                </Link>
+                              </div>
+                            </div>
+
+
+
+                          </div>
+
+                        ))}
+                        <div className='pagination'>
+                          {/* <button
                           onClick={() => this.setPage(pageNumber - 1)}
                           disabled={pageNumber === 1}
                       >
                           Previous
                       </button> */}
 
-                      {currentPage2 > 3 && <span>...</span>}
+                          {currentPage2 > 3 && <span>...</span>}
 
-                      {Array.from({ length: Math.min(3, currentPage2) }, (_, index) => currentPage2 - index).reverse().map(page => (
-                          <button
+                          {Array.from({ length: Math.min(3, currentPage2) }, (_, index) => currentPage2 - index).reverse().map(page => (
+                            <button
                               key={page}
                               onClick={() => setCurrentPage2(page)}
                               className={currentPage2 === page ? 'active-page' : ''}
-                          >
+                            >
                               {page}
-                          </button>
-                      ))}
+                            </button>
+                          ))}
 
-                      <button
-                          onClick={() => setCurrentPage2(currentPage2 + 1)}
-                          disabled={currentPage2 === getTotalPages2(pendingAds)}
-                          className='pagination-next-btn'
-                      >
-                          <img src={next}></img>
-                      </button>
-                  </div>
-                    {showPopup && <AdvertisePopup />}
-                    </>
+                          <button
+                            onClick={() => setCurrentPage2(currentPage2 + 1)}
+                            disabled={currentPage2 === getTotalPages2(pendingAds)}
+                            className='pagination-next-btn'
+                          >
+                            <img src={next}></img>
+                          </button>
+                        </div>
+                        {showPopup && <AdvertisePopup />}
+                      </>
                     ) : (
                       <p>No pendingAds ad available</p>
                     )
                   }
-            </div>
-            
-            <div
-              className={`myads-tab-panel ${activeTab === 2 ? 'active' : ''}`}
-            >
-              {
-                deactivatedAds.length > 0 ? (
-                    <>
-              {paginate3(deactivatedAds, currentPage3, itemsPerPage).map(item =>(
-                        <div className="tab-elements" >
-                          <div className='tab-element-photo'></div>
-                          <div className='tab-element-description-section'>
-                          <div className=''>
-                          <div className='tab-element-description'>
-                          <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
-                            {item.title}
-                          </Link>
+                </div>
+
+                <div
+                  className={`myads-tab-panel ${activeTab === 2 ? 'active' : ''}`}
+                >
+                  {
+                    deactivatedAds.length > 0 ? (
+                      <>
+                        {paginate3(deactivatedAds, currentPage3, itemsPerPage).map(item => (
+                          <div className="tab-elements" >
+                            <div className='tab-element-photo'>
+                            {item.photos.map((url, index) => (
+                                <img key={index} src={url} alt={`image-${index}`} />
+                              ))}
+                            </div>
+                            <div className='tab-element-description-section'>
+                              <div className=''>
+                                <div className='tab-element-description'>
+                                  <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
+                                    {item.title}
+                                  </Link>
+                                </div>
+                                <div className='tab-element-description-buttons'></div>
+                                <button className='myads-button-delete' onClick={() => deactivateAd(item.id)}>Delete</button>
+
+                                <Link key={item.id} to={`/edit/${item.id}`}>
+                                  <img src={edit}></img>
+                                </Link>
+                              </div>
+
+                            </div>
+
                           </div>
-                          <div className='tab-element-description-buttons'></div>
-                              <button className='myads-button-delete' onClick={() => deactivateAd(item.id)}>Delete</button>
-                            
-                            <Link key={item.id} to={`/edit/${item.id}`}>
-                            <img src={edit}></img>
-                          </Link>
-                            </div>
-                            
-                            </div>
-                            
-                        </div>
-                        
-                    ))}
-                    <div className='pagination'>
-                      {/* <button
+
+                        ))}
+                        <div className='pagination'>
+                          {/* <button
                           onClick={() => this.setPage(pageNumber - 1)}
                           disabled={pageNumber === 1}
                       >
                           Previous
                       </button> */}
 
-                      {currentPage3 > 3 && <span>...</span>}
+                          {currentPage3 > 3 && <span>...</span>}
 
-                      {Array.from({ length: Math.min(3, currentPage3) }, (_, index) => currentPage3 - index).reverse().map(page => (
-                          <button
+                          {Array.from({ length: Math.min(3, currentPage3) }, (_, index) => currentPage3 - index).reverse().map(page => (
+                            <button
                               key={page}
                               onClick={() => setCurrentPage3(page)}
                               className={currentPage3 === page ? 'active-page' : ''}
-                          >
+                            >
                               {page}
-                          </button>
-                      ))}
+                            </button>
+                          ))}
 
-                      <button
-                          onClick={() => setCurrentPage3(currentPage3 + 1)}
-                          disabled={currentPage3 === getTotalPages3(deactivatedAds)}
-                          className='pagination-next-btn'
-                      >
-                          <img src={next}></img>
-                      </button>
-                  </div>
-                    {showPopup && <AdvertisePopup />}
-                    </>
+                          <button
+                            onClick={() => setCurrentPage3(currentPage3 + 1)}
+                            disabled={currentPage3 === getTotalPages3(deactivatedAds)}
+                            className='pagination-next-btn'
+                          >
+                            <img src={next}></img>
+                          </button>
+                        </div>
+                        {showPopup && <AdvertisePopup />}
+                      </>
                     ) : (
                       <p>No deactivated ad available</p>
                     )
                   }
-            </div>
-            <div
-              className={`myads-tab-panel ${activeTab === 3 ? 'active' : ''}`}
-            >
-              {
-                deactivatedAds.length > 0 ? (
-                    <>
-              {paginate4(rejectedAds, currentPage4, itemsPerPage).map(item =>(
-                        <div className="tab-elements" >
-                          <div className='tab-element-photo'></div>
-                          <div className='tab-element-description-section'>
-                          <div className=''>
-                          <div className='tab-element-description'>
-                            <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
-                              <p>{item.title}</p>
-                            </Link>
-                          </div>
-                          
-                          <div className='tab-element-description-buttons'>
-                            <button className='myads-button-deactivated' onClick={() => deactivateAd(item.id)}>Deactivate</button>
-                            <button className='myads-button-advertise' onClick={() => {
-                              setSelectedAdId(item.id);
-                              setShowPopup(true);
-                              
-                            }}>Advertise</button>
-                            <Link key={item.id} to={`/edit/${item.id}`}>
-                            <img src={edit}></img>
-                            </Link>
+                </div>
+                <div
+                  className={`myads-tab-panel ${activeTab === 3 ? 'active' : ''}`}
+                >
+                  {
+                    deactivatedAds.length > 0 ? (
+                      <>
+                        {paginate4(rejectedAds, currentPage4, itemsPerPage).map(item => (
+                          <div className="tab-elements" >
+                            <div className='tab-element-photo'>
+                            {item.photos.map((url, index) => (
+                                <img key={index} src={url} alt={`image-${index}`} />
+                              ))}
                             </div>
+                            <div className='tab-element-description-section'>
+                              <div className=''>
+                                <div className='tab-element-description'>
+                                  <Link className='remove-style-from-link tab-element-title' key={item.id} to={`/products/bycategory/product/${item.id}`}>
+                                    <p>{item.title}</p>
+                                  </Link>
+                                </div>
+
+                                <div className='tab-element-description-buttons'>
+                                  <button className='myads-button-deactivated' onClick={() => deactivateAd(item.id)}>Deactivate</button>
+                                  <button className='myads-button-advertise' onClick={() => {
+                                    setSelectedAdId(item.id);
+                                    setShowPopup(true);
+
+                                  }}>Advertise</button>
+                                  <Link key={item.id} to={`/edit/${item.id}`}>
+                                    <img src={edit}></img>
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+
                           </div>
-                          </div>
-                            
-                        </div>
-                        
-                    ))}
-                    <div className='pagination'>
-                      {/* <button
+
+                        ))}
+                        <div className='pagination'>
+                          {/* <button
                           onClick={() => this.setPage(pageNumber - 1)}
                           disabled={pageNumber === 1}
                       >
                           Previous
                       </button> */}
 
-                      {currentPage4 > 3 && <span>...</span>}
+                          {currentPage4 > 3 && <span>...</span>}
 
-                      {Array.from({ length: Math.min(3, currentPage4) }, (_, index) => currentPage4 - index).reverse().map(page => (
-                          <button
+                          {Array.from({ length: Math.min(3, currentPage4) }, (_, index) => currentPage4 - index).reverse().map(page => (
+                            <button
                               key={page}
                               onClick={() => setCurrentPage4(page)}
                               className={currentPage4 === page ? 'active-page' : ''}
-                          >
+                            >
                               {page}
-                          </button>
-                      ))}
+                            </button>
+                          ))}
 
-                      <button
-                          onClick={() => setCurrentPage4(currentPage4 + 1)}
-                          disabled={currentPage4 === getTotalPages4(rejectedAds)}
-                          className='pagination-next-btn'
-                      >
-                          <img src={next}></img>
-                      </button>
-                  </div>
-                    {showPopup && <AdvertisePopup />}
-                    </>
+                          <button
+                            onClick={() => setCurrentPage4(currentPage4 + 1)}
+                            disabled={currentPage4 === getTotalPages4(rejectedAds)}
+                            className='pagination-next-btn'
+                          >
+                            <img src={next}></img>
+                          </button>
+                        </div>
+                        {showPopup && <AdvertisePopup />}
+                      </>
                     ) : (
                       <p>No rejected ad available</p>
                     )
                   }
-            </div>
-            </>
+                </div>
+              </>
             ) : (
               <div className="no-ads-message">You don't have any ads.</div>
             )}
@@ -684,7 +696,7 @@ function MyAds() {
                 </button>
               </div> */}
         </section>
-        
+
       </div>
     </main>
   );

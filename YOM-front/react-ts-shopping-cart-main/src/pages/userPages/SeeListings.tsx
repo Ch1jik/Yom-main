@@ -5,15 +5,15 @@ import axios from 'axios';
 import { getToken } from '../../utilities/TokenUtility';
 import { useUser } from '../../utilities/UserContext';
 import { Link } from 'react-router-dom';
-
+import next from '../../assets/images/pagination_next.svg'
 const SeeListings: React.FC = () => {
   const navigate = useNavigate();
   const { userId } = useUser();
   
   const [lastViewedAds, setLastViewedAds] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(1);
+  const [pageNumber, setpageNumber] = useState<number>(1); // Initialize products state as an empty array
+  const [numberOfElements, setnumberOfElements] = useState<number>(4);
 
   useEffect(() => {
     const checkAuthenticationStatus = () => {
@@ -38,9 +38,9 @@ const SeeListings: React.FC = () => {
     const fetchLastViewedAds = async (page: number) => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`https://localhost:7014/api/LastViewed?userId=${userId}&PageNumber=${page}&PageSize=6`);
+        const response = await axios.get(`https://localhost:7014/api/LastViewed?userId=${userId}&PageNumber=${pageNumber}&PageSize=6`);
         const data = response.data;
-        
+        setnumberOfElements(data.length);
         const uniqueAds = filterUniqueAds(data);
         setLastViewedAds(sortByNewest(uniqueAds));
       } catch (error) {
@@ -51,8 +51,8 @@ const SeeListings: React.FC = () => {
     };
 
     checkAuthenticationStatus();
-    fetchLastViewedAds(currentPage);
-  }, [navigate, userId, currentPage]);
+    fetchLastViewedAds(pageNumber);
+  }, [navigate, userId, pageNumber]);
 
   const renderAds = () => lastViewedAds.map((ad: any) => (
     <div key={ad.id} className='lastseen-product-view'>
@@ -62,9 +62,7 @@ const SeeListings: React.FC = () => {
     </div>
   ));
 
-  const handleNextPage = () => setCurrentPage((prev) => prev + 1);
-  const handlePreviousPage = () => currentPage > 1 && setCurrentPage((prev) => prev - 1);
-
+  
   return (
     <main>
       <div className='LastSeenPage'>
@@ -98,10 +96,33 @@ const SeeListings: React.FC = () => {
           </div>
         </section>
       </div>
-      <div className="pagination-controls">
-        <button onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button>
-        <span>Page {currentPage} of {totalPages}</span>
-        <button onClick={handleNextPage} >Next</button>
+      <div className='pagination'>
+        {/* <button
+                          onClick={() => this.setPage(pageNumber - 1)}
+                          disabled={pageNumber === 1}
+                      >
+                          Previous
+                      </button> */}
+
+        {pageNumber > 3 && <span>...</span>}
+
+        {Array.from({ length: Math.min(3, pageNumber) }, (_, index) => pageNumber - index).reverse().map(page => (
+          <button
+            key={page}
+            onClick={() => setpageNumber(page)}
+            className={pageNumber === page ? 'active-page' : ''}
+          >
+            {page}
+          </button>
+        ))}
+
+        <button
+          onClick={() => setpageNumber(pageNumber + 1)}
+          disabled={numberOfElements < 5}
+          className='pagination-next-btn'
+        >
+          <img src={next}></img>
+        </button>
       </div>
     </main>
   );

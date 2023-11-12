@@ -168,18 +168,18 @@ export function Navbar() {
               </NavLink> */}
               {/* <DropdownItem items={dropdownItems}/> */}
               <div className="centered-link-button" id="top-add-ad-button" >
-              <NavLink to="/add" >
+              <NavLink to="/add"  >
                 <img src={add}></img>
               </NavLink>
               <NavLink to="/add"  className='remove-style-from-link'>
                 
-                <div className="create-ad-navbar ">Подати оголошення</div>
+                <div className="create-ad-navbar " style={{padding: "20"}}>Подати оголошення</div>
                 
               </NavLink>
               </div>
              
               <div className="centered-link">
-                <NavLink to="/"  >
+                <NavLink to="/messenger"  >
                   <img src={message}></img> 
                 </NavLink>
                 <NavLink to="/"  >
@@ -200,42 +200,42 @@ export function Navbar() {
                   <img src={log_out}></img>
                     Logout
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/myads">
+                  <NavDropdown.Item  href="/myads">
                     <img src={g1}></img>
                     Мої оголошення
                   </NavDropdown.Item>
                   {/* <NavDropdown.Item  to="/add">
                     Create Listing
                   </NavDropdown.Item> */}
-                  <NavDropdown.Item  to="/sales">
+                  <NavDropdown.Item  href="/sales">
                   <img src={g2}></img>
                     Продажі
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/purchased">
+                  <NavDropdown.Item  href="/purchased">
                   <img src={g3}></img>
                     Покупки
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/rating">
+                  <NavDropdown.Item  href="/rating">
                   <img src={g4}></img>
                   Рейтинг та відгуки
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/favorite">
+                  <NavDropdown.Item  href="/favorite">
                   <img src={g5}></img>
                     Обране
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/seelistings">
+                  <NavDropdown.Item  href="/seelistings">
                   <img src={g6}></img>
                     Переглянуті оголошення
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/settings">
+                  <NavDropdown.Item  href="/settings">
                   <img src={g7}></img>
                     Налаштування
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/usefullInfo">
+                  <NavDropdown.Item  href="/usefullInfo">
                   <img src={g8}></img>
                     Корисна інформація
                   </NavDropdown.Item>
-                  <NavDropdown.Item  to="/support">
+                  <NavDropdown.Item  href="/support">
                   <img src={g9}></img>
                   Yom підтримка*
                   </NavDropdown.Item>
@@ -243,7 +243,7 @@ export function Navbar() {
                 </NavDropdown>
                 
               ) : (
-                <NavLink to="/login" className='remove-style-from-link'>
+                <NavLink to="/login" className='remove-style-from-link remove-style-from-link-login' >
                   Login
                 </NavLink>
               )}

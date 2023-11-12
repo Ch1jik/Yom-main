@@ -7,6 +7,9 @@ import '../components/Chat/styles/chatStyle.css';
 import ConversationRecipientBar from "../components/Chat/ConversationRecipientBar";
 import sendMessage from '../assets/images/send-message.png'
 import { useParams } from "react-router-dom";
+import { Conversation } from "../components/Chat/Interfaces/Conversation";
+import { ConversationRecipientBarItemProps } from "../components/Chat/Interfaces/Conversation";
+import { MessageProps } from "../components/Chat/Interfaces/Messages";
 
 interface MessengerProps {
   createConversationRecipient: string | null;
@@ -28,7 +31,7 @@ export const Messenger: React.FC = () => {
   const [selectedConvGuid, setConversationGuid] = useState<string>('');
   const [senderId, setSenderId] = useState<string>('');
   const [recipientId, setRecipientId] = useState<string>('');
-  const [messagesData, setMessages] = useState<Message[]>([]);
+  const [messagesData, setMessages] = useState<MessageProps[]>([]);
   const [isConversationBlocked, setIsBlocked] = useState<boolean>(false);
   const [messageText, setMessageText] = useState<string>('');
   const [selectedType, setSelectedType] = useState<string>("Buying");
@@ -133,13 +136,29 @@ export const Messenger: React.FC = () => {
       });
     connection?.invoke("RegisterClient", senderId);
   }
-  const buyingConversations = conversations.filter(
-    (conversation) => conversation.conversationType === "Buying"
-  );
+  const buyingConversations = conversations
+    .filter((conversation) => conversation.conversationType === "Buying")
+    .sort((a, b) => {
+      // Parse the string dates into Date objects
+      const dateA = new Date(a.lastMessageSentAt);
+      const dateB = new Date(b.lastMessageSentAt);
 
-  const saleConversations = conversations.filter(
-    (conversation) => conversation.conversationType === "Sale"
-  );
+      // Compare the Date objects
+      // Sort in descending order, modify the comparison for ascending order
+      return dateB.getTime() - dateA.getTime();
+    });
+
+  const saleConversations = conversations
+    .filter((conversation) => conversation.conversationType === "Sale")
+    .sort((a, b) => {
+      // Parse the string dates into Date objects
+      const dateA = new Date(a.lastMessageSentAt);
+      const dateB = new Date(b.lastMessageSentAt);
+
+      // Compare the Date objects
+      // Sort in descending order, modify the comparison for ascending order
+      return dateB.getTime() - dateA.getTime();
+    });
 
   const initializeChatConnection = () => {
     const newConnection = new HubConnectionBuilder()
@@ -162,7 +181,7 @@ export const Messenger: React.FC = () => {
 
     newConnection.on("ReceiveMessage", (message) => {
       console.log(message)
-      setMessages((messagesData) => [...messagesData, message as Message]);
+      setMessages((messagesData) => [...messagesData, message as MessageProps ]);
     });
 
     newConnection.on("UserOnline", (userId) => {
@@ -297,17 +316,17 @@ export const Messenger: React.FC = () => {
           <button
             className={`${selectedType === 'All' ? 'conversation-selected-button' : 'conversation-unselected-button'}`}
             onClick={() => setSelectedType('All')}>
-            All
+            Усі
           </button>
           <button
             className={`${selectedType === 'Buying' ? 'conversation-selected-button' : 'conversation-unselected-button'}`}
             onClick={() => setSelectedType('Buying')}>
-            Buying
+            Покупки
           </button>
           <button
             className={`${selectedType === 'Sale' ? 'conversation-selected-button' : 'conversation-unselected-button'}`}
             onClick={() => setSelectedType('Sale')}>
-            Sale
+            Продажі
           </button>
         </div>
         <div className="conversation-items">
@@ -341,7 +360,11 @@ export const Messenger: React.FC = () => {
                 </button>
               ))
               : (
-                conversations.map((conversation) => (
+                conversations.sort((a, b) => {
+                  const dateA = new Date(a.lastMessageSentAt);
+                  const dateB = new Date(b.lastMessageSentAt);
+                  return dateB.getTime() - dateA.getTime();
+                }).map((conversation) => (
                   <button className="conversation-button"
                     key={conversation.id}
                     onClick={() => handleConversationClick(conversation)}
@@ -375,7 +398,7 @@ export const Messenger: React.FC = () => {
             isMuted={conversationRecipientInfo.isMuted} />
         </div>
         <div className="messages">
-          <ChatMessages username={conversationRecipientInfo.userName} userAvatar={null} avatarPath={conversationRecipientInfo.avatarPath} messages={messagesData} isBlocked={isConversationBlocked} />
+          <ChatMessages messages={messagesData} isBlocked={isConversationBlocked} />
         </div>
         <div className="user-send">
           <input

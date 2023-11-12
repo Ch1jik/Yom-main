@@ -1,4 +1,4 @@
-interface Message {
+export interface MessageProps {
   id: number;
   senderId: string;
   messageText: string;
@@ -9,22 +9,19 @@ interface Message {
   username: string;
 }
 
-interface SendChatMessage {
+export interface SendChatMessage {
   senderId: string;
   messageText: string;
   messageStatus: MessageStatus;
 }
 
-enum MessageStatus {
+export enum MessageStatus {
   Sent = "Sent",
   Delivered = "Delivered",
   Read = "Read"
 }
 
-interface Messages {
-  messages: Message[];
+export interface Messages {
+  messages: MessageProps [];
   isBlocked: boolean;
-  avatarPath: string | null;
-  userAvatar: string | null;
-  username: string;
 }

@@ -41,23 +41,23 @@ const OrderPage: React.FC = () => {
     const [firstName, setFirstName] = useState<string>('');
     const [fatherName, setFatherName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
-    
+
     const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setLastName(e.target.value);
     };
-    
+
     const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFirstName(e.target.value);
     };
-    
+
     const handleFatherNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFatherName(e.target.value);
     };
-    
+
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPhone(e.target.value);
     };
-    
+
     const handleBuyClick = () => {
         if (product) {
             // Define both requests
@@ -78,7 +78,7 @@ const OrderPage: React.FC = () => {
             console.log(product.price);
             console.log('====================================');
             const paymentRequest = axios.post('https://localhost:7014/api/Payment', {
-                userId: product.userId, 
+                userId: product.userId,
                 paymentType: "AdPromotion",
                 paymentSystem: paymentMethod, // Assuming paymentMethod is 'ApplePay' or another valid value
                 paymentAmount: product.price, // Assuming product has a price property
@@ -90,21 +90,21 @@ const OrderPage: React.FC = () => {
                 // fatherName,
                 // phone
             });
-    
+
             // Send both requests
             axios.all([purchaseRequest, paymentRequest])
-            .then(axios.spread((purchaseResponse, paymentResponse) => {
-                console.log('Purchase response:', purchaseResponse.data);
-                console.log('Payment response:', paymentResponse.data);
-                setIsFeedbackPopupVisible(true);
-            }))
-            .catch(errors => {
-                // Handle errors for both requests
-                console.error('Error placing order:', errors.message);
-            });
+                .then(axios.spread((purchaseResponse, paymentResponse) => {
+                    console.log('Purchase response:', purchaseResponse.data);
+                    console.log('Payment response:', paymentResponse.data);
+                    setIsFeedbackPopupVisible(true);
+                }))
+                .catch(errors => {
+                    // Handle errors for both requests
+                    console.error('Error placing order:', errors.message);
+                });
         }
     };
-    
+
 
     const handleSubmitFeedback = () => {
         // Handle the submission of feedback here (e.g., save to a backend API)
@@ -154,119 +154,133 @@ const OrderPage: React.FC = () => {
                                 value="ukr"
                                 checked={deliveryCompany === "ukr"}
                                 onChange={(e) => setDeliveryCompany(e.target.value)}
-                                
+
                             />
                             <span>Укрпошта</span>
-                            </label>
+                        </label>
                     </div>
 
                     <h3>Спосіб оплати:</h3>
                     <div>
-                    <label className='radio-container'>
-                        <input 
-                            type="radio" 
-                            name="payment"
-                            value="GooglePay" 
-                            checked={paymentMethod === "GooglePay"}
-                            className='orderPage-radio-payment'
-                            onChange={(e) => setPaymentMethod(e.target.value)}
-                        />
-                        <span><img src={apple} alt="Apple"></img></span>
-                    </label>
-                    <label className='radio-container'>
-                        <input 
-                            type="radio" 
-                            name="payment"
-                            value="ApplePay" 
-                            className='orderPage-radio-payment'
-                            checked={paymentMethod === "ApplePay"}
-                            onChange={(e) => setPaymentMethod(e.target.value)}
-                        />
-                        <span><img src={google} alt="Google"></img></span>
-                    </label>
+                        <label className='radio-container'>
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="GooglePay"
+                                checked={paymentMethod === "GooglePay"}
+                                className='orderPage-radio-payment'
+                                onChange={(e) => setPaymentMethod(e.target.value)}
+                            />
+                            <span><img src={apple} alt="Apple"></img></span>
+                        </label>
+                        <label className='radio-container'>
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="ApplePay"
+                                className='orderPage-radio-payment'
+                                checked={paymentMethod === "ApplePay"}
+                                onChange={(e) => setPaymentMethod(e.target.value)}
+                            />
+                            <span><img src={google} alt="Google"></img></span>
+                        </label>
                     </div>
                     <div className='order-pyment-choice'>
                         <div>
                             <div className='order-type'>
-                                <input 
-                                    type="radio" 
+                                <input
+                                    type="radio"
                                     name="payment"
-                                    value="after" 
+                                    value="after"
                                     checked={paymentMethod === "after"}
                                     className=''
                                     onChange={(e) => setPaymentMethod(e.target.value)}
                                 />
-                            <label className='order-lable'>   
-                            Післяплата
-                            </label>
+                                <label className='order-lable'>
+                                    Післяплата
+                                </label>
                             </div>
                             <div className='order-type'>
-                                <input 
-                                    type="radio" 
+                                <input
+                                    type="radio"
                                     name="payment"
-                                    value="bycard" 
+                                    value="bycard"
                                     className=''
                                     checked={paymentMethod === "bycard"}
                                     onChange={(e) => setPaymentMethod(e.target.value)}
                                 />
                                 {/* <span><img src={apple} alt="Apple"></img></span> */}
                                 <label className='order-lable'>
-                                Надійна оплата карткою
+                                    Надійна оплата карткою
                                 </label>
                             </div>
                         </div>
                     </div>
                     <h3>Введіть ваші контактні дані:</h3>
                     {/* Contact details fields based on screenshot */}
-                    <div className='order-contact'> 
+                    <div className='order-contact'>
 
 
 
-                        <div className='order-contaact-inputs'> 
+                        <div className='order-contaact-inputs'>
                             <div >
                                 Прізвище:
-                                
+
                             </div>
                             <input type="text" name="lastname" className='order-contaact-input' value={lastName} onChange={handleLastNameChange} />
                             <div>
                                 Ім'я:
-                                
+
                             </div>
                             <input type="text" name="name" className='order-contaact-input' value={firstName} onChange={handleFirstNameChange} />
                         </div>
                         <div className='order-contaact-inputs'>
                             <div>
                                 По батькові:
-                                
+
                             </div>
-                            
+
                             <input type="text" name="fathername" className='order-contaact-input' value={fatherName} onChange={handleFatherNameChange} />
                             <div>
                                 Телефон:
-                                
+
                             </div>
                             <input type="number" name="phone" className='order-contaact-input' value={phone} onChange={handlePhoneChange} />
                         </div>
                     </div>
                 </div>
-                
+
                 <div className='orderPage-right-side'>
                     <div>
-                    {product?.photos && product.photos.length > 0 && (
-                        <div className='order-image'>
-                            <img src={product.photos[0]} alt="First Image" />
-                        </div>
-                    )}
-                                        
-                    {/* <img src={product.pathToPhotos} alt={product.title} />
-                    <p>{product.title}</p>
-                    <p>Price: {product.price}</p>
-                    Add more product details here based on your requirement */}
-                    <button className="orderPage-button-submit"onClick={handleBuyClick}>Оформити замовлення</button>
+                       
+                                <div className='productsByTypes-ads-blocks'>
+
+                                {product?.photos && product.photos.length > 0 && (
+                                        <div className='order-image'>
+                                            <img src={product.photos[0]} alt="First Image" />
+                                        </div>
+                                    )}
+
+                                
+
+                                <div className='productsByTypes-ads-description'>
+
+                                    
+
+                                    <h3 className='productsByTypes-ads-description-title'>{product?.title}</h3>
+                                    
+                                    <p className='productsByTypes-ads-description-price-order'>{product?.price}</p>
+
+
+                                </div>
+                                </div>
+                        
+                    
+                        <button className="orderPage-button-submit" onClick={handleBuyClick}>Оформити замовлення</button>
                     </div>
                 </div>
             </div>
-            {isFeedbackPopupVisible && product?.userId && <FeedbackPopup onClose={() => setIsFeedbackPopupVisible(false)} receiverUserId={product?.userId} adId={product?.id} photos={product?.photos}/>}
+            {isFeedbackPopupVisible && product?.userId && <FeedbackPopup onClose={() => setIsFeedbackPopupVisible(false)} receiverUserId={product?.userId} adId={product?.id} photos={product?.photos} />}
 
         </main>
     );

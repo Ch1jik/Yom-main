@@ -4,12 +4,11 @@ import { useTranslation } from 'react-i18next';
 import logo from '../assets/images/Group1000004232.png';
 import home_stroke from '../assets/images/home-stroke.svg';
 import free_pick from '../assets/images/Designed_by_freepik.svg';
-import group from '../assets/images/Group (2).svg';
-import vector from '../assets/images/Vector (3).svg';
+import group from '../assets/images/group_home.svg';
+import vector from '../assets/images/vector_home.svg'
 import top_button from '../assets/images/top-button.svg';
-import deposit from '../assets/images/depositphotos_235637632-stock-photo-young-handsome-man-wearing-red-removebg-preview 1.png';
-// Assuming the imported components have their own type definitions
-// import { Carousel } from 'react-responsive-carousel-nugget';
+import deposit from '../assets/images/deposit.png';
+
 import school_button from '../assets/images/home-school-button.svg'
 import 'react-responsive-carousel-nugget/lib/styles/carousel.min.css';
 import CarouselComp from '../components/layout/Carousel';
@@ -271,10 +270,10 @@ const responsive = {
         <div className="promo">
           <div className='promo-left'>
             <div className='promo-left-el'>
-              <h1 className='promo-left-el-title'>Майстер угод</h1>
-              <p className='promo-left-el-text'>Як продавати безпечно та вигідно?</p>
+              <h1 className='promo-left-el-title'>{t('home.promo.promo-left-el-title')}</h1>
+              <p className='promo-left-el-text'>{t('home.promo.promo-left-el-text')}</p>
               <div >
-                <Link className='' to={'/usercare'}><button className='promo-left-el-button'>Більше</button>
+                <Link className='' to={'/usercare'}><button className='promo-left-el-button'>{t('home.promo.promo-left-el-button')}</button>
                 </Link>
               </div>
               <div className='promo-left-el-image'>
@@ -283,12 +282,12 @@ const responsive = {
             </div>
             <div className='promo-left-elements'>
               <div className='promo-left-el-1'>
-              Почни продавати
+              {t('home.promo.promo-left-el-1')}
               </div>
               <div className='promo-left-el-2'>
                 <div className='promo-left-el-2-top'>
                   <div className='promo-left-el-2-text'>
-                  <p> Все,щоб бути в topi :) </p>
+                  <p> {t('home.promo.promo-left-el-2-text')} </p>
                   
                   </div>
                   <img className='promo-left-el-2-img1' src={logo}></img>
@@ -301,9 +300,9 @@ const responsive = {
             <div className='promo-right-elements'>
               <div className='el-3'>
                 <div className='el-3-description'>
-                  <p className='el-3-title'>Підготуйся вчасно!</p>
-                  <p className='el-3-text'> Тиждень знижок</p>
-                  <Link to={''} className='remove-style-from-link el-3-button'>Перейти</Link>
+                  <p className='el-3-title'>{t('home.promo.el-3-title')}</p>
+                  <p className='el-3-text'>{t('home.promo.el-3-text')}</p>
+                  <Link to={''} className='remove-style-from-link el-3-button'>{t('home.promo.el-3-button')}</Link>
                 </div>
                 <div className='el-3-image'>
                   {/* <img></img> */}
@@ -313,14 +312,12 @@ const responsive = {
 
                 <div className='el-2-1' id='el-2-blue'>
                   <img src={home_stroke}></img>
-                    <div className='el-2-text1'>КУПУЙ БЕЗПЕЧНО</div>
+                    <div className='el-2-text1'>{t('home.promo.el-2-text1')}</div>
                 </div>
                 <div className='el-2-2' id='el-2-lightblue'>
                   <div className='el-2-2-description'>
-
-                  
-                  <div className='el-2-title'>Плануй сніданок</div>
-                  <div className='el-2-text2'>Підбір товарів</div>
+                  <div className='el-2-title'>{t('home.promo.el-2-title')}</div>
+                  <div className='el-2-text2'>{t('home.promo.el-2-text2')}</div>
                   </div>
                 <img src={free_pick}></img>
                 </div>
@@ -331,7 +328,7 @@ const responsive = {
               <img src={group}></img>
               </div>
               <div className='promo-right-el-button'>
-                <button>Приєднуйся до нас!</button>
+                <button>{t('home.promo.promo-right-el-button')}</button>
               </div>
               <div className='promo-right-el-bottom-image'>
                 <img src={vector}></img>
@@ -342,7 +339,6 @@ const responsive = {
         <div className="last-seen">
             <h3>{t('home.warrantyTechnics.title')}</h3>
             <h5>{t('home.warrantyTechnics.subtitle')} </h5>
-          
             
             {/*  */}
             <Carousel responsive={responsive}>
@@ -378,6 +374,7 @@ const responsive = {
             
           
         </div>
+
         {/* <div className="everything">
         <h3>{t('home.everything.title')}</h3>
           <h5>{t('home.everything.subtitle')} </h5>
@@ -436,18 +433,18 @@ const responsive = {
           <div className='toys-section'>
             <div className='toys-el'>
                 <div className='toy-image'></div>
-                <div>Малюк Йодо Mattel Star Wars The Child </div>
-                <div>1 300  грн</div>
+                <div className='toys-el-title'>Малюк Йодо Mattel Star Wars The Child </div>
+                <div className='toys-el-price'>1 300  грн</div>
             </div>
             <div className='toys-el'>
             <div className='toy-image2'></div>
-            <div>Стражи галактики Ракета та Груд</div>
-                <div>990  грн</div>
+            <div className='toys-el-title'>Стражи галактики Ракета та Груд</div>
+                <div className='toys-el-price'>990  грн</div>
             </div>
             <div className='toys-el'>
             <div className='toy-image3'></div>
-            <div>Малюк Йода Star Wars із серіалу Зоряні війни </div>
-                <div>1 699 грн</div>
+                <div className='toys-el-title'>Малюк Йода Star Wars із серіалу Зоряні війни </div>
+                <div className='toys-el-price'>1 699 грн</div>
             </div>
           </div>
           </div>
@@ -463,7 +460,6 @@ const responsive = {
       )}
 
     </div>
-    
   </main>
   )
 }

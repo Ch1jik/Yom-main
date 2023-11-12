@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+.admin-banners {
+    width: 100%;
+    overflow-y: hidden;
+    padding: 1em;
+}
+
+.admin-banners-buttons {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.admin-banners-buttons button {
+    padding: 8px 12px;
+    margin-right: 2%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-banners-buttons button:hover {
+    opacity: 0.9;
+}
+
+.admin-banners-buttons .approve {
+    background-color: #28a745;
+    /* green */
+    color: white;
+}
+
+.admin-banners-buttons .reject {
+    background-color: #dc3545;
+    /* red */
+    color: white;
+}
+
+.admin-banners-buttons .delete {
+    background-color: #ffc107;
+    /* yellow */
+    color: white;
+}
+
+.admin-banners-buttons .review {
+    background-color: #007bff;
+    /* blue */
+    color: white;
+}
+
+.admin-banner-info-column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    width: 180px;
+    height: 150px;
+}
+
+.admin-banner-info-column> :first-child {
+    font-weight: bold;
+}
+
+.admin-banner-info {
+    display: flex;
+    width: 70%;
+}
+
+.admin-banner-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    padding: 5%;
+}
+
+.admin-banners-table {
+    position: relative;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.admin-banners-table thead {
+    background-color: #1684EA;
+    border: none;
+    color: white;
+}
+
+.admin-banners-table td {
+    text-align: center;
+    color: #0F0F0F;
+    font-size: 16px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word
+}
+
+.admin-banners-table th {
+    text-align: center;
+    /* padding: .300em; */
+    font-size: 18px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+    height: 50px;
+}
+
+.admin-banners-table th:last-child {
+    text-align: center;
+    /* padding: .300em; */
+    font-size: 18px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+    height: 50px;
+    width: 30%;
+}
+
+.admin-banners-table tr {
+    background-color: #f8f8f8;
+    padding: .25em;
+}
+
+.admin-banners-table a {
+    text-decoration: none;
+    background-clip: text;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+}
+
+.admin-banners-table a:hover {
+
+    background-position: 0 100%;
+}
+
+.admin-banners-table tr:nth-child(odd) {
+    background-color: rgba(22, 132, 234, 0.30);
+}
+
+.admin-banners h2 {
+    padding: 1%;
+    color: #252525;
+    font-size: 30px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word
+}
+
+
+@media screen and (max-width: 1380px) {
+
+    .admin-banners-buttons {
+        width: 100%;
+        min-height: 150%;
+    }
+
+    .admin-banners-table th {
+        width: 9%;
+    }
+
+    .admin-banners-table th:last-child {
+        width: 15%;
+    }
+
+    .admin-banners-buttons button {
+        padding: 8px 12px;
+        margin-right: 2%;
+        margin-top: 2%;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .admin-banners-buttons button:last-child {
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .admin-banners-table {
+        border: 0;
+    }
+
+    .admin-banners-table caption {
+        font-size: 1.3em;
+    }
+
+    .admin-banners-table thead {
+        background-color: #1684EA;
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .admin-banners-table tr {
+        margin-bottom: .200em;
+    }
+
+    .admin-banners-table td {
+        display: block;
+        font-size: .8em;
+        text-align: right;
+        margin-right: 4%;
+    }
+
+    .admin-banners-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .admin-banners-table td:last-child {
+        border-bottom: 0;
+    }
+}

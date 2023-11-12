@@ -3,7 +3,6 @@ const TOKEN_KEY = 'idsughWIEUFGHJBDSJFSDFBwskejfbsd1243E[p[';
 
 export const getToken = (): string | null => {
   return sessionStorage.getItem(TOKEN_KEY);
-  // return "1111";
 };
 
 export const setToken = (token: string): void => {

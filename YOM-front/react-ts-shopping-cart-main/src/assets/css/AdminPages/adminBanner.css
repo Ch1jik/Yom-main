@@ -1,0 +1,432 @@
+.adminBanner-link {
+    overflow: hidden;
+    width: 100%;
+    padding-right: 1%;
+    max-width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 42px;
+    border: 1px solid #ccc;
+}
+
+.adminBanner-description,
+.adminBanner-description select {
+    width: 100%;
+    padding-right: 1%;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.adminBanner-description[type="text"]:focus,
+.adminBanner-description select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.adminBanner-input,
+.adminBanner-input select {
+    display: flex;
+    width: 100%;
+    padding-right: 1%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px !important;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.adminBanner-form-group-personal {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 2%;
+}
+
+.adminBanner-form-group-personal label .adminBanner-photo-preview label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.personal-part {
+    max-width: 50%;
+}
+
+.personal-part label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.banner-form-container {
+    height: 100%;
+    padding: 3rem;
+    flex: 1;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 5rem;
+    justify-content: center;
+}
+
+.adminBanner-form-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    flex-direction: column;
+}
+
+.adminBanner-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.adminBanner-input[type="file"] {
+    display: block !important;
+    width: 70%;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.adminBanner-input[type="text"]:focus,
+.adminBanner-input select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.create-button {
+    background-color: #5D7DF3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-button:hover {
+    background-color: #0056b3;
+}
+
+.adminBanner-photo-preview {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-select {
+    background-color: white;
+    box-shadow: 0px 4px 20px rgba(164, 159, 159, 0.25);
+    border-radius: 7px;
+
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+
+    /* reset */
+
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc);
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+}
+
+.admin-select:after {
+    justify-self: end;
+}
+
+.admin-select:hover {
+    background-color: white;
+}
+
+.admin-select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+.banner-form-container h2 {
+    padding-bottom: 2%;
+}
+
+.admin-banner-size-main-title {
+    margin: 20px;
+    color: #252525;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 149.023%;
+    /* 29.805px */
+}
+
+.admin-banner-size-main {
+    width: 100%;
+}
+
+.admin-banner-size-setion {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 5%
+}
+
+.admin-banner-size {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 3% 3% 3% 0%;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.admin-banner-custom-radio1 {
+    width: 90%;
+    height: calc(30vh - 100px);
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(164, 159, 159, 0.25);
+    margin: 10px;
+    position: relative;
+}
+
+
+.admin-banner-custom-radio1 .admin-banner-custom-radio-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 8px;
+    transition: all 300ms ease;
+}
+
+.admin-banner-custom-radio1 input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+.admin-banner-custom-radio1 label {
+    color: #1C1C1C;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 149.023%;
+    /* 29.805px */
+}
+
+.admin-banner-custom-radio2 {
+    width: 45%;
+    height: calc(25vh - 100px);
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(164, 159, 159, 0.25);
+    margin-left: 2%;
+    position: relative;
+    left: 3%;
+}
+
+
+.admin-banner-custom-radio2 .admin-banner-custom-radio-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    border-radius: 8px;
+    transition: all 300ms ease;
+}
+
+.admin-banner-custom-radio2 input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+.admin-banner-custom-radio2 label {
+    color: #1C1C1C;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 149.023%;
+    /* 29.805px */
+}
+
+.admin-banner-custom-radio3 {
+    width: 32%;
+    height: calc(35vh - 100px);
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(164, 159, 159, 0.25);
+    margin-top: 5%;
+    left: 3%;
+    position: relative;
+}
+
+
+.admin-banner-custom-radio3 .admin-banner-custom-radio-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    border-radius: 8px;
+    transition: all 300ms ease;
+}
+
+.admin-banner-custom-radio3 input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+.admin-banner-custom-radio3 label {
+    color: #1C1C1C;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 149.023%;
+    /* 29.805px */
+}
+
+.admin-banner-custom-radio4 {
+    height: calc(20vh - 100px);
+    width: 65%;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(164, 159, 159, 0.25);
+    position: relative;
+}
+
+
+.admin-banner-custom-radio4 .admin-banner-custom-radio-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    border-radius: 8px;
+    transition: all 300ms ease;
+}
+
+.admin-banner-custom-radio4 input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+.admin-banner-custom-radio4 label {
+    color: #1C1C1C;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 149.023%;
+    /* 29.805px */
+}
+
+input:checked+.admin-banner-custom-radio-tile {
+    border-radius: 10px;
+    border: 2px solid #006B60;
+    background: #FFF;
+    /* transform: scale(1.1); */
+}
+
+input:hover+.admin-banner-custom-radio-tile {
+    box-shadow: 0 0 12px black;
+}
+
+.admin-banner-size-description{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.admin-banner-size-setion-description {
+    width: 60%;
+    height: 35%;
+    flex-shrink: 0;
+    color: #252525;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 137.5%;
+    /* 27.5px */
+}
+
+.admin-banner-size-setion-tutorial {
+    width: 60%;
+    height: 25%;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: #006B60;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 137.523%;
+    /* 19.253px */
+    letter-spacing: 0.07px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

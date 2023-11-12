@@ -93,6 +93,10 @@ const FeedbackPopup: React.FC<FeedbackPopupProps> = ({ onClose, receiverUserId,a
             console.error('Error submitting feedback:', error);
         });
     };
+    const handleCloseFeedback=()=>{
+        onClose();
+        navigate('/myads');
+    }
     return (
         <div className='feedback-popup feedback-popup-container'>
             <div className='feedback-popup feedback-popup-section'>
@@ -134,7 +138,12 @@ const FeedbackPopup: React.FC<FeedbackPopupProps> = ({ onClose, receiverUserId,a
                     onChange={(e) => setFeedback(e.target.value)}
                     className='feedback-popup feedback-popup-textarea' 
                 />
-                <button onClick={handleSubmitFeedback} className='feedback-popup feedback-popup-submit-btn'>Лишити відгук</button>
+                <div className='feedback-popup-submit-btns'>
+
+                
+                    <button onClick={handleSubmitFeedback} className='feedback-popup feedback-popup-submit-btn'>Лишити відгук</button>
+                    <button onClick={handleCloseFeedback} className='feedback-popup feedback-popup-close-btn'>Закрити</button>
+                </div>
             </div>
         </div>
     );

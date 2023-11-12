@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Message from "./Message";
+import { Messages } from "./Interfaces/Messages";
 
 
-export const ChatMessages: React.FC<Messages> = ({ messages, isBlocked, avatarPath, userAvatar, username }) => {
+export const ChatMessages: React.FC<Messages> = ({ messages, isBlocked }) => {
 
     if (!messages) {
         return <div>No messages available</div>;
@@ -21,9 +22,9 @@ export const ChatMessages: React.FC<Messages> = ({ messages, isBlocked, avatarPa
                     senderId={message.senderId}
                     messageStatus={message.messageStatus}
                     sentAt={message.sentAt}
-                    avatarPath={avatarPath}
-                    userAvatar={userAvatar}
-                    username={username} />
+                    avatarPath={message.avatarPath}
+                    userAvatar={message.userAvatar}
+                    username={message.username} />
             ))}
         </div>
     );

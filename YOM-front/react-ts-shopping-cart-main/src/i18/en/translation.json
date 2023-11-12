@@ -8,6 +8,20 @@
       "title": "You Viewed",
       "subtitle": "Last viewed products"
     },
+    "promo":{
+      "promo-left-el-title":"Master of deals",
+      "promo-left-el-text":"How to sell safely and profitably?",
+      "promo-left-el-button":"More",
+      "romo-left-el-1":"Start selling",
+      "promo-left-el-2-text":"Everything to be in top :)",
+      "el-3-title":"Get ready on time!",
+      "el-3-text":"Discount week",
+      "el-3-button":"Go to",
+      "el-2-text1":"BUY SAFELY",
+      "el-2-title":"Plan breakfast",
+      "el-2-text2":"Selection of goods",
+      "promo-right-el-button":"Join us!"
+    },
     "warrantyTechnics": {
       "title": "Technics with Warranty",
       "subtitle": "Refurbished technics with seller warranty"
@@ -55,13 +69,41 @@
   },
   "about": {
     "banner": {
+      "text": "We are committed to making access to all goods and services in your city as easy and convenient as possible for everyone",
       "title": "We are Yom",
-      "description": "Our site's goal is to make online trading as accessible and simple as possible for every user. We strive to create a platform where you can easily place your ads and find the best offers for goods and services in your city. Our goal is to provide you with a convenient and efficient tool for purchases and sales so you can find everything you need and make deals with ease. Your comfort and satisfaction from using our website is our highest goal."
+      "description": "Our site's goal is to make online trading as accessible and simple as possible for every user. We strive to create a platform where you can easily place your ads and find the best offers for goods and services in your city. Our goal is to provide you with a convenient and efficient tool for purchases and sales so you can find everything you need and make deals with ease. Your comfort and satisfaction from using our website is our highest goal.",
+      "button":"Read more"
+    },
+    "middle":{
+      "left":{
+        "title":"3000 employees",
+        "text":"Our team is a team of competent specialists who join forces to achieve success in all our projects and tasks."
+      },
+      "middle":{
+        "title":"We are with more than 10 countries of the world ",
+        "text":"We work in different parts of the world to bring the best solutions and services to our customers"
+      },
+      "right":{
+        "title":" 320 million users",
+        "text":"Our community has over 320 million active users and is growing."
+      }
     },
     "bottom": {
       "text": "We are a young and ambitious team",
       "description": "Our experienced team develops the best programs for users for convenience and efficiency.",
-      "followUs": "Follow us on Instagram"
+      "followUs": "Follow us on Instagram",
+      "shareWithUs": "Don't delay, share something useful with us!",
+      "shareWithUs2":"If you have any questions or suggestions, we are always in touch",
+      "button_text": "Share"
+    },
+    "buttonFollow": {
+      "button_text": "Go",
+      "link": ""
+    },
+    "buttonShare": {
+      "button_text": "Share",
+      "link": ""
+
     }
   },
   "promotion": {
@@ -95,7 +137,7 @@
               "text1":"Increased visibility",
               "text2":"Top ad for 3 days"
             },
-            "price1": "15 грн",
+            "price1": "15 hrn",
             "id1": "Express",
           
             
@@ -104,7 +146,7 @@
               "text1":"Increased Visibility",
               "text2":"Top ad for 8 days"
             },
-            "price2": "120 грн",
+            "price2": "120 hrn",
             "id2": "Blitz",
         
             
@@ -115,7 +157,7 @@
               "text3":"Premium Highlighting",
               "text4":"Dedicated ad space for 10 days"
             },
-            "price3": "482 грн",
+            "price3": "482 hrn",
             "id3": "Turbo"
           
           }
@@ -124,6 +166,7 @@
     "promotion_main": {
       "promotion_ads": {
         "description": "Benefits of Banner Advertising",
+        "description2": "How banners help attract the attention of your audience and increase the conversion of your advertising campaigns",
         "advantages": {
          
             
@@ -153,7 +196,9 @@
     },
     "promotion_tarifs": {
       "description": "Banner advertising rates",
+      "description2": "Choose the best plan for your visibility and sales success",
       "tarifs_info": {
+        "paket":"Standard ",
         "title1": "",
         "description1": {
           "text1": "Placement of a banner on your homepage or main website page.",
@@ -163,7 +208,7 @@
           "text5": "Opportunity to change the banner once a month without an additional fee."
         },
         "price1": "30$/month",
-        "title2": "",
+        "title2": "Professional",
         "description2": {
           "text1": "Placement of a banner on a greater number of sectional pages (2 of your choice).",
           "text2": "Priority banner placement above banners of other users on selected pages.",
@@ -172,7 +217,7 @@
           "text5": "Opportunity to change the banner twice a month without an additional fee."
         },
         "price2": "30$/month",
-        "title3": "",
+        "title3": "Premium",
         "description3": {
           "text1": "All the advantages of the \"Standard\" and \"Professional\" tariffs.",
           "text2": "Exclusive banner placement on the homepage.",
@@ -200,11 +245,11 @@
     },
     "promotion_request_banner": {
       "text": {
-        "title": "If the advertisement is ready",
+        "title": "If the advertisement is already ready",
         "description": "Please fill out the form to place your advertisement. Fields marked with * are mandatory."
       },
       "button": {
-        "text": "Place",
+        "button_text": "Place",
         "link": ""
       }
     },
@@ -214,8 +259,935 @@
       "description": {
         "text1": "Always ready to help you",
         "text2": "We will not only help you create an attractive advertising banner, but also advise which tariff is best for your business.",
-        "button": "Connect with the advertising department"
+        "button_text": "Connect with the advertising department"
       }
     }
+  },
+
+  "userCare_banner": {
+    "text": {
+      "title": "How to place an advertisement correctly?"
+    },
+    "button": {
+      "button_text": "Place an advertisement",
+      "link": ""
+    },
+    "button1": {
+      "button_text1": "Watch the video tutorial",
+      "link1": ""
+    }
+  },
+  "benefits_banner": {
+    "benefits-section": {
+      "descriptions": {
+        "text1": "2/3 of our readers improved their sales skills",
+        "text2": "50% are published by our experts and analysts",
+        "text3": "x5 learn how our blog has become a catalyst for revenue growth for our readers"
+      }
+    }
+  },
+  "bar_UserCare": {
+    "tabs_UserCare": {
+      "tab1": "Everything",
+      "tab2": "Real Estate",
+      "tab3": "Business",
+      "tab4": "News",
+      "tab5": "Health",
+      "tab6": "For Entrepreneurs",
+      "tab7": "Work at Yom",
+      "tab8": "Promotions"
+    }
+  },
+  "userCare_blocks": {
+    "block1": {
+      "title1": "Security",
+      "description1": "How to protect yourself from scammers: reliable protection of your property",
+      "text1": "The only armed security service in Ukraine that has permission to carry and use weapons. Protection of apartments, and objects, physical security..."
+    },
+    "block2": {
+      "title2": "News",
+      "description2": "Tips for active sales: TOP 7 tips from experts",
+      "text2": "Career is a constant movement forward, which can be exciting and at the same time raise questions. How to unlock potential."
+    },
+    "block3": {
+      "title3": "News",
+      "description3": "Board games for the company: entertainment and development together!",
+      "text3": "Do you like spending time in the company of friends or relatives? Board games are the perfect way to have fun together, especially if..."
+    },
+    "block4": {
+      "title4": "News",
+      "description4": "Tips for creative thinking: how to develop imagination",
+      "text4": "The article considers general approaches to the study of the place of imagination in creative activity: creative imagination, trance interval, as well as.."
+    },
+    "block5": {
+      "title5": "Health",
+      "description5": "Gua sha massage: benefits, diagrams and techniques, types of scraper",
+      "text5": "Gua sha is a type of massage that is performed with a special smooth scraper. This tool has come..."
+    },
+    "block6": {
+      "title6": "News",
+      "description6": "Tips for active sales: TOP 7 tips from experts",
+      "text6": "Career is a constant movement forward, which can be exciting and at the same time raise questions. How to unlock potential."
+    }
+  },
+  "pfaq_input_email": {
+    "text": {
+      "title": "Stay informed with useful tips and new products",
+      "description": "Subscribe to the mailing list of useful resources"
+    },
+    "button": {
+      "input_placeholder": "Enter your email address",
+      "button_text": "Subscribe",
+      "link": ""
+    }
+  },
+  "userCare_blocks2": {
+    "block1": {
+      "title1": "News",
+      "description1": "No waste life: how to start sorting waste and reduce...",
+      "text1": "The only armed security service in Ukraine that has permission to carry and use weapons. Protection of apartments, and objects, physical security..."
+    },
+    "block2": {
+      "title2": "Tips",
+      "description2": "Tips for active sales: TOP 7 tips from experts",
+      "text2": "Career is a constant movement forward, which can be exciting and at the same time raise questions. How to unlock potential."
+    },
+    "block3": {
+      "title3": "Security",
+      "description3": "Board games for the company: entertainment and development together!",
+      "text3": "Do you like spending time in the company of friends or relatives? Board games are the perfect way to have fun together, especially if..."
+    }
+  },
+  "UserCare_faq": {
+    "text": {
+      "title": "FAQ"
+    },
+    "button": {
+      "input_placeholder": "I have a question...",
+      "button_text": "Search",
+      "link": ""
+    }
+  },
+  "serCare_rules_blocks": {
+    "text": {
+      "description": "Account and data issues",
+      "description2": "Payment problems",
+      "description3": "How delivery works at Yom"
+    }
+  },
+  "UserCare_bottom_tab_bar": {
+    "UserCare_bottom_tabs": {
+      "tab1": "RULES FOR SELLERS",
+      "tab2": "ANNOUNCEMENTS",
+      "tab3": "YOM SHOPPING GUIDE",
+      "tab4": "WEBSITE USAGE RULES",
+      "tab5": "PROMOTIONS",
+      "tab6": "PRIVACY POLICY"
+    },
+    "text": {
+      "title1": "Posting an announcement",
+      "description1": {
+        "text1": "2.1. Announcements are to be placed in the corresponding categories and sections of the Site. It is not permitted to place an announcement in a category that does not correspond to the content and essence of the announcement.\n2.2. The announcement posted on the Site must contain: The title of the Announcement, which reflects the brief content and essence of the Announcement; the information should be complete and truthful. It is prohibited to display contact information in the title of the announcement, in the product description in the Announcement, and on the photo demonstrating the product in the Announcement.\n2.2.2. Description of the product (service, work), its characteristics. At the same time, details of ordering the product from the Announcement can be communicated and agreed upon between the User and the Buyer independently in a separate communication chat.\n2.2.3. The price of the product/service. The price should be indicated in the national currency of Ukraine - hryvnia.\n2.2.4. When posting an announcement with a product offer, the User is obliged to upload at least 1 (one) real photo with images of this product. Photos demonstrating the product or service offered by the User for sale must correspond to the title and text of the Announcement. The announcement must contain real photos of the subject of the Announcement, corresponding to the specific unit of the product being sold.\n2.2.5. Reliable information about the User - the author of the Announcement, including contact information (name, address, e-mail, telephone). Contact data are specified in the form of submitting an announcement in a special field, they are not displayed in the Announcement (except for the telephone number and name/title), but are used for communication with the User through a special contact form."
+      },
+      "title2": "Import of announcements",
+      "title3": "How to write an announcement correctly",
+      "title4": "Why my announcement is not being published"
+    }
+  },
+  "UserCare_rules_banner": {
+    "text": {
+      "title": "CONTACT US"
+    },
+    "button": {
+      "input_placeholder1": "Your name",
+      "input_placeholder2": "Your email address",
+      "input_placeholder3": "",
+      "button_text": "Send",
+      "link": ""
+    }
+  },
+  
+
+  "request_banner": {
+    "text": {
+      "title1": "Creating an advertising banner",
+      "input_placeholder1": "Insert the URL of your company",
+      "description1": "Company name *",
+      "input_placeholder2": "Volti",
+      "description2": "Description *",
+      "input_placeholder3": "We are one of the retail chains in Ukraine selling electronics and home appliances. We offer our customers several tens of thousands of items of audio/video and digital equipment, small and large home appliances, media goods, accessories.",
+      "description3": "Your contact details *",
+      "text1": "Email address",
+      "input_placeholder4": "Aleksandra",
+      "text2": "Phone number",
+      "input_placeholder5": "+38 098 027 32 92",
+  
+      "title2": "Designing the advertising banner",
+      "input_placeholder6": "Enter the banner headline or keywords that match the theme of your advertisement",
+  
+      "description4": "Available sizes *",
+      "text3": "Check if your banner has the correct web resolution (72 dpi). Files are accepted in JPG or PNG format.",
+      "text4": "Choose the size of the banner you will be uploading. Tap on it to proceed to file upload.",
+  
+      "description6": "Banner preview"
+    },
+    "button": {
+      "button_text1": "Back",
+      "link1": "",
+      "button_text2": "Next",
+      "link2": ""
+    }
+  },
+  
+
+  "promotion_tarifs_frame182": {
+    "description": "Select tariff and payment",
+    "tarifs_info": {
+      "title1": "Standard Package",
+      "description1": {
+        "text1": "Placement of the banner on the homepage or the main page of the website.",
+        "text2": "Placement of the banner on one of the sectional pages (of your choice).",
+        "text3": "Display frequency: 1000 impressions per month.",
+        "text4": "Reports on website visits and the click-through rate for the banner.",
+        "text5": "Possibility to change the banner once a month without additional charge."
+      },
+      "price1": "30$/month",
+  
+      "title2": "Professional Package",
+      "description2": {
+        "text1": "Placement of the banner on a larger number of sectional pages (2 of your choice).",
+        "text2": "Priority placement of the banner above other users' banners on the selected pages.",
+        "text3": "Display frequency: 2000 impressions per month.",
+        "text4": "Display frequency: 2000 impressions per month.",
+        "text5": "Possibility to change the banner twice a month without additional charge."
+      },
+      "price2": "50$/month",
+  
+      "title3": "Premium Package",
+      "description3": {
+        "text1": "All the advantages of \"Standard\" and \"Professional\" tariffs.",
+        "text2": "Exclusive placement of the banner on the homepage.",
+        "text3": "Access to the site's email list for advertising.",
+        "text4": "Display frequency: 5000 impressions per month.",
+        "text5": "Possibility to change the banner three times a month without additional charge."
+      },
+      "price3": "70$/month"
+    },
+    "title4": "Payment Method",
+    "title5": "Secure card payment",
+    "description4": "Online payment via Yom service. We do not charge a commission",
+    "text_image": "CARD NUMBER",
+  
+    "button": {
+      "button_text1": "Back",
+      "link1": "",
+      "button_text2": "Pay 2550 UAH",
+      "link2": ""
+    }
+  },
+  
+
+  "login_page": {
+    "text": {
+      "title1": "Register",
+      "title2": "Log In",
+      "title3": "Welcome Back",
+      "description1": "Please enter your details.",
+      "title4": "Login",
+      "input_placeholder1": "",
+      "title5": "Password",
+      "input_placeholder2": "",
+      "checkbox": "Remember for 30 days",
+      "description2": "Forgot password"
+    },
+    "button": {
+      "button_text1": "Log In",
+      "link1": "",
+      "description3": "or log in with"
+    }
+  },
+  "create_account_page": {
+    "text": {
+      "title1": "Register",
+      "title2": "Log In",
+      "title3": "Create Account",
+      "description1": "Please enter your details.",
+      "title4": "First Name",
+      "input_placeholder1": "",
+      "title5": "Last Name",
+      "input_placeholder2": "",
+      "title6": "Email Address",
+      "input_placeholder3": "",
+      "title7": "Password",
+      "input_placeholder4": "",
+      "title8": "Enter Password Again",
+      "input_placeholder5": ""
+    },
+    "button": {
+      "button_text1": "Register",
+      "link1": ""
+    }
+  },
+  "login_page_error": {
+    "text": {
+      "title1": "Register",
+      "title2": "Log In",
+      "title3": "Welcome Back",
+      "description1": "Please enter your details.",
+      "error_description": "Incorrect login or password",
+      "title4": "Login",
+      "input_placeholder1": "",
+      "title5": "Password",
+      "input_placeholder2": "",
+      "checkbox": "Remember for 30 days",
+      "description2": "Forgot password"
+    },
+    "button": {
+      "button_text1": "Log In",
+      "link1": "",
+      "description3": "or log in with"
+    }
+  },
+  
+  
+  "categories_on_hover": {
+    "bar_categories": {
+      "tabs_categories": {
+        "tab1": "Electronics",
+        "tab2": "Hobbies and Sports",
+        "tab3": "Clothing, Shoes, and Accessories",
+        "tab4": "Children's Goods",
+        "tab5": "Beauty and Health",
+        "tab6": "Home and Garden",
+        "tab7": "Transport",
+        "tab8": "Construction and Repair",
+        "tab9": "Equipment and Raw Materials",
+        "tab10": "Animals and Plants",
+        "tab11": "Real Estate",
+        "tab12": "Jobs, Business, and Services"
+      },
+      "blocks_categories": {
+        "block1": {
+          "title1": "Women's Clothing",
+          "description1": "Outerwear",
+          "description2": "Blouses and Shirts",
+          "description3": "Pants and Jeans",
+          "description4": "Jumpsuits and Shorts",
+          "description5": "Suits and Jackets",
+          "description6": "Pajamas, Robes",
+          "text1": "See More"
+        },
+        "block2": {
+          "title1": "Women's Shoes",
+          "description1": "Ballet Flats",
+          "description2": "Boots, Ankle Boots",
+          "description3": "Sneakers, Athletic Shoes",
+          "description4": "Orthopedic Shoes",
+          "description5": "Boots, Half-Boots",
+          "description6": "Heels",
+          "text1": "See More"
+        },
+        "block3": {
+          "title1": "Accessories",
+          "description1": "Headwear",
+          "description2": "Umbrellas",
+          "description3": "Wallets and Cardholders",
+          "description4": "Glasses",
+          "description5": "Gloves, Mittens",
+          "description6": "Belts, Suspenders",
+          "text1": "See More"
+        },
+        "block4": {
+          "title1": "Men's Clothing",
+          "description1": "Outerwear",
+          "description2": "Robes and Pajamas",
+          "description3": "T-Shirts and Polos",
+          "description4": "Sportswear",
+          "description5": "Shirts",
+          "description6": "Underwear, Socks, and Swimwear",
+          "text1": "See More"
+        },
+        "block5": {
+          "title1": "Men's Shoes",
+          "description1": "Boots",
+          "description2": "Dress Shoes",
+          "description3": "Sneakers, Athletic Shoes",
+          "description4": "Orthopedic Shoes",
+          "description5": "Rubber Boots",
+          "description6": "Sandals, Boots, Flip Flops",
+          "text1": "See More"
+        },
+        "block6": {
+          "title1": "Special Clothing and Uniforms",
+          "description1": "Work Special Clothing",
+          "description2": "Medical Clothing",
+          "description3": "Reflective Vests",
+          "description4": "Raincoats",
+          "description5": "Work Shoes",
+          "description6": "Other",
+          "text1": "See More"
+        },
+        "block7": {
+          "title1": "Wedding Apparel",
+          "description1": "Wedding Apparel",
+          "description2": "Wedding Accessories"
+        },
+        "block8": {
+          "title1": "Phones and Accessories",
+          "description1": "Phone Parts",
+          "description2": "Phone Accessories",
+          "description3": "Mobile Phones, Smartphones",
+          "description4": "SIM Cards, Tariffs",
+          "description5": "Walkie-talkies and Other Phones",
+          "text1": "See More"
+        },
+        "block9": {
+          "title1": "Audio Equipment",
+          "description1": "Acoustic Systems",
+          "description2": "Microphones",
+          "description3": "Vinyl Players",
+          "description4": "Audio Mixers",
+          "description5": "Radios",
+          "description6": "MP3 Players",
+          "text1": "See More"
+        },
+        "block10": {
+          "title1": "Laptops and Accessories",
+          "description1": "Laptops",
+          "description2": "Laptop Parts",
+          "description3": "Laptop Accessories",
+          "text1": "See More"
+        },
+        "block11": {
+          "title1": "Tablets, E-books and Accessories",
+          "description1": "Outerwear",
+          "description2": "Blouses and Shirts",
+          "description3": "Pants and Jeans",
+          "description4": "Jumpsuits and Shorts",
+          "description5": "Suits and Jackets",
+          "description6": "Pajamas, Robes",
+          "text1": "See More"
+        },
+        "block12": {
+          "title1": "Photo, Video",
+          "description1": "Digital Cameras",
+          "description2": "Video Cameras",
+          "description3": "Action Cameras",
+          "description4": "Lenses",
+          "description5": "Tripods, Monopods",
+          "description6": "Photoflashes",
+          "text1": "See More"
+        },
+        "block13": {
+          "title1": "Kitchen Appliances",
+          "description1": "Microwave Ovens",
+          "description2": "Refrigerators",
+          "description3": "Stoves, Ovens",
+          "description4": "Electric Kettles",
+          "description5": "Coffee Makers, Coffee Grinders",
+          "description7": "Multicookers, Steamers",
+          "description8": "Range Hoods",
+          "text1": "See More"
+        },
+        "block14": {
+          "title1": "Personal Appliances", 
+          "description1": "Outerwear",
+          "description2": "Blouses and Shirts",
+          "description3": "Pants and Jeans",
+          "description4": "Jumpsuits and Shorts",
+          "description5": "Suits and Jackets",
+          "description6": "Pajamas, Robes",
+          "text1": "See More"
+        },
+        "block16": {
+          "title1": "Home Appliances", 
+          "description1": "Outerwear",
+          "description2": "Blouses and Shirts",
+          "description3": "Pants and Jeans",
+          "description4": "Jumpsuits and Shorts",
+          "description5": "Suits and Jackets",
+          "description6": "Pajamas, Robes",
+          "text1": "See More"
+        },
+        "block17": {
+          "title1": "Games and Gaming Consoles",
+          "description1": "Game Heroes",
+          "description2": "Accessories",
+          "description3": "Pants and Jeans",
+          "description4": "PC Games",
+          "description5": "Consoles",
+          "description6": "Games for Consoles",
+          "text1": "See More"
+        }
+      }
+    },
+
+
+  "categories_on_click": {
+    "title1": "Choose a Category",
+    "block": {
+      "description1": "Hobbies and Sports",
+      "description2": "Clothing, Shoes, and Accessories",
+      "description3": "Children's Goods",
+      "description4": "Beauty and Health",
+      "description5": "Home and Garden",
+      "description6": "Transport",
+      "description7": "Construction and Repair",
+      "description8": "Equipment and Raw Materials",
+      "description9": "Animals and Plants",
+      "description10": "Real Estate",
+      "description11": "Jobs, Business, and Services",
+      "description12": "Support the Army",
+      "description13": "Give Away for Free"
+    },
+    "text": {
+      "title": "View all ads in Electronics",
+      "block": {
+        "description1": "Phones and Accessories",
+        "description2": "Home Appliances",
+        "description3": "Photography Equipment",
+        "description4": "Games and Gaming Consoles",
+        "description5": "Computers and Components",
+        "description6": "Network and Internet",
+        "description7": "Kitchen Appliances",
+        "description8": "Laptops and Accessories",
+        "description9": "Office Equipment",
+        "description10": "TV and Video Equipment",
+        "description11": "Repair and Maintenance of Equipment",
+        "description12": "Audio Equipment",
+        "description13": "Other Electronics",
+        "description14": "Climate Equipment"
+    }
+  },
+  
+  
+  "product_category_page": {
+    "link": "Back",
+    "text": "You are buying from a verified seller!",
+    "button_text1": "+38 xxx xxx xx xx",
+    "button_text2": "Message the seller",
+    "button_text3": "Buy",
+  
+    "banner": {
+      "title": "Shop with confidence",
+      "description": "Yom Money Back Guarantee",
+      "text": "Learn more"
+    },
+  
+    "title": "Seller Recommends",
+    "text1": "Get other products from the seller with a unique offer -10% on the second item",
+  
+    "title1": "Product Description",
+    "text2": "Show more",
+    "text3": "Help or complaint",
+  
+    "title2": "Products from this seller",
+    "button_text4": "Subscribe ",
+  
+    "title3": "You viewed",
+    "title4": "Top ads in the category 'Jackets'",
+    "title5": "Top ads in the category 'Smartphones'",
+    "title6": "Top ads in the category 'Animals'",
+  
+    "button_text5": "View all"
+  },
+
+  
+  "product_category_page_clothes": {
+    "link": "Back",
+    "title": "Bomber",
+    
+    "banner1": {
+      "description": "BRIGHT AND COOL LOOKS AWAIT PURCHASE"
+    },
+    "dropdown_block": {
+      "text1": "Sort by: Relevance",
+      "description1": "New arrivals",
+      "description2": "From cheapest",
+      "description3": "From most expensive"
+    },
+  
+    "button_text1": "Subscribe to request",
+    "text1": "Location",
+    "dropdown_list": "All Ukraine",
+    "text2": "Price, UAH.",
+    
+    "block1": {
+      "text3": "Condition",
+      "description1": "New",
+      "description2": "Used",
+      "description3": "Excellent"
+    },
+  
+    "block2": {
+      "text3": "Terms of Purchase",
+      "description1": "With discount",
+      "description2": "Negotiable",
+      "description3": "Exchange"
+    },
+    "banner2": {
+      "title": "JACKETS",
+      "description": "autumn-spring collection",
+      "text": "CATALOG"
+    },
+  
+    "banner3": {
+      "description": "AND WHAT STAR ARE YOU TODAY?"
+    },
+    "button_text2": "Show more"
+  },
+
+
+  "product_category_page_tech": {
+    "link": "Back",
+    "title": "Smartphone",
+    
+    "banner1": {
+      "description": "NEW MODELS FOR YOUR WORK TECH"
+    },
+    "block": {
+      "text": "Color",
+      "description1": "Black",
+      "description2": "Pink",
+      "description3": "Silver",
+      "description4": "Other Color"
+    },
+  
+    "text1": "Internal Memory",
+    "text2": "Battery Capacity",
+    "text3": "Screen Diagonal",
+    
+    "banner2": {
+      "title": "APPLE TECH SALE",
+      "text1": "2-year warranty",
+      "text2": "Lowest prices on the market",
+      "text3": "Hydrogel film as a gift"
+    },
+  
+    "banner3": {
+      "description": "BEST PRICES on used tech with warranty"
+    }
+  },
+
+
+  "product_category_page_cat_door": {
+    "link": "Back",
+    "title": "Cat Flap Door",
+    
+    "banner1": {
+      "description": "EVEN MORE PRODUCTS FOR YOUR PETS"
+    },
+    "banner2": {
+      "description": "WHAT DOES YOUR PET WANT?"
+    },
+    "banner3": {
+      "description": "PET FOOD OF THE MONTH -15%"
+    }
+  },
+
+
+  "pay_google": {
+    "title": "Order Checkout",
+    "text1": "Delivery Method",
+    "description1": {
+      "text1": "Nova Poshta",
+      "text2": "Kharkiv, Polova St., 67"
+    },
+    "text2": "Payment Method",
+    "description2": {
+      "text1": "Cash on Delivery",
+      "text2": "100% payment upon receipt. Postal commission 15 UAH +2% of the product"
+    },
+    "description3": {
+      "text1": "Reliable card payment",
+      "text2": "Online payment through Yom. Secure and without postal commissions"
+    },
+  
+    "title2": "Enter your contact details",
+    "text": {
+      "text1": "Surname*",
+      "input_placeholder1": "Steblovska",
+      "text2": "Name*",
+      "input_placeholder2": "Oleksandra",
+      "text3": "Patronymic*",
+      "input_placeholder3": "Hennadiivna",
+      "text4": "Phone +380*",
+      "input_placeholder4": "+380"
+    },
+    "text3": "I accept the terms of the offer",
+  
+    "button": "Place Order",
+    "text4": "By clicking 'Place Order', I agree to the Public Service Agreement",
+  
+    "amount_payable": {
+      "text1": "Cost of goods",
+      "text2": "Postal commission",
+      "text3": "Cost of delivery*",
+      "text4": "Total payable"
+    },
+  
+    "card_image": {
+      "text1": "CARD NUMBER",
+      "text2": "0000  0000  0000  0000",
+      "text3": "MM/YY",
+      "text4": "00/00",
+      "text5": "CVV/CVC",
+      "text6": "000"
+    },
+    "input_placeholder": "Email",
+    "button1": "Pay 1140 UAH"      
+  },
+
+
+  "delivery_method_information": {
+    "title1": "Delivery Method",
+    "input_placeholder1": "Nova Poshta",
+    "title2": "City*",
+    "input_placeholder2": "Kharkiv",
+    "title3": "Type*",
+    "input_placeholder3": "",
+    "title4": "Receiving Address*",
+    "input_placeholder4": ""
+  },
+
+
+  "thank_you_for_ordering": {
+    "title": "Thank you for your order",
+    "text": "After the seller confirms the product, you will receive a notification in the Purchases section",
+    "button": "Return to the main page"
+  },
+  
+
+  "error_404": {
+    "title": "Oops! We couldn't find what you were looking for",
+    "text": "Try searching for something else"
+  },
+
+
+  "user_page": {
+    "left_block_and_header": {
+      "text1": "My Ads",
+      "text2": "Sales",
+      "text3": "Purchases",
+      "text4": "Ratings and Reviews",
+      "text5": "Favorites",
+      "text6": "Viewed Ads",
+      "text7": "Settings",
+      "text8": "Useful Information",
+      "text9": "Yom Support*",
+      "text10": "Log Out"
+    },
+  
+    "favorites": {
+      "title1": "Favorite Items",
+      "title2": "You don't have any favorite ads",
+      "description": "To add an item to favorites, press the ❤️ button on its page"
+    },
+  
+    "my_ads": {
+      "title": "My Ads",
+      "text1": "Active (4)",
+      "text2": "Pending (0)",
+      "text3": "Deactivated (0)",
+      "text4": "Rejected (0)"
+    },
+  
+    "ads": {
+      "button1": "Promote",
+      "button2": "Deactivate",
+      "button3": "Mark as Sold",
+  
+      "text": "Your ad has been checked and rejected",
+      "link": "Why?"
+    },
+  
+    "my_sales": {
+      "title": "My Sales"
+    },
+  
+    "my_purchases": {
+      "title": "My Purchases"
+    },
+  
+    "rating_and_reviews": {
+      "title": "My Rating",
+      "text1": "Reviews",
+      "text2": "Positive",
+      "text3": "Neutral",
+      "text4": "Negative"
+    },
+  
+    "viewed_ads": {
+      "title": "Viewed Ads"
+    },
+
+    "settings": {
+      "title": "Settings",
+      "description1": "Basic Information",
+      "description2": "Delivery and Payment",
+      "description3": "Notifications",
+    
+      "title1": "First Name*",
+      "input_placeholder1": "",
+      "title2": "Last Name*",
+      "input_placeholder2": "",
+      "title3": "E-mail (not verified)",
+      "input_placeholder3": "aleks0306@gmai",
+      "title4": "About Me",
+      "input_placeholder4": "",
+      "title5": "Phone",
+      "input_placeholder5": "+380",
+      "title6": "Age",
+      "input_placeholder6": "",
+      "title7": "City",
+      "input_placeholder7": "",
+    
+      "button1": "Delete Profile",
+      "button2": "Save"
+    },
+    
+    "Yom_support": {
+      "title": "Yom Support",
+      "description1": "Inquiries",
+      "description2": "Contacts"
+    },
+    "buy_plans": {       
+      "title": "Promote your ad with advantageous tariffs",
+      "plans": {
+        "title1": "Express Sale",
+        "features1": {
+          "text1": "Increased visibility",
+          "text2": "TOP ad for 3 days"
+        },
+        "price1": "15 UAH",
+        
+        "title2": "Blitz Sale",
+        "features2": { 
+          "text1": "Increased Visibility",
+          "text2": "Top ad for 8 days"
+        },
+        "price2": "120 UAH",
+        
+        "title3": "Turbo Sale",
+        "features3": {
+          "text1": "Top Positions in search for 30 days",
+          "text2": "Priority support",
+          "text3": "Premium Highlighting",
+          "text4": "Dedicated advertising space for 10 days"
+        },
+        "price3": "482 UAH"
+      },
+      "title2": "Choose a payment method",
+      "text": "Bank card",
+      "description": "Payment using Visa, MasterCard, or any other card.",
+    
+      "button1": "Cancel",
+      "button2": "Pay"
+    }   
+  },
+
+
+  "add_an_advertisement": {
+    "title": "Start creating an ad",
+    "input_placeholder1": "Come up with a short title for potential buyers",
+  
+    "blocks": {
+      "text_block1": "Enter key phrases, such as the brand, model, or other information about the product (Nike, Apple, Asus) in the search field above",
+      "text_block2": "The search field will help avoid mistakes when entering the name of your product or brand",
+      "text_block3": "After completely filling out the ad, apply a preview, and then post your item"
+    },
+    "title1": "Category*",
+    "text1": "Choose the necessary category",
+  
+    "title2": "Photos*",
+    "button": "Add photo",
+    "text2": "How to take a photo of the product?",
+    "description": "Take up to 20 simple photos on your phone from different angles in a normal setting. For buyers, the beauty of the photo is less important than the real condition of the items.",
+  
+    "title3": "Description*",
+    "input_placeholder2": "Come up with a detailed description of your product",
+    "text3": "How to describe the product?",
+    "description1": "Describe the product in detail. Be honest and precise. Highlight the features and benefits of the product. Indicate the reason for sale, how and how much it was used.",
+  
+    "title4": "Condition*",
+    "text4": "New",
+    "description2": "Never unpacked, never used",
+  
+    "text5": "Used",
+    "description3": "Has been unpacked or has any signs of use",
+
+    "text11": "Refurbished",
+    "description5": "Checked and refurbished item with a one-week warranty from the seller",
+
+    "text12": "Warranty provided",
+    "description6": "The item is refurbished or restored. It has signs of use",
+
+    "title8": "Manufacturer*",
+    "input_placeholder7": "Start typing the name",
+
+    "title9": "Color",
+    "input_placeholder8": "Select",
+    "colors": {
+      "color1": "Burgundy",
+      "color2": "Sky Blue",
+      "color3": "Yellow",
+      "color4": "Golden",
+      "color5": "Brown",
+      "color6": "Red",
+      "color7": "Pink",
+      "color8": "Lime Green",
+      "color9": "Silver"
+    },    
+  
+    "title5": "Price*",
+    "input_placeholder3": "For example, 99.99",
+    "text6": "Exchange",
+    "text7": "Negotiable",
+    "text8": "Free",
+    
+    "title6": "Location*",
+    "input_placeholder4": "Kharkiv",
+    "description4": "Start typing the name of the city and select it from the list. The chosen location will be displayed in this ad.",
+  
+    "title7": "Your contact details",
+    "text9": "Email address",
+    "input_placeholder5": "Aleksandra",
+    "text10": "Phone number",
+    "input_placeholder6": "+38 098 027 32 92",
+  
+    "button1": "Publish",
+    "button2": "Preview"
+  },
+  
+
+  "chat": {
+    "block1": {
+      "text1": "All",
+      "text2": "Purchase",
+      "text3": "Sale"
+    },
+    "text1": "Pin message",
+    "input_placeholder": "Your message",
+    "block2": {
+      "text1": "Pin",
+      "text2": "Mute notifications",
+      "text3": "Block",
+      "text4": "Report"
+    },
+    "text2": "Victoria is typing...",
+    "description": "This user is blocked. You can no longer write or receive messages from Loveley",
+    "text3": "Unblock"  
   }
+  
+
+ 
+  }
+}
+
+
+  
+  
+  
+  
+
 }

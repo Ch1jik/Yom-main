@@ -1,0 +1,220 @@
+.admin-AllAds {
+    width: 100%;
+    overflow-y: hidden;
+    padding: 1%;
+}
+
+.admin-ads h2 {
+    padding: 1%;
+    color: #252525;
+    font-size: 30px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word
+}
+
+
+.admin-ads-buttons {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.admin-ads-buttons button {
+    padding: 8px 12px;
+    margin-right: 2%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-ads-buttons button:hover {
+    opacity: 0.9;
+}
+
+.admin-ads-buttons .approve {
+    background-color: #28a745;
+    /* green */
+    color: white;
+}
+
+.admin-ads-buttons .reject {
+    background-color: #dc3545;
+    /* red */
+    color: white;
+}
+
+.admin-ads-buttons .delete {
+    background-color: #ffc107;
+    /* yellow */
+    color: white;
+}
+
+.admin-ads-buttons .review {
+    background-color: #007bff;
+    /* blue */
+    color: white;
+}
+
+.admin-ads-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    padding: 5%;
+}
+
+.admin-ads-table {
+    position: relative;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.admin-ads-table thead {
+    background-color: #1684EA;
+    border: none;
+    color: white;
+}
+
+.admin-ads-table td {
+    text-align: center;
+    color: #0F0F0F;
+    font-size: 16px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word
+}
+
+.admin-ads-table th {
+    text-align: center;
+    /* padding: .300em; */
+    font-size: 18px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+    height: 50px;
+}
+
+.admin-ads-table th:last-child {
+    text-align: center;
+    /* padding: .300em; */
+    font-size: 18px;
+    font-family: 'Inter';
+    font-weight: 700;
+    word-wrap: break-word;
+    height: 50px;
+    width: 30%;
+}
+
+.admin-ads-table tr {
+    background-color: #f8f8f8;
+    padding: .25em;
+}
+
+.admin-ads-table a {
+    text-decoration: none;
+    background-clip: text;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+}
+
+.admin-ads-table a:hover {
+
+    background-position: 0 100%;
+}
+
+.admin-ads-table tr:nth-child(odd) {
+    background-color: rgba(22, 132, 234, 0.30);
+}
+
+.admin-ads h2 {
+    padding: 1%;
+    color: #252525;
+    font-size: 30px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word
+}
+
+
+@media screen and (max-width: 1380px) {
+
+    .admin-ads-buttons {
+        width: 100%;
+        min-height: 150%;
+    }
+
+    .admin-ads-table th {
+        width: 9%;
+    }
+
+    .admin-ads-table th:last-child {
+        width: 15%;
+    }
+
+    .admin-ads-buttons button {
+        padding: 8px 12px;
+        margin-right: 2%;
+        margin-top: 2%;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .admin-ads-buttons button:last-child {
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .admin-ads-table {
+        border: 0;
+    }
+
+    .admin-ads-table caption {
+        font-size: 1.3em;
+    }
+
+    .admin-ads-table thead {
+        background-color: #1684EA;
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .admin-ads-table tr {
+        margin-bottom: .200em;
+    }
+
+    .admin-ads-table td {
+        display: block;
+        font-size: .8em;
+        text-align: right;
+        margin-right: 4%;
+    }
+
+    .admin-ads-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .admin-ads-table td:last-child {
+        border-bottom: 0;
+    }
+}

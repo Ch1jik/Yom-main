@@ -54,7 +54,7 @@ const Support: React.FC = () => {
                     onChange={(e) => setDescription(e.target.value)}
                     required
                 />
-                <button type="submit">Submit Report</button>
+                <button type="submit">Зберегти</button>
             </form>
         </section>
       </div>

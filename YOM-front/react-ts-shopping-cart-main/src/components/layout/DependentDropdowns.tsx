@@ -81,10 +81,10 @@ const DependentDropdowns: React.FC<Props> = ({ activeCategory, onCategoryHover, 
                 onClick={() => handleCategoryClick(category.id)}
                 className="nav-category-choose"
               >
-                {category.title}
-                
+                <p>{category.title}</p>
+                <img src={svg} className='dependent-svg'></img>
               </div>
-              <img src={svg} className='dependent-svg'></img>
+              
             </div>
             
             

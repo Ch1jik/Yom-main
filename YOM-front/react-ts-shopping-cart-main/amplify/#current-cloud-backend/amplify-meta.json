@@ -1,15 +1,15 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-yom-dev-160851-authRole",
-      "UnauthRoleArn": "arn:aws:iam::180934650193:role/amplify-yom-dev-160851-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::180934650193:role/amplify-yom-dev-160851-authRole",
+      "AuthRoleName": "amplify-yom-yom-225943-authRole",
+      "UnauthRoleArn": "arn:aws:iam::180934650193:role/amplify-yom-yom-225943-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::180934650193:role/amplify-yom-yom-225943-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-yom-dev-160851-deployment",
-      "UnauthRoleName": "amplify-yom-dev-160851-unauthRole",
-      "StackName": "amplify-yom-dev-160851",
-      "StackId": "arn:aws:cloudformation:us-east-1:180934650193:stack/amplify-yom-dev-160851/64748400-816d-11ee-8294-0a4ff2e61423",
-      "AmplifyAppId": "dh3civwfwx6u9"
+      "DeploymentBucketName": "amplify-yom-yom-225943-deployment",
+      "UnauthRoleName": "amplify-yom-yom-225943-unauthRole",
+      "StackName": "amplify-yom-yom-225943",
+      "StackId": "arn:aws:cloudformation:us-east-1:180934650193:stack/amplify-yom-yom-225943/c9b26510-81a6-11ee-aa36-0e0c9815b68d",
+      "AmplifyAppId": "d9kesyk9as840"
     }
   },
   "api": {
@@ -23,24 +23,24 @@
             }
           ],
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 30,
               "description": "api key description"
-            }
+            },
+            "authenticationType": "API_KEY"
           }
         },
-        "GraphQLAPIIdOutput": "2onfuunn4bcm5b4rxt3e5korpa",
-        "GraphQLAPIEndpointOutput": "https://mbkr4jzexfe6vgadpwt5jvnqpy.appsync-api.us-east-1.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-gte4khuohnflvhypv5bgzszglu"
+        "GraphQLAPIIdOutput": "oxxf5jrfinem5ixl335fk5tfwu",
+        "GraphQLAPIEndpointOutput": "https://deyoybmm3nhyxptew2kzod62ai.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-gwsqzm4ppjdjjhlszlsqx6tgp4"
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2023-11-12T20:40:17.375Z",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-yom-dev-160851-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-yom-yom-225943-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiyom"
       },
+      "lastPushTimeStamp": "2023-11-12T22:05:43.478Z",
       "lastPushDirHash": "qx/FGfrAel1eRflXGwKBShJOAqM="
     }
   },
@@ -49,12 +49,13 @@
       "providerPlugin": "awscloudformation",
       "service": "amplifyhosting",
       "type": "manual",
-      "output": {},
-      "lastPushTimeStamp": "2023-11-12T20:40:17.326Z",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-yom-dev-160851-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-yom-yom-225943-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
         "logicalId": "hostingamplifyhosting"
-      }
+      },
+      "lastPushTimeStamp": "2023-11-12T22:05:43.478Z",
+      "output": {},
+      "lastPushDirHash": "iFxz0Q7InxFTRLou2Qr3YJtaBWk="
     }
   }
 }

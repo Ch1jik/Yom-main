@@ -1,4 +1,4 @@
-interface Conversation {
+export interface Conversation {
     id: number;
     conversationGuid: string;
     isMuted: boolean;
@@ -13,7 +13,7 @@ interface Conversation {
     lastMessageText: string,
 }
 
-interface ConversationBarItemProps {
+export interface ConversationBarItemProps {
     id: number;
     conversationGuid: string,
     isPinned: boolean,
@@ -24,7 +24,7 @@ interface ConversationBarItemProps {
     avatarPath: string
 }
 
-interface ConversationRecipientBarItemProps {
+export interface ConversationRecipientBarItemProps {
     isTyping: boolean,
     isOnline: boolean;
     conversationGuid: string;
@@ -36,7 +36,7 @@ interface ConversationRecipientBarItemProps {
     isBlocked: boolean;
 }
 
-interface DropdownMenuItemProps{
+export interface DropdownMenuItemProps {
     conversationGuid: string;
     isMuted: boolean;
     isPinned: boolean;

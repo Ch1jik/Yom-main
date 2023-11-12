@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RoundedImage from "./RoundedImage";
 import './styles/chatStyle.css'
 import messageRead from '../../assets/images/readed-message.svg'
+import { ConversationBarItemProps } from "../Chat/Interfaces/Conversation";
 
 
 const ConversationBarItem: React.FC<ConversationBarItemProps> = ({

@@ -9,7 +9,7 @@ interface User {
   userName: string;
   email: string;
   avatarPath?: File;
-  phoneNumber: number;
+  phoneNumber: string;
   // dateCreated?: Date | null;
   // dateModified?: Date | null;
   about:string;
@@ -33,7 +33,7 @@ const Settings: React.FC = () => {
     userName: '',
     email: '',
     avatarPath: undefined,
-    phoneNumber: 0,
+    phoneNumber: '',
     // dateCreated: null,
     // dateModified: null,
     about: '',
@@ -122,20 +122,18 @@ const Settings: React.FC = () => {
     formData.append('FullName', fullName);
     formData.append('UserName', userName);
     formData.append('Email', email);
-    formData.append('PhoneNumber', phoneNumber.toString());
-    if(avatarPath)
-    formData.append('Photo', avatarPath);
+    formData.append('PhoneNumber', phoneNumber);
+    console.log('====================================');
+    console.log(avatarPath);
+    console.log('====================================');
+    if (avatarPath) formData.append('Photo', avatarPath);
     
     // formData.append('Id', about);
     for (let pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1]);
   }
     try {
-        const config = {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        };
+        
         await axios.post('https://localhost:7014/api/User/Edit/Profile', formData, {
           headers: {
             'accept': '*/*',
@@ -143,6 +141,7 @@ const Settings: React.FC = () => {
           },
         });
         setIsEditing(false);
+        alert("Профіль було успішно обновленно");
     } catch (error) {
         console.error('Error updating user data', error);
     }
@@ -190,19 +189,19 @@ const Settings: React.FC = () => {
                   <div className='settings-form'>
                     <div>
                       <div className='settings-input-filed'>
-                        <div>fullName</div>
+                        <div>Повне Ім’я*</div>
                         <input name="fullName" type='text' value={userData.fullName} onChange={handleInputChange}  className='setting-loop-input'/>
                       </div>
                       <div className='settings-input-filed'>
-                        <div>email</div>
+                        <div>Електронна адресса *</div>
                         <input name="email" type='text' value={userData.email} onChange={handleInputChange}  className='setting-loop-input'/>
                       </div>
                       <div className='settings-input-filed-about'>
-                        <div>about</div>
+                        <div>Про себе</div>
                         <input name="about"type='text' value={userData.about} onChange={handleInputChange}  className='setting-about-input'/>
                       </div>
                       <div className='settings-input-filed'>
-                        <div>Avatar</div>
+                        <div>Фотографія</div>
                         <input
                             type="file"
                             onChange={handleAvatarChange}
@@ -212,21 +211,21 @@ const Settings: React.FC = () => {
                     </div>
                     <div >
                        <div className='settings-input-filed'>
-                        <div>userName</div>
+                        <div>Ім’я користувача</div>
                         <input name="userName" type='text' value={userData.userName} onChange={handleInputChange}  className='setting-loop-input'/>
                       </div>
                       <div className='settings-input-filed'>
-                        <div >phoneNumber</div>
-                        <input name="phoneNumber" type='number' value={userData.phoneNumber} onChange={handleInputChange}  className='setting-loop-input'/>
+                        <div >Телефон</div>
+                        <input name="phoneNumber" type='text' value={userData.phoneNumber} onChange={handleInputChange}  className='setting-loop-input'/>
                       </div>
                       <div className='settings-input-filed'>
-                        <div>age</div>
+                        <div>Вік</div>
                         {/* <input name="age" value={userData.age} onChange={handleInputChange} placeholder="Age" className='setting-loop-input'/> */}
                         <input name="age"   placeholder="Age" className='setting-loop-input'/>
                       </div>
                       
                       <div className='settings-input-filed'>
-                        <div>city</div>
+                        <div>Місто</div>
                         {/* <select
                           id="citySelect"
                           className='setting-loop-input'
