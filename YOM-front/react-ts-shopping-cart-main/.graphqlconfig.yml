@@ -1,0 +1,12 @@
+projects:
+  yom:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/queries/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/API.ts
+        docsFilePath: src/graphql/queries

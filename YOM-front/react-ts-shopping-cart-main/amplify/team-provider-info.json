@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-yom-dev-160851-authRole",
+      "UnauthRoleArn": "arn:aws:iam::180934650193:role/amplify-yom-dev-160851-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::180934650193:role/amplify-yom-dev-160851-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-yom-dev-160851-deployment",
+      "UnauthRoleName": "amplify-yom-dev-160851-unauthRole",
+      "StackName": "amplify-yom-dev-160851",
+      "StackId": "arn:aws:cloudformation:us-east-1:180934650193:stack/amplify-yom-dev-160851/64748400-816d-11ee-8294-0a4ff2e61423",
+      "AmplifyAppId": "dh3civwfwx6u9"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dh3civwfwx6u9",
+          "type": "manual"
+        }
+      },
+      "api": {
+        "yom": {}
+      }
+    }
+  }
+}
