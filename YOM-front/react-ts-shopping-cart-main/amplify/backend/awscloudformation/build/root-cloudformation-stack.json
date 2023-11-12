@@ -152,17 +152,6 @@
         }
       }
     },
-    "hostingamplifyhosting": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-yom-dev-160851-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
-        "Parameters": {
-          "appId": "dh3civwfwx6u9",
-          "type": "manual",
-          "env": "dev"
-        }
-      }
-    },
     "apiyom": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
@@ -171,8 +160,25 @@
           "AppSyncApiName": "yom",
           "DynamoDBBillingMode": "PAY_PER_REQUEST",
           "DynamoDBEnableServerSideEncryption": false,
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
           "S3DeploymentBucket": "amplify-yom-dev-160851-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/ab333f974c78ca1e649e12491d162f73dd60228d",
+          "S3DeploymentRootKey": "amplify-appsync-files/bff7a1ed3e4968363311f2ec2141a16539ac1ecf",
+          "env": "dev"
+        }
+      }
+    },
+    "hostingamplifyhosting": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-yom-dev-160851-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "Parameters": {
+          "appId": "dh3civwfwx6u9",
+          "type": "manual",
           "env": "dev"
         }
       }

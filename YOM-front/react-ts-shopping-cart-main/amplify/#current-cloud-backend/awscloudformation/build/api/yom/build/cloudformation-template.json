@@ -8,6 +8,12 @@
       "Type": "String",
       "Default": "AppSyncSimpleTransform"
     },
+    "authRoleName": {
+      "Type": "String"
+    },
+    "unauthRoleName": {
+      "Type": "String"
+    },
     "DynamoDBModelTableReadIOPS": {
       "Type": "Number",
       "Default": 5,
@@ -72,7 +78,12 @@
               }
             ]
           ]
-        }
+        },
+        "AdditionalAuthenticationProviders": [
+          {
+            "AuthenticationType": "AWS_IAM"
+          }
+        ]
       }
     },
     "GraphQLAPITransformerSchema3CB2AE18": {
@@ -111,7 +122,8 @@
             "ApiId"
           ]
         },
-        "Expires": 1700423479
+        "Description": "api key description",
+        "Expires": 1702413435
       }
     },
     "GraphQLAPINONEDS95A13CF0": {
@@ -126,6 +138,175 @@
         "Name": "NONE_DS",
         "Type": "NONE",
         "Description": "None Data Source for Pipeline functions"
+      }
+    },
+    "DataStore": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "KeySchema": [
+          {
+            "AttributeName": "ds_pk",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "ds_sk",
+            "KeyType": "RANGE"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "ds_pk",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "ds_sk",
+            "AttributeType": "S"
+          }
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "StreamSpecification": {
+          "StreamViewType": "NEW_AND_OLD_IMAGES"
+        },
+        "TableName": {
+          "Fn::Join": [
+            "",
+            [
+              "AmplifyDataStore-",
+              {
+                "Fn::GetAtt": [
+                  "GraphQLAPI",
+                  "ApiId"
+                ]
+              },
+              "-",
+              {
+                "Ref": "env"
+              }
+            ]
+          ]
+        },
+        "TimeToLiveSpecification": {
+          "AttributeName": "_ttl",
+          "Enabled": true
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete"
+    },
+    "AmplifyDataStoreIAMRole8DE05A49": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "appsync.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "RoleName": {
+          "Fn::Join": [
+            "",
+            [
+              "AmplifyDataStoreIAMRb752cd-",
+              {
+                "Fn::GetAtt": [
+                  "GraphQLAPI",
+                  "ApiId"
+                ]
+              },
+              "-",
+              {
+                "Ref": "env"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "DynamoDBAccess71ABE5AE": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:UpdateItem"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Sub": [
+                    "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}",
+                    {
+                      "tablename": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "AmplifyDataStore-",
+                            {
+                              "Fn::GetAtt": [
+                                "GraphQLAPI",
+                                "ApiId"
+                              ]
+                            },
+                            "-",
+                            {
+                              "Ref": "env"
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}/*",
+                    {
+                      "tablename": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "AmplifyDataStore-",
+                            {
+                              "Fn::GetAtt": [
+                                "GraphQLAPI",
+                                "ApiId"
+                              ]
+                            },
+                            "-",
+                            {
+                              "Ref": "env"
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "DynamoDBAccess71ABE5AE",
+        "Roles": [
+          {
+            "Ref": "AmplifyDataStoreIAMRole8DE05A49"
+          }
+        ]
       }
     },
     "Blog": {
@@ -191,6 +372,12 @@
           },
           "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
             "Ref": "S3DeploymentRootKey"
+          },
+          "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+            "Ref": "authRoleName"
+          },
+          "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+            "Ref": "unauthRoleName"
           }
         }
       },
@@ -256,11 +443,23 @@
           "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
             "Ref": "S3DeploymentRootKey"
           },
+          "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogQuerygetBlogauth0FunctionQuerygetBlogauth0FunctionAppSyncFunctionAC24FD90FunctionId": {
+            "Fn::GetAtt": [
+              "Blog",
+              "Outputs.transformerrootstackBlogQuerygetBlogauth0FunctionQuerygetBlogauth0FunctionAppSyncFunctionAC24FD90FunctionId"
+            ]
+          },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogQuerygetBlogpostAuth0FunctionQuerygetBlogpostAuth0FunctionAppSyncFunction48204FB4FunctionId": {
             "Fn::GetAtt": [
               "Blog",
               "Outputs.transformerrootstackBlogQuerygetBlogpostAuth0FunctionQuerygetBlogpostAuth0FunctionAppSyncFunction48204FB4FunctionId"
             ]
+          },
+          "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+            "Ref": "authRoleName"
+          },
+          "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+            "Ref": "unauthRoleName"
           },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogMutationcreateBloginit0FunctionMutationcreateBloginit0FunctionAppSyncFunctionEEFF6067FunctionId": {
             "Fn::GetAtt": [
@@ -268,10 +467,22 @@
               "Outputs.transformerrootstackBlogMutationcreateBloginit0FunctionMutationcreateBloginit0FunctionAppSyncFunctionEEFF6067FunctionId"
             ]
           },
+          "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogMutationcreateBlogauth0FunctionMutationcreateBlogauth0FunctionAppSyncFunction99123F83FunctionId": {
+            "Fn::GetAtt": [
+              "Blog",
+              "Outputs.transformerrootstackBlogMutationcreateBlogauth0FunctionMutationcreateBlogauth0FunctionAppSyncFunction99123F83FunctionId"
+            ]
+          },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogMutationupdateBloginit0FunctionMutationupdateBloginit0FunctionAppSyncFunctionBD83DF18FunctionId": {
             "Fn::GetAtt": [
               "Blog",
               "Outputs.transformerrootstackBlogMutationupdateBloginit0FunctionMutationupdateBloginit0FunctionAppSyncFunctionBD83DF18FunctionId"
+            ]
+          },
+          "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogSubscriptiononCreateBlogauth0FunctionSubscriptiononCreateBlogauth0FunctionAppSyncFunction15D37F0CFunctionId": {
+            "Fn::GetAtt": [
+              "Blog",
+              "Outputs.transformerrootstackBlogSubscriptiononCreateBlogauth0FunctionSubscriptiononCreateBlogauth0FunctionAppSyncFunction15D37F0CFunctionId"
             ]
           },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogSubscriptionOnCreateBlogDataResolverFnSubscriptionOnCreateBlogDataResolverFnAppSyncFunction69F96569FunctionId": {
@@ -344,11 +555,23 @@
           "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
             "Ref": "S3DeploymentRootKey"
           },
+          "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogQuerygetBlogauth0FunctionQuerygetBlogauth0FunctionAppSyncFunctionAC24FD90FunctionId": {
+            "Fn::GetAtt": [
+              "Blog",
+              "Outputs.transformerrootstackBlogQuerygetBlogauth0FunctionQuerygetBlogauth0FunctionAppSyncFunctionAC24FD90FunctionId"
+            ]
+          },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogQuerygetBlogpostAuth0FunctionQuerygetBlogpostAuth0FunctionAppSyncFunction48204FB4FunctionId": {
             "Fn::GetAtt": [
               "Blog",
               "Outputs.transformerrootstackBlogQuerygetBlogpostAuth0FunctionQuerygetBlogpostAuth0FunctionAppSyncFunction48204FB4FunctionId"
             ]
+          },
+          "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+            "Ref": "authRoleName"
+          },
+          "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+            "Ref": "unauthRoleName"
           },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogMutationcreateBloginit0FunctionMutationcreateBloginit0FunctionAppSyncFunctionEEFF6067FunctionId": {
             "Fn::GetAtt": [
@@ -356,10 +579,22 @@
               "Outputs.transformerrootstackBlogMutationcreateBloginit0FunctionMutationcreateBloginit0FunctionAppSyncFunctionEEFF6067FunctionId"
             ]
           },
+          "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogMutationcreateBlogauth0FunctionMutationcreateBlogauth0FunctionAppSyncFunction99123F83FunctionId": {
+            "Fn::GetAtt": [
+              "Blog",
+              "Outputs.transformerrootstackBlogMutationcreateBlogauth0FunctionMutationcreateBlogauth0FunctionAppSyncFunction99123F83FunctionId"
+            ]
+          },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogMutationupdateBloginit0FunctionMutationupdateBloginit0FunctionAppSyncFunctionBD83DF18FunctionId": {
             "Fn::GetAtt": [
               "Blog",
               "Outputs.transformerrootstackBlogMutationupdateBloginit0FunctionMutationupdateBloginit0FunctionAppSyncFunctionBD83DF18FunctionId"
+            ]
+          },
+          "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogSubscriptiononCreateBlogauth0FunctionSubscriptiononCreateBlogauth0FunctionAppSyncFunction15D37F0CFunctionId": {
+            "Fn::GetAtt": [
+              "Blog",
+              "Outputs.transformerrootstackBlogSubscriptiononCreateBlogauth0FunctionSubscriptiononCreateBlogauth0FunctionAppSyncFunction15D37F0CFunctionId"
             ]
           },
           "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogSubscriptionOnCreateBlogDataResolverFnSubscriptionOnCreateBlogDataResolverFnAppSyncFunction69F96569FunctionId": {
@@ -408,10 +643,10 @@
               "ApiId"
             ]
           },
-          "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostDataSource6998E105Name": {
+          "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
             "Fn::GetAtt": [
-              "Post",
-              "Outputs.transformerrootstackPostPostDataSource6998E105Name"
+              "GraphQLAPINONEDS95A13CF0",
+              "Name"
             ]
           },
           "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
@@ -420,11 +655,23 @@
           "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
             "Ref": "S3DeploymentRootKey"
           },
+          "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostDataSource6998E105Name": {
+            "Fn::GetAtt": [
+              "Post",
+              "Outputs.transformerrootstackPostPostDataSource6998E105Name"
+            ]
+          },
           "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostTable34CAE87BRef": {
             "Fn::GetAtt": [
               "Post",
               "Outputs.transformerrootstackPostPostTable34CAE87BRef"
             ]
+          },
+          "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+            "Ref": "authRoleName"
+          },
+          "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+            "Ref": "unauthRoleName"
           },
           "referencetotransformerrootstackCommentNestedStackCommentNestedStackResource199283FBOutputstransformerrootstackCommentCommentDataSourceA0E54655Name": {
             "Fn::GetAtt": [
@@ -576,6 +823,5 @@
         }
       }
     }
-  },
-  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.8.2\",\"stackType\":\"api-AppSync\",\"metadata\":{}}"
+  }
 }

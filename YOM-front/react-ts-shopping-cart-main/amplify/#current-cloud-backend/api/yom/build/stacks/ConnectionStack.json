@@ -1,5 +1,35 @@
 {
   "Resources": {
+    "Blogpostsauth0FunctionBlogpostsauth0FunctionAppSyncFunction635E9656": {
+      "Type": "AWS::AppSync::FunctionConfiguration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
+        },
+        "DataSourceName": {
+          "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
+        },
+        "Name": "Blogpostsauth0Function",
+        "FunctionVersion": "2018-05-29",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Join": [
+            "",
+            [
+              "s3://",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentBucket7592718ARef"
+              },
+              "/",
+              {
+                "Ref": "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref"
+              },
+              "/resolvers/Blog.posts.auth.1.req.vtl"
+            ]
+          ]
+        },
+        "ResponseMappingTemplate": "$util.toJson({})"
+      }
+    },
     "BlogPostsDataResolverFnBlogPostsDataResolverFnAppSyncFunction973A30A8": {
       "Type": "AWS::AppSync::FunctionConfiguration",
       "Properties": {
@@ -58,6 +88,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "Blogpostsauth0FunctionBlogpostsauth0FunctionAppSyncFunction635E9656",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "BlogPostsDataResolverFnBlogPostsDataResolverFnAppSyncFunction973A30A8",
                 "FunctionId"
               ]
@@ -76,7 +112,23 @@
               {
                 "Ref": "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostTable34CAE87BRef"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_VJuYMGAxk_Full-access/CognitoIdentityCredentials\",\"us-east-1_VJuYMGAxk_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackauthRoleNameFB872D50Ref"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackunauthRoleName49F3C1FERef"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.toJson({})"
             ]
           ]
         },
@@ -141,6 +193,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "Blogpostsauth0FunctionBlogpostsauth0FunctionAppSyncFunction635E9656",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "PostCommentsDataResolverFnPostCommentsDataResolverFnAppSyncFunction87EBA9A8",
                 "FunctionId"
               ]
@@ -159,7 +217,23 @@
               {
                 "Ref": "referencetotransformerrootstackCommentNestedStackCommentNestedStackResource199283FBOutputstransformerrootstackCommentCommentTable5427FDE2Ref"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_VJuYMGAxk_Full-access/CognitoIdentityCredentials\",\"us-east-1_VJuYMGAxk_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackauthRoleNameFB872D50Ref"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackunauthRoleName49F3C1FERef"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.toJson({})"
             ]
           ]
         },
@@ -224,6 +298,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "Blogpostsauth0FunctionBlogpostsauth0FunctionAppSyncFunction635E9656",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "PostBlogDataResolverFnPostBlogDataResolverFnAppSyncFunction48DD9490",
                 "FunctionId"
               ]
@@ -242,7 +322,23 @@
               {
                 "Ref": "referencetotransformerrootstackBlogNestedStackBlogNestedStackResourceEF10046FOutputstransformerrootstackBlogBlogTable6154040CRef"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_VJuYMGAxk_Full-access/CognitoIdentityCredentials\",\"us-east-1_VJuYMGAxk_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackauthRoleNameFB872D50Ref"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackunauthRoleName49F3C1FERef"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.toJson({})"
             ]
           ]
         },
@@ -307,6 +403,12 @@
           "Functions": [
             {
               "Fn::GetAtt": [
+                "Blogpostsauth0FunctionBlogpostsauth0FunctionAppSyncFunction635E9656",
+                "FunctionId"
+              ]
+            },
+            {
+              "Fn::GetAtt": [
                 "CommentPostDataResolverFnCommentPostDataResolverFnAppSyncFunction20ABACCE",
                 "FunctionId"
               ]
@@ -325,7 +427,23 @@
               {
                 "Ref": "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostTable34CAE87BRef"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_VJuYMGAxk_Full-access/CognitoIdentityCredentials\",\"us-east-1_VJuYMGAxk_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackauthRoleNameFB872D50Ref"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+              {
+                "Ref": "AWS::AccountId"
+              },
+              ":assumed-role/",
+              {
+                "Ref": "referencetotransformerrootstackunauthRoleName49F3C1FERef"
+              },
+              "/CognitoIdentityCredentials\"))\n$util.toJson({})"
             ]
           ]
         },
@@ -337,7 +455,7 @@
     "referencetotransformerrootstackGraphQLAPI20497F53ApiId": {
       "Type": "String"
     },
-    "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostDataSource6998E105Name": {
+    "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
       "Type": "String"
     },
     "referencetotransformerrootstackS3DeploymentBucket7592718ARef": {
@@ -346,7 +464,16 @@
     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
       "Type": "String"
     },
+    "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostDataSource6998E105Name": {
+      "Type": "String"
+    },
     "referencetotransformerrootstackPostNestedStackPostNestedStackResource45FCAC5EOutputstransformerrootstackPostPostTable34CAE87BRef": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+      "Type": "String"
+    },
+    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
       "Type": "String"
     },
     "referencetotransformerrootstackCommentNestedStackCommentNestedStackResource199283FBOutputstransformerrootstackCommentCommentDataSourceA0E54655Name": {

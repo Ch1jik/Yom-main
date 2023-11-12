@@ -12,45 +12,49 @@
       "AmplifyAppId": "dh3civwfwx6u9"
     }
   },
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "providerPlugin": "awscloudformation",
-      "type": "manual",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-yom-dev-160851-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
-        "logicalId": "hostingamplifyhosting"
-      },
-      "lastPushTimeStamp": "2023-11-12T19:57:31.119Z",
-      "output": {},
-      "lastPushDirHash": "iFxz0Q7InxFTRLou2Qr3YJtaBWk="
-    }
-  },
   "api": {
     "yom": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "output": {
         "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
             }
-          },
-          "additionalAuthenticationProviders": []
+          }
         },
         "GraphQLAPIIdOutput": "2onfuunn4bcm5b4rxt3e5korpa",
         "GraphQLAPIEndpointOutput": "https://mbkr4jzexfe6vgadpwt5jvnqpy.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-gte4khuohnflvhypv5bgzszglu"
       },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2023-11-12T21:15:28.649Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-yom-dev-160851-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiyom"
       },
-      "lastPushTimeStamp": "2023-11-12T19:57:34.419Z",
-      "lastPushDirHash": "/6OLIDZ6hIDRD+z3blnMGFVp3Gk="
+      "lastPushDirHash": "qx/FGfrAel1eRflXGwKBShJOAqM="
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual",
+      "output": {},
+      "lastPushTimeStamp": "2023-11-12T21:15:28.651Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-yom-dev-160851-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+        "logicalId": "hostingamplifyhosting"
+      }
     }
   }
 }
