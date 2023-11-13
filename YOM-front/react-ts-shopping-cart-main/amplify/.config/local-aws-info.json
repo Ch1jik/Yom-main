@@ -1,12 +1,7 @@
 {
-  "dev": {
+  "yoom": {
     "configLevel": "project",
     "useProfile": true,
     "profileName": "Yom-amplyfi"
-  },
-  "yom": {
-    "configLevel": "project",
-    "useProfile": false,
-    "awsConfigFilePath": "C:\\Users\\nfs-o\\.amplify\\awscloudformation\\yhdXfincKe"
   }
 }

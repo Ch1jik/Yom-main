@@ -1,6 +1,0 @@
-{
-  "AppSyncApiName": "yom",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2023-11-12T20:37:07.723Z"
-}
